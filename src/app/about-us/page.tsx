@@ -8,7 +8,7 @@ import Image3 from "@/assets/Images/footerimage.png";
 import Image4 from "@/assets/Images/ImageLogo.png";
 import Imagetiny1 from "@/assets/Images/1.png";
 import Imagetiny2 from "@/assets/Images/2.png";
-import Imagetiny3 from "@/assets/Images/5.png";
+// import Imagetiny3 from "@/assets/Images/5.png";
 import Imagetiny4 from "@/assets/Images/4.png";
 import Imagetiny5 from "@/assets/Images/5.png";
 
@@ -185,7 +185,7 @@ export default function About() {
                 </h2>
 
                 <p className="text-gray-700">
-                  Check.io is a new marketplace built on the Polygon blockchain,
+                  Chainlib is a new marketplace built on the Polygon blockchain,
                   where authors can publish books and readers can support them
                   directly. We eliminate middlemen, ensure fair compensation,
                   and provide a platform where creativity thrives and readers
@@ -201,9 +201,9 @@ export default function About() {
                 </h2>
                 <p className="text-gray-700">
                   We believe creators deserve fair pay for their publications.
-                  Check.io empowers authors to earn more from their work and
+                  ChainLib empowers authors to earn more from their work and
                   give readers direct access to their favorite writers. By using
-                  blockchain technology, we've created a transparent and
+                  blockchain technology, we&apos;ve created a transparent and
                   decentralized way of supporting literary creation and
                   readership.
                 </p>

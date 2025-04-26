@@ -1,4 +1,4 @@
-import AnalyticsChart from "@/components/author/AnalyticsChart";
+// import AnalyticsChart from "@/components/author/AnalyticsChart";
 import About from "@/app/about-us/page";
 export default function Home() {
   return (
