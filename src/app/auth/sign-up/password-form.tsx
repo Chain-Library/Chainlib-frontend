@@ -42,7 +42,7 @@ export default function PasswordForm({ onSubmit, onBack }: PasswordFormProps) {
     <div className="min-h-screen w-full flex flex-col md:flex-row">
       {/* Left side - Blue gradient background */}
       <div
-        className="w-full md:w-2/5 p-2 flex flex-col items-start text-white relative"
+        className="w-full md:w-2/5 p-2 flex flex-col items-start text-white relative rounded-md"
         style={{
           background: "linear-gradient(135deg, #096CFF 0%, #054199 100%)",
         }}

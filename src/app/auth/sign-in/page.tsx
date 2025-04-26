@@ -44,10 +44,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-white">
+    <div className="flex flex-col md:flex-row min-h-screen bg-white p-6">
       {/* Left side - Blue gradient background */}
       <div
-        className="w-full md:w-2/5 p-2 flex flex-col items-start text-white relative"
+        className="w-full md:w-2/5 p-2 flex flex-col items-start text-white relative rounded-md"
         style={{
           background: "linear-gradient(135deg, #096CFF 0%, #054199 100%)",
         }}

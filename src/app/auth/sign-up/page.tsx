@@ -44,7 +44,7 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full p-6">
       {step === 1 && (
         <SignUpForm onSubmit={handleSignUpSubmit} defaultValues={userData} />
       )}
