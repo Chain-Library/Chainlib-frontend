@@ -52,7 +52,7 @@ export default function LoginPage() {
           background: "linear-gradient(135deg, #096CFF 0%, #054199 100%)",
         }}
       >
-        <div className="flex flex-col items-start py-6 px-3 justify-between h-full">
+        <div className="flex flex-col items-start py-6 px-3 justify-between h-4/5 relative">
           <div className="flex items-center mb-8">
             <div className="rounded-full mr-2">
               <Image
@@ -65,17 +65,18 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-start">
               Your Stories Still Matter.
-            </h2>
-            <p className="mb-8 max-w-md">
+            </h1>
+            <p className="text-start text-sm md:text-base">
               Your words have power. Your ideas have a place. Sign in to keep
               building the library only you can create. The world is still
               reading.
             </p>
           </div>
-
-          <div className=" absolute bottom-2 mx-auto w-16 h-1 bg-white/30 rounded-full mt-4" />
+        </div>
+        <div className="flex space-x-2 mt-16 mx-auto">
+          <div className="w-8 h-1 bg-white rounded-full" />
         </div>
       </div>
 
@@ -156,7 +157,7 @@ export default function LoginPage() {
             <div className="flex justify-center space-x-4">
               <button
                 type="button"
-                className="flex items-center justify-center w-1/2 py-2.5 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+                className="flex items-center justify-center w-1/2 py-2.5 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors gap-2"
               >
                 <GoogleIcon />
                 Google
