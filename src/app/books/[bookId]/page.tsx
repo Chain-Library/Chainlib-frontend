@@ -1,19 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowLeft, Share2, Star, CheckCircle } from "lucide-react";
 import Link from "next/link";
-import verificationBadge from "@/assets/icons/verficiation.png";
 import strkImg from "@/assets/icons/strk.png";
-import shareImg from "@/assets/icons/Share.png";
 import authorImg from "@/assets/images/author1.png";
 import RelatedBooks from "./RelatedBooks";
 
-interface BookDetailsProps {
-  id?: string;
-  className?: string;
+interface PageProps {
+  params: {
+    bookId: string;
+  };
 }
 
-const BookDetails: React.FC<BookDetailsProps> = ({ id, className }) => {
+const BookDetails = ({ params }: PageProps) => {
+  const { bookId } = params;
   const bookData = {
     title: "Native Invisibility",
     author: "Darrin Collins",
@@ -39,7 +38,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ id, className }) => {
   };
 
   return (
-    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${className}`}>
+    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8`}>
       {/* Back Button */}
       <Link
         href="/books"
