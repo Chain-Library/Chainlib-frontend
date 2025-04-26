@@ -14,7 +14,6 @@ interface BookDetailsProps {
 }
 
 const BookDetails: React.FC<BookDetailsProps> = ({ id, className }) => {
-  // In a real application, you would fetch this data based on the ID
   const bookData = {
     title: "Native Invisibility",
     author: "Darrin Collins",
@@ -61,7 +60,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ id, className }) => {
         <span>Back</span>
       </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20">
         {/* Left Column - Book Cover */}
         <div className="md:col-span-1">
           <div className="bg-gray-100 p-4 hover:shadow-lg transition rounded-lg flex justify-center">
