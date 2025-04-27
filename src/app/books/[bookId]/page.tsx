@@ -1,13 +1,12 @@
+import Navbar from '@/components/common/Navbar'
+import Footer from '@/components/layout/Footer'
 
-
-
-
-
-function Page(){
+export default function page() {
     return (
-        <h1>Page</h1>
+        <>
+            <Navbar />
+            <h1 className="my-72 text-display-large text-center">Your Books</h1>
+            <Footer />
+        </>
     )
 }
-
-
-export default Page;
