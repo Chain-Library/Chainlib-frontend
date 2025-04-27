@@ -8,4 +8,5 @@ export interface Book {
     image: string;
     price: number;
     rating: number;
+    date: Date;
 }
