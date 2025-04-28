@@ -29,7 +29,7 @@ export default function Trending() {
             <div className="w-full  h-fit grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-y-[60px] gap-x-6 " >
 
                 {bookData.slice(0, sliceValue).map((book, index) => (
-                    <BookCard key={index}
+                    <BookCard nftSection={false} key={index}
                         bookData={book}
                     />
                 ))}

@@ -119,3 +119,57 @@
     @apply bg-background text-foreground;
   }
 }
+
+.splide__pagination {
+  margin-top: 20px !important;
+  justify-content: center;
+  bottom: -4rem !important;
+  padding: 0 !important;
+  gap: 20px;
+}
+.splide__pagination__page {
+  background: white !important;
+  height: 4px !important;
+  width: 91px !important;
+  min-width: 20px !important;
+  border-radius: 0px !important;
+}
+.splide__pagination__page.is-active {
+  background: #b0b0b0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .splide__pagination__page {
+    width: 20px !important;
+  }
+  .splide__pagination {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .splide__pagination__page {
+    width: 20px !important;
+  }
+  .splide__pagination {
+    gap: 10px;
+  }
+}
