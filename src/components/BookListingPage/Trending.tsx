@@ -2,15 +2,19 @@
 import bookData from "@/lib/MockData";
 import BookCard from "../reader/BookCard";
 import { useState } from "react";
+import { Button } from "../ui/button";
+import Spinner from "../ui/Spinner";
 
 
 export default function Trending() {
-
+    const [loading, setLoading] = useState(false);
     const [sliceValue, setSliceValue] = useState(8);
 
     const increaseSlice = () => {
        if (sliceValue !== bookData.length) {
+        setLoading(true)
         setSliceValue((prev) => Math.min(prev + 8, bookData.length))
+        setLoading(false)
        }
 
     }
@@ -34,8 +38,7 @@ export default function Trending() {
                     />
                 ))}
             </div>
-
-            <button onClick={increaseSlice} disabled={sliceValue === bookData.length} className="self-center" >View more</button>
+            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === bookData.length? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white " } `} onClick={increaseSlice} disabled={sliceValue === bookData.length}  >{loading? <Spinner/> : "View more"} </Button>
 
         </section>
     )

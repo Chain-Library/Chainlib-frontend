@@ -24,6 +24,7 @@ export default function NftEdition() {
 
       <Splide
         options={{
+          type: 'loop',
           perPage: 4,
           gap: '24px',
           arrows: false,

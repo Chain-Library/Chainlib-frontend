@@ -2,13 +2,16 @@
 import bookData from "@/lib/MockData";
 import BookCard from "../reader/BookCard";
 import { useState } from "react";
+import { Button } from "../ui/button";
+import Spinner from "../ui/Spinner";
 
 
 
 
 
 export default function NewRelease() {
-    const [sliceValue, setSliceValue] = useState(8)
+    const [sliceValue, setSliceValue] = useState(8);
+      const [loading, setLoading] = useState(false);
 
 
 
@@ -16,7 +19,9 @@ export default function NewRelease() {
 
     const increaseSlice = () => {
         if (sliceValue !== recentlyReleasedBooks.length) {
+            setLoading(true)
             setSliceValue((prev) => Math.min(prev + 8, recentlyReleasedBooks.length))
+            setLoading(false)
         }
     }
 
@@ -40,7 +45,7 @@ export default function NewRelease() {
             </div>
 
 
-            <button onClick={increaseSlice} disabled={sliceValue === recentlyReleasedBooks.length} className="self-center cursor-pointer" >View More</button>
+            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === recentlyReleasedBooks.length? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white " } `} onClick={increaseSlice}  disabled={sliceValue === recentlyReleasedBooks.length}  > {loading? <Spinner/> : "View more"} </Button>
         </section>
     )
 }
