@@ -2,6 +2,7 @@
 
 
 export interface Book {
+    id: number;
     bookTitle: string;
     author: string;
     isNFT: boolean;

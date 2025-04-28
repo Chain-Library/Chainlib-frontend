@@ -11,11 +11,11 @@ export default function Trending() {
     const [sliceValue, setSliceValue] = useState(8);
 
     const increaseSlice = () => {
-       if (sliceValue !== bookData.length) {
-        setLoading(true)
-        setSliceValue((prev) => Math.min(prev + 8, bookData.length))
-        setLoading(false)
-       }
+        if (sliceValue !== bookData.length) {
+            setLoading(true)
+            setSliceValue((prev) => Math.min(prev + 8, bookData.length))
+            setLoading(false)
+        }
 
     }
 
@@ -38,7 +38,7 @@ export default function Trending() {
                     />
                 ))}
             </div>
-            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === bookData.length? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white " } `} onClick={increaseSlice} disabled={sliceValue === bookData.length}  >{loading? <Spinner/> : "View more"} </Button>
+            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === bookData.length ? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white "} `} onClick={increaseSlice} disabled={sliceValue === bookData.length}  >{loading ? <Spinner /> : "View more"} </Button>
 
         </section>
     )

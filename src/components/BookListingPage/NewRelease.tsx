@@ -11,7 +11,7 @@ import Spinner from "../ui/Spinner";
 
 export default function NewRelease() {
     const [sliceValue, setSliceValue] = useState(8);
-      const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
 
@@ -45,7 +45,7 @@ export default function NewRelease() {
             </div>
 
 
-            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === recentlyReleasedBooks.length? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white " } `} onClick={increaseSlice}  disabled={sliceValue === recentlyReleasedBooks.length}  > {loading? <Spinner/> : "View more"} </Button>
+            <Button variant={"secondary"} className={`self-center mt-[2%] hover:bg-[#096CFF] w-[120px] ${sliceValue === recentlyReleasedBooks.length ? "cursor-not-allowed" : "cursor-pointer bg-[#096CFF] text-white "} `} onClick={increaseSlice} disabled={sliceValue === recentlyReleasedBooks.length}  > {loading ? <Spinner /> : "View more"} </Button>
         </section>
     )
 }
