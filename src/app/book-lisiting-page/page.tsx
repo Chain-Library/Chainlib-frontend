@@ -27,46 +27,46 @@ export default function Page() {
 
     const searchResults = useMemo(() => {
         return bookData.filter((book) =>
-          book.bookTitle.toLowerCase().includes(searchTerm.toLowerCase())
+            book.bookTitle.toLowerCase().includes(searchTerm.toLowerCase())
         );
-      }, [searchTerm]);
+    }, [searchTerm]);
 
 
 
     const handleDisplayedSection = () => {
         switch (displayedSection) {
             case "New Release":
-            return <NewRelease  />;
+                return <NewRelease />;
 
 
             case "Trending":
-            return <Trending/>;
+                return <Trending />;
 
 
             case "NFT Edition":
-            return <NftEdition/>;
+                return <NftEdition />;
 
 
             case "Explore":
-            return <ExploreBooks searchResults={searchResults} />;
+                return <ExploreBooks searchResults={searchResults} />;
 
             case "All":
-            return (
+                return (
 
-            <div className="px-[4%] w-full flex flex-col gap-22">
-           {searchTerm ? (searchResults.length > 0 ? (
-    <ExploreBooks searchResults={searchResults} />
-) : null) : (
-    <>
-        <NewRelease />
-        <Trending />
-        <NftEdition />
-        <ExploreBooks searchResults={searchResults} />
-    </>
-)}
-        </div>
 
-            )
+                    searchTerm ? (searchResults.length > 0 ? (
+                        <ExploreBooks searchResults={searchResults} />
+                    ) : null) : (
+                        <>
+                            <NewRelease />
+                            <Trending />
+                            <NftEdition />
+                            <ExploreBooks searchResults={searchResults} />
+                        </>
+                    )
+
+
+                )
 
             default:
                 return "Select a tab";
@@ -81,7 +81,7 @@ export default function Page() {
     return (
         <div className="w-full h-full flex flex-col items-start justify-start gap-6 " >
             <Header />
-            <BooksPageNav  setDisplayedSection={ setDisplayedSection} displayedSection={displayedSection} />
+            <BooksPageNav setDisplayedSection={setDisplayedSection} displayedSection={displayedSection} />
             <Input className=" max-w-[250px] self-end mr-[20px] " type={"search"} value={searchTerm} onChange={handleChange} placeholder="Search ..." />
 
 
@@ -92,7 +92,10 @@ export default function Page() {
                     <h1 className="max-w-[630px] text-[#0F265C] font-bold text-4xl md:text-[44px] " >Dive Into a <span className="text-[#096CFF] "  > Wide Range of Books</span> Across Genres</h1>}
             </section>
 
-            {handleDisplayedSection()}
+
+            <div className="px-[4%] w-full flex flex-col gap-22">
+                {handleDisplayedSection()}
+            </div>
 
 
 
