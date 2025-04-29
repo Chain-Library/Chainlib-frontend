@@ -18,8 +18,8 @@ export default function LoginStep() {
     }
 
     return (
-        <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 sm:gap-12  lg:gap-20 xl:gap-28">
-            <div className='relative size-full overflow-hidden'>
+        <div className="md:grid flex flex-col grid-cols-2 sm:gap-x-12  lg:gap-x-20 xl:gap-x-28">
+            <div className='relative w-full h-90 md:h-full overflow-hidden'>
                 {loginSteps.map(({ ImageSrc, alt }, index) => (<AnimatedStepImage className='md:-ml-21' index={index} alt={alt} handleClick={handleClick} ImageSrc={ImageSrc} step={step} length={loginSteps.length} key={index} />))}
             </div>
 
