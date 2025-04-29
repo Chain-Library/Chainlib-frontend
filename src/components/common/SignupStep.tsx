@@ -6,7 +6,7 @@ import { AnimatedStepContent } from './AnimatedContent';
 import { AnimatedStepImage } from './AnimatedImage';
 
 export default function SignupStep() {
-    // The first step is at 0
+    // The first step is at 0 same with the index
     const [step, setStep] = useState(0)
 
     const handleClick = (index: number) => {
@@ -18,7 +18,7 @@ export default function SignupStep() {
     }
 
     return (
-        <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 md:gap-28">
+        <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 sm:gap-12  lg:gap-20 xl:gap-28">
             <div className="overflow-hidden relative mx-auto w-full h-116 pt-42">
                 <div className='flex flex-col justify-start size-full items-start gap-0 transition-transform duration-500 ease-in-out'
                     style={{ transform: `translateY(-${step * 100}%)` }}

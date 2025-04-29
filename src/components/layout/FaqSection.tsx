@@ -30,7 +30,7 @@ export default function FaqSection() {
     const [clicked, setClicked] = useState(1);
 
     return (
-        <div className="md:w-4xl mx-auto">
+        <div className="sm:w-[65vw] lg:w-3xl xl:w-4xl mx-auto">
             <h2 className="text-primary-950 text-center font-bold text-headline-large md:text-headline-xl-large">
                 You Got Questions?
             </h2>

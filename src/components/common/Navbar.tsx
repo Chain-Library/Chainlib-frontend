@@ -12,8 +12,8 @@ function Navbar() {
         <nav className="z-10 flex p-6 md:px-15 md:py-6 fixed top-0 left-0 bg-background w-full justify-between items-center border-b-1 border-neutral-100">
             <Logo />
 
-            <div className="md:contents hidden">
-                <div className="flex gap-6">
+            <div className="lg:contents hidden">
+                <div className="flex lg:gap-2 xl:gap-6">
                     {links.map(({ link, href }: ILink, index: number) => (<NavLink href={href} key={index}>{link}</NavLink>))}
                 </div>
 

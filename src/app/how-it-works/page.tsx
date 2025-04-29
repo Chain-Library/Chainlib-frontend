@@ -9,13 +9,13 @@ export default function Page() {
         <>
             <Navbar />
 
-            <section className="p-6 md:px-15 pt-28 mt-24 flex gap-14 md:gap-32 justify-center w-full flex-col md:flex-row">
-                <h1 className="text-headline-x-large leading-12.5 font-bold text-primary-950 text-left">
+            <section className="p-6 lg:px-15 pt-28 sm:mt-12 mt-24 lg:mt-24 flex gap-14 xl:gap-32 justify-center md:items-center w-full flex-col xl:flex-row">
+                <h1 className="text-headline-x-large leading-12.5 font-bold text-primary-950 text-left sm:text-center xl:text-left">
                     <span>Building More</span>
                     <br />
                     <span>Than an <span className="text-primary-600">e-Library</span></span>
                 </h1>
-                <p className="text-body-18px-large font-light text-left max-w-[34rem]">A decentralized world where stories live on-chain and creators stay in control. Powered by StarkNet, our platform gives writers the freedom to publish without intermediaries and gives readers direct access to original, verifiable content they can truly own.</p>
+                <p className="text-body-18px-large font-light text-left max-w-[34rem] sm:text-center xl:text-left">A decentralized world where stories live on-chain and creators stay in control. Powered by StarkNet, our platform gives writers the freedom to publish without intermediaries and gives readers direct access to original, verifiable content they can truly own.</p>
             </section>
 
             <StepByStepSection />

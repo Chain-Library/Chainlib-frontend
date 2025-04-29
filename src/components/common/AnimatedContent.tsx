@@ -3,7 +3,7 @@ import { IOnboardStepContentProps } from "@/types";
 export function AnimatedStepContent({ header, handleClick, message, index, length }: IOnboardStepContentProps) {
 
     return (
-        <div onClick={() => handleClick(index)} className="cursor-pointer grid grid-cols-[2.5rem_auto] gap-10 place-content-start place-items-start max-w-md">
+        <div onClick={() => handleClick(index)} className="cursor-pointer grid grid-cols-[2.5rem_auto] gap-10 sm:gap-4 lg:gap-10 place-content-start place-items-start max-w-md">
             <div className="flex flex-col relative justify-center items-center gap-0 w-fit mx-auto">
                 <span className="rounded-full size-10 grid place-content-center bg-primary-950 font-bold text-background">{index + 1}</span>
                 {index + 1 < length && <div className="w-0.75 bg-primary-900 h-64"></div>}
