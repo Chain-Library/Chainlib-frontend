@@ -21,7 +21,7 @@ function BookCard({ bookData, nftSection }: BookCardProps) {
             <div className="bg-[#F6F6F6] w-[180px] h-[350px] md:w-[330px] md:h-[379px] rounded-lg pt-4 md:pt-8 pb-6 px-3 md:px-6 flex flex-col gap-8 md:gap-6 items-start justify-start cursor-pointer overflow-hidden "  >
 
                 <div className="w-full h-[50%] md:h-[63%] flex items-center justify-center " >
-                    <Image src={"/images/bookCover1.png"} alt="bbok image" height={200} width={198}   loading="lazy" />
+                    <Image src={"/images/bookCover1.png"} alt="bbok image" height={200} width={198} loading="lazy" />
                 </div>
 
                 <div className=" py-2 px-3 w-full flex flex-col gap-[14px] items-start   "  >

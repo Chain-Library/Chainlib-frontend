@@ -1,32 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import BookCard from "../reader/BookCard";
+import { Book } from "@/lib/interfaces/BookInterface";
 
 
 
 
-interface Book {
-    id: string;
-    bookTitle: string;
-    author: string;
-    isNFT: boolean;
-    image: string;
-    price: number;
-  }
 
-  interface ExploreBooksProps {
-    searchResults: Book[];
-  }
+
+
+interface ExploreBooksProps {
+  searchResults: Book[];
+}
 
 export default function ExploreBooks({ searchResults }: ExploreBooksProps) {
   const infiniteRef = useRef<HTMLDivElement | null>(null);
   const [sliceValue, setSliceValue] = useState(16);
   const [isVisible, setIsVisible] = useState(false);
 
-  const increaseSlice = () => {
-    setSliceValue((prev) => Math.min(prev + 16, searchResults.length));
-  };
+  const increaseSlice = useCallback(() => {
+    setSliceValue(prev => prev + 10);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,7 +47,12 @@ export default function ExploreBooks({ searchResults }: ExploreBooksProps) {
     if (isVisible && sliceValue < searchResults.length) {
       increaseSlice();
     }
-  }, [isVisible, sliceValue, searchResults.length]); // safe dependency list
+  }, [isVisible, sliceValue, increaseSlice, searchResults.length]);
+
+  useEffect(() => {
+    setSliceValue(16);
+  }, [searchResults]);
+
 
   return (
     <section className="w-full flex flex-col items-start justify-start gap-7">
@@ -71,7 +71,7 @@ export default function ExploreBooks({ searchResults }: ExploreBooksProps) {
         ))}
       </div>
 
-      <div ref={infiniteRef} className="h-1 w-full"></div>
+      <div ref={infiniteRef} className="h-10 w-full"></div>
     </section>
   );
 }
