@@ -1,16 +1,11 @@
 
+import { links } from "@/data";
+import { ILink } from "@/types";
 import Button from "./Button";
 import Logo from "./Logo";
 import NavLink from "./NavLink";
 import NavMenuButton from "./NavMenuButton";
 import SearchBar from "./SearchBar";
-
-interface ILink {
-    link: string;
-    href: string;
-}
-
-const links: ILink[] = [{ link: "Home", href: "/" }, { link: "Books", href: "/books/:bookId" }, { link: "How It Works", href: "/how-it-works" }, { link: "About ChainLib", href: "/about-chainlib" }]
 
 function Navbar() {
     return (

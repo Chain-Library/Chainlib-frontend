@@ -1,5 +1,6 @@
 "use client"
 
+import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import NavMenu from "../ui/NavMenu"
 
@@ -17,7 +18,9 @@ export default function NavMenuButton() {
                 <span className={`h-1.5 rounded-base transition-all duration-300 ease-in-out bg-neutral-950 ${openMenu ? "w-full -translate-y-1.25 rotate-45" : "w-3/5 translate-y-0 rotate-0"}`}></span>
             </button>
 
-            {openMenu && <NavMenu />}
+            <AnimatePresence mode="wait">
+                {openMenu && <NavMenu />}
+            </AnimatePresence>
         </>
     )
 }

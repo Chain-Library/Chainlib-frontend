@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export default function SelectOption() {
+export default function SelectChoiceButton() {
     const [writerIsActive, setWriterIsActive] = useState(true)
 
     return (

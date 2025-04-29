@@ -1,22 +1,7 @@
+import { FooterLink } from "@/data";
 import Link from "next/link";
 import { BiLogoLinkedin, BiLogoTelegram, BiLogoTwitter } from "react-icons/bi";
 import Logo from "../common/Logo";
-
-interface IFooterLinks {
-    link: string;
-    href: string
-}
-
-const FooterLink: IFooterLinks[] = [
-    { link: "Explore", href: "/explore" },
-    { link: "Home", href: "/" },
-    { link: "Books", href: "/books" },
-    { link: "How It Works", href: "/how-it-works" },
-    { link: "About", href: "/about-chainlib" },
-    { link: "Legal", href: "/legal" },
-    { link: "Privacy Policy", href: "/privacy-policy" },
-    { link: "Terms Of Service", href: "/terms-of-service" }
-]
 
 export default function Footer() {
     return (
