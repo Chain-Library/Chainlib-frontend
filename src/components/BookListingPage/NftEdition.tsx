@@ -35,6 +35,7 @@ export default function NftEdition() {
           breakpoints: {
             768: { perPage: 2 },
             1024: { perPage: 3 },
+            1290: { perPage: 3 },
           },
         }}
         aria-label="NFT Edition Books"

@@ -65,7 +65,7 @@ export default function ExploreBooks({ searchResults }: ExploreBooksProps) {
         </p>
       </div>
 
-      <div className="w-full h-fit grid [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] md:[grid-template-columns:repeat(auto-fit,minmax(250px,1fr))] lg:[grid-template-columns:repeat(auto-fit,minmax(330px,1fr))] justify-center gap-y-[60px] gap-x-6">
+      <div className="w-full h-fit grid grid-cols-2 md:[grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] lg:[grid-template-columns:repeat(auto-fit,minmax(330px,1fr))] justify-center place-items-center gap-y-[60px] gap-x-6">
         {searchResults.slice(0, sliceValue).map((book) => (
           <BookCard nftSection={false} key={book.id} bookData={book} />
         ))}
