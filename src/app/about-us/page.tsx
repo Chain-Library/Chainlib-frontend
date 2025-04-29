@@ -305,7 +305,8 @@ export default function About() {
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <g clip-path="url(#clip0_67_2264)">
+                          {/* <g clip-path="url(#clip0_67_2264)"> */}
+                          <g clipPath="url(#clip0_67_2264)">
                             <g opacity="0.7">
                               <path
                                 d="M10.8828 42.545C11.3931 43.557 11.9689 44.549 12.5932 45.4953L12.8811 45.3058C12.2639 44.3708 11.6952 43.3888 11.1907 42.3896L10.8828 42.545Z"
