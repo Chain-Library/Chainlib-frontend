@@ -82,7 +82,7 @@ export default function Page() {
         <div className="w-full h-full flex flex-col items-start justify-start gap-6 " >
             <Header />
             <BooksPageNav  setDisplayedSection={ setDisplayedSection} displayedSection={displayedSection} />
-            <Input className=" max-w-[250px] self-end mr-[20px] " type={"search"} value={searchTerm} onChange={handleChange} />
+            <Input className=" max-w-[250px] self-end mr-[20px] " type={"search"} value={searchTerm} onChange={handleChange} placeholder="Search ..." />
 
 
             <section className="w-full text-center  py-10 px-8 flex items-center justify-center  " >
