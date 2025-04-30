@@ -1,0 +1,36 @@
+import { Book } from "./interfaces/BookInterface";
+
+const bookData: Book[] = [
+  { id: 1, bookTitle: "Native Invisibility", author: "Darrin Collins", isNFT: true, image: "/images/bookCover1.png", price: 15, rating: 4, date: new Date("2024-04-01") },
+  { id: 2, bookTitle: "Whispers of Tomorrow", author: "Lena Fitzgerald", isNFT: false, image: "/images/bookCover1.png", price: 22, rating: 3, date: new Date("2024-03-28") },
+  { id: 3, bookTitle: "Echoes of the Forgotten", author: "Marcus Reed", isNFT: true, image: "/images/bookCover1.png", price: 30, rating: 5, date: new Date("2024-04-20") },
+  { id: 4, bookTitle: "Fragments of Reality", author: "Sophia Turner", isNFT: false, image: "/images/bookCover1.png", price: 18, rating: 2, date: new Date("2024-04-15") },
+  { id: 5, bookTitle: "The Last Horizon", author: "Isaiah Brooks", isNFT: true, image: "/images/bookCover1.png", price: 35, rating: 5, date: new Date("2024-02-10") },
+  { id: 6, bookTitle: "Silent Songs", author: "Amelia Hart", isNFT: false, image: "/images/bookCover1.png", price: 27, rating: 3, date: new Date("2024-01-30") },
+  { id: 7, bookTitle: "Beyond the Edge", author: "Noah Chambers", isNFT: true, image: "/images/bookCover1.png", price: 24, rating: 4, date: new Date("2024-04-22") },
+  { id: 8, bookTitle: "Twilight's Embrace", author: "Olivia Bennett", isNFT: false, image: "/images/bookCover1.png", price: 20, rating: 2, date: new Date("2024-03-12") },
+  { id: 9, bookTitle: "Shadows and Sparks", author: "Ethan Cruz", isNFT: true, image: "/images/bookCover1.png", price: 32, rating: 5, date: new Date("2024-04-19") },
+  { id: 10, bookTitle: "Canvas of Dreams", author: "Maya Jensen", isNFT: false, image: "/images/bookCover1.png", price: 14, rating: 1, date: new Date("2024-03-05") },
+  { id: 11, bookTitle: "Winds of Destiny", author: "Lucas Hayes", isNFT: true, image: "/images/bookCover1.png", price: 38, rating: 5, date: new Date("2024-04-23") },
+  { id: 12, bookTitle: "Mirror of Illusions", author: "Ella Simmons", isNFT: false, image: "/images/bookCover1.png", price: 17, rating: 2, date: new Date("2024-02-28") },
+  { id: 13, bookTitle: "Veil of Secrets", author: "Gabriel Vaughn", isNFT: true, image: "/images/bookCover1.png", price: 29, rating: 4, date: new Date("2024-04-18") },
+  { id: 14, bookTitle: "Tides of Memory", author: "Chloe Monroe", isNFT: false, image: "/images/bookCover1.png", price: 19, rating: 3, date: new Date("2024-01-18") },
+  { id: 15, bookTitle: "Broken Compass", author: "Henry Castillo", isNFT: true, image: "/images/bookCover1.png", price: 36, rating: 5, date: new Date("2024-04-21") },
+  { id: 16, bookTitle: "Letters to Nowhere", author: "Aria Flores", isNFT: false, image: "/images/bookCover1.png", price: 12, rating: 2, date: new Date("2024-03-07") },
+  { id: 17, bookTitle: "Crimson Skies", author: "Leo Montgomery", isNFT: true, image: "/images/bookCover1.png", price: 25, rating: 5, date: new Date("2024-04-11") },
+  { id: 18, bookTitle: "Paths Uncharted", author: "Zoe Wallace", isNFT: false, image: "/images/bookCover1.png", price: 21, rating: 3, date: new Date("2024-02-25") },
+  { id: 19, bookTitle: "Silent Reverie", author: "Nathaniel West", isNFT: true, image: "/images/bookCover1.png", price: 34, rating: 4, date: new Date("2024-04-16") },
+  { id: 20, bookTitle: "Gates of Tomorrow", author: "Lily Armstrong", isNFT: false, image: "/images/bookCover1.png", price: 13, rating: 1, date: new Date("2024-02-11") },
+  { id: 21, bookTitle: "Beneath the Surface", author: "Mason Ellis", isNFT: true, image: "/images/bookCover1.png", price: 40, rating: 5, date: new Date("2024-04-26") },
+  { id: 22, bookTitle: "Embers of Hope", author: "Grace Nolan", isNFT: false, image: "/images/bookCover1.png", price: 16, rating: 2, date: new Date("2024-03-18") },
+  { id: 23, bookTitle: "River of Stars", author: "Sebastian Keller", isNFT: true, image: "/images/bookCover1.png", price: 28, rating: 4, date: new Date("2024-04-24") },
+  { id: 24, bookTitle: "Secrets of the Deep", author: "Isla Warner", isNFT: false, image: "/images/bookCover1.png", price: 23, rating: 3, date: new Date("2024-01-15") },
+  { id: 25, bookTitle: "Ashes and Echoes", author: "Owen Sharp", isNFT: true, image: "/images/bookCover1.png", price: 39, rating: 5, date: new Date("2024-04-17") },
+  { id: 26, bookTitle: "Whispers in the Wind", author: "Sienna Cross", isNFT: false, image: "/images/bookCover1.png", price: 11, rating: 2, date: new Date("2024-03-09") },
+  { id: 27, bookTitle: "Lanterns of the Past", author: "Caleb Drake", isNFT: true, image: "/images/bookCover1.png", price: 37, rating: 5, date: new Date("2024-04-13") },
+  { id: 28, bookTitle: "Moonlight Sonata", author: "Hannah Frost", isNFT: false, image: "/images/bookCover1.png", price: 26, rating: 4, date: new Date("2024-03-01") },
+  { id: 29, bookTitle: "Valley of Mist", author: "Dominic Rhodes", isNFT: true, image: "/images/bookCover1.png", price: 31, rating: 5, date: new Date("2024-04-12") },
+  { id: 30, bookTitle: "Songs of the Sea", author: "Penelope Brooks", isNFT: false, image: "/images/bookCover1.png", price: 15, rating: 2, date: new Date("2024-02-07") },
+];
+
+export default bookData;

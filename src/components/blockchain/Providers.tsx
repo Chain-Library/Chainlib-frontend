@@ -24,6 +24,8 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <StarknetConfig
       chains={[sepolia]}
+      // i was having issues with the provider then i changed the provider to this
+      // provider={jsonRpcProvider({ rpc: (chain) => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }) })}
       provider={jsonRpcProvider({ rpc: () => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }) })}
       connectors={connectors}
       explorer={voyager}
