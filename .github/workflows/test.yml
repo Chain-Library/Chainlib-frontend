@@ -1,4 +1,20 @@
-name: Build Project
+# name: Build Project
+
+# on: [push, pull_request]
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     container:
+#       image: node:20
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           node-version: 20
+#       - run: npm ci
+#       - run: npm run build
+
+
+#       # //ci
 
 on: [push, pull_request]
 jobs:
@@ -10,8 +26,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           node-version: 20
+      - name: Install dependencies
+        run: |
+          npm install --leagcy-peer-deps
+          
       - run: npm ci
       - run: npm run build
-
-
-      # //ci
