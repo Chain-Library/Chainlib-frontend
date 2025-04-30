@@ -5,7 +5,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 import NavLink from "./NavLink";
 import NavMenuButton from "./NavMenuButton";
-import SearchBar from "./SearchBar";
+import NavSearchBar from "./NavSearchBar";
 
 function Navbar() {
     return (
@@ -18,7 +18,7 @@ function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <SearchBar />
+                    <NavSearchBar />
                     <Button className="cursor-pointer border border-neutral-600 text-neutral-500" href="/login">Login</Button>
                     <Button className="cursor-pointer bg-primary-600 text-background" href="/signup">SignUp</Button>
                 </div>
