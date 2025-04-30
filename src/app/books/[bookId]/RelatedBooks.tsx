@@ -1,8 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ArrowRight } from "lucide-react";
-import verificationBadge from "@/assets/icons/verficiation.png";
+import React from "react";
 
 interface BookCardProps {
   id: string;

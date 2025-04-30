@@ -7,8 +7,8 @@ import {
   StarknetConfig,
   argent,
   braavos,
-  useInjectedConnectors,
   jsonRpcProvider,
+  useInjectedConnectors,
   voyager,
 } from "@starknet-react/core";
 
@@ -24,7 +24,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <StarknetConfig
       chains={[sepolia]}
-      provider={jsonRpcProvider({ rpc: (chain) => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }) })}
+      provider={jsonRpcProvider({ rpc: () => ({ nodeUrl: process.env.NEXT_PUBLIC_RPC_URL }) })}
       connectors={connectors}
       explorer={voyager}
     >

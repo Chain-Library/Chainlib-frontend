@@ -7,13 +7,7 @@ import Link from "next/link";
 import React from "react";
 import RelatedBooks from "./RelatedBooks";
 
-interface PageProps {
-  params: {
-    bookId: string;
-  };
-}
-
-export default function Page({ params }: PageProps) {
+export default function Page() {
 
   return (
     <>

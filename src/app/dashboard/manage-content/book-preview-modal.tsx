@@ -2,20 +2,20 @@
 
 import type React from "react";
 
-import { useEffect } from "react";
 import {
+  Bell,
   ChevronLeft,
-  Plus,
-  Minus,
-  PenLine,
   Layout,
   Link2,
   Maximize2,
-  Bell,
+  Minus,
+  PenLine,
+  Plus,
 } from "lucide-react";
 import Image from "next/image";
-import user from "../../../../public/user1.svg";
+import { useEffect } from "react";
 import check from "../../../../public/check.svg";
+import user from "../../../../public/user1.svg";
 
 interface BookPreviewModalProps {
   isOpen: boolean;

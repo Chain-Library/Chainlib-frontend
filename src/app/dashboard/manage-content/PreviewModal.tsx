@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
 import { X } from "lucide-react";
-import ebook1 from "../../../../public/ebook1.svg";
-import coin2 from "../../../../public/coin2.svg";
-import play from "../../../../public/play.svg";
-import check from "../../../../public/check.svg";
 import Image from "next/image";
+import React, { useState } from "react";
+import check from "../../../../public/check.svg";
+import coin2 from "../../../../public/coin2.svg";
+import ebook1 from "../../../../public/ebook1.svg";
+import play from "../../../../public/play.svg";
 import BookPreviewModal from "./book-preview-modal";
 
 interface PreviewModalProps {
@@ -17,7 +17,6 @@ interface PreviewModalProps {
 }
 
 const PreviewModal: React.FC<PreviewModalProps> = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   formData,
   onClose,
   onPublish,
