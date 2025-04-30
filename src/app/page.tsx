@@ -2,6 +2,8 @@ import Navbar from '@/components/common/Navbar'
 import Footer from '@/components/layout/Footer'
 
 export default function Home() {
+  // Redirect to dashboard by default
+  // redirect("/");
   return (
     <>
       <Navbar />
