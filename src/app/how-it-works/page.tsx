@@ -9,7 +9,7 @@ export default function Page() {
         <>
             <Navbar />
 
-            <section className="p-6 lg:px-15 pt-28 sm:mt-12 mt-24 lg:mt-24 flex gap-14 xl:gap-32 justify-center md:items-center w-full flex-col xl:flex-row">
+            <section className="px-6 lg:px-15 mt-54 sm:mt-40 lg:mt-54 mb-35 sm:mb-28 lg:mb-35 flex gap-14 xl:gap-32 justify-center md:items-center w-full flex-col xl:flex-row">
                 <h1 className="text-headline-x-large leading-12.5 font-bold text-primary-950 text-left sm:text-center xl:text-left">
                     <span>Building More</span>
                     <br />
