@@ -6,8 +6,23 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import RelatedBooks from "./RelatedBooks";
+// import { BookPageProps } from "@/types";
 
 export default function Page() {
+  // export default function Page({ params }: BookPageProps) {
+  //   const { bookId } = params;
+
+  //   const book = bookData.find((item) => item.id === bookId);
+
+  //   if (!book) {
+  //     return <BookNotFound/>; /* BookNotFound is not implemented yet **/
+  //   }
+
+  // TODO
+  // Comment this out when the real data is available and use the one above
+  const book = bookData.at(0)
+
+  if (!book) return null
 
   return (
     <>
@@ -39,8 +54,8 @@ export default function Page() {
             <div className="bg-gray-100 p-4 hover:shadow-lg transition rounded-lg flex justify-center">
               <div className="relative w-64 h-80 sm:w-72 sm:h-96">
                 <Image
-                  src={bookData.coverImage}
-                  alt={bookData.title}
+                  src={book.coverImage}
+                  alt={book.title}
                   fill
                   className="object-contain"
                   priority
@@ -91,13 +106,13 @@ export default function Page() {
             <div className="flex justify-between items-start">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-blue-950">
-                  {bookData.title}
+                  {book.title}
                 </h1>
                 <div className="flex items-center mt-2">
                   <p className="text-gray-600 text-[16px]">
-                    By {bookData.author}
+                    By {book.author}
                   </p>
-                  {bookData.isVerified && (
+                  {book.isVerified && (
                     <div className="ml-2">
                       <svg
                         width="20"
@@ -129,7 +144,7 @@ export default function Page() {
                     />
                   </svg>
                   <span className="ml-1 text-gray-700 text-[14px]">
-                    {bookData.rating} of {bookData.reviews} Reviews
+                    {book.rating} of {book.reviews} Reviews
                   </span>
                 </div>
               </div>
@@ -160,7 +175,7 @@ export default function Page() {
               <h2 className="text-[16px] font-medium text-gray-900">
                 Description
               </h2>
-              <p className="mt-2 text-gray-600">{bookData.description}</p>
+              <p className="mt-2 text-gray-600">{book.description}</p>
               <button className="mt-2 text-gray-400 hover:bg-gray-200 duration-500 px-4 py-2 border border-gray-400 rounded-[8px] text-[12px]">
                 Read More
               </button>
@@ -179,12 +194,12 @@ export default function Page() {
             {/* Price */}
             <div className="mt-6 flex items-center gap-4">
               <h2 className="text-3xl font-bold text-gray-900">
-                ${bookData.price}
+                ${book.price}
               </h2>
               <div className="flex items-center mt-1 space-x-2">
                 <Image src={strkImg} alt="STRK" width={16} height={16} />
                 <span className="text-[#000B21] text-sm">
-                  {bookData.strikeCount}
+                  {book.strikeCount}
                 </span>
               </div>
             </div>
@@ -195,28 +210,28 @@ export default function Page() {
                 <h3 className="text-sm text-gray-500">Genre(s)</h3>
                 <div className="flex items-center gap-2">
                   <p className="mt-1 text-gray-500 bg-gray-50 px-3 py-2 rounded-[8px]">
-                    {bookData.genre}
+                    {book.genre}
                   </p>
                   <p className="mt-1 text-gray-500 bg-gray-50 px-3 py-2 rounded-[8px]">
-                    {bookData.category}
+                    {book.category}
                   </p>
                 </div>
               </div>
               <div className="border w-[186px] border-gray-100 p-4 rounded-[8px]">
                 <h3 className="text-sm text-gray-500">Page count</h3>
-                <p className="mt-1 text-gray-900">{bookData.pageCount}</p>
+                <p className="mt-1 text-gray-900">{book.pageCount}</p>
               </div>
               <div className="border w-[186px] border-gray-100 p-4 rounded-[8px]">
                 <h3 className="text-sm text-gray-500">Language</h3>
-                <p className="mt-1 text-gray-900">{bookData.language}</p>
+                <p className="mt-1 text-gray-900">{book.language}</p>
               </div>
               <div className="border w-[186px] border-gray-100 p-4 rounded-[8px]">
                 <h3 className="text-sm text-gray-500">Date published</h3>
-                <p className="mt-1 text-gray-900">{bookData.publishDate}</p>
+                <p className="mt-1 text-gray-900">{book.publishDate}</p>
               </div>
               <div className="border w-[186px] border-gray-100 p-4 rounded-[8px]">
                 <h3 className="text-sm text-gray-500">ISBN</h3>
-                <p className="mt-1 text-gray-900">{bookData.isbn}</p>
+                <p className="mt-1 text-gray-900">{book.isbn}</p>
               </div>
             </div>
           </div>
@@ -228,7 +243,7 @@ export default function Page() {
             <h2 className="text-xl font-bold text-gray-900 pb-2">
               From the Publisher
             </h2>
-            <p className="mt-4 text-gray-400 ">{bookData.publisherNote}</p>
+            <p className="mt-4 text-gray-400 ">{book.publisherNote}</p>
           </div>
 
           <div>
@@ -241,14 +256,14 @@ export default function Page() {
                   <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                     {/* Author image would go here */}
                     <div className="w-full h-full relative flex items-center justify-center text-gray-500">
-                      <Image src={bookData.authorImage} className="object-contain" fill alt="author-image" />
+                      <Image src={book.authorImage} className="object-contain" fill alt="author-image" />
                     </div>
                   </div>
                   <div className="flex items-center">
                     <h3 className="text-lg font-medium text-gray-900">
-                      {bookData.author}
+                      {book.author}
                     </h3>
-                    {bookData.isVerified && (
+                    {book.isVerified && (
                       <div className="ml-2">
                         <svg
                           width="18"
@@ -273,7 +288,7 @@ export default function Page() {
                 </div>
               </div>
               <div className="mt-6">
-                <p className="mt-2 text-gray-400">{bookData.authorBio}</p>
+                <p className="mt-2 text-gray-400">{book.authorBio}</p>
               </div>
             </div>
           </div>
