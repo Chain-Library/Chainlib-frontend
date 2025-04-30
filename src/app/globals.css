@@ -256,18 +256,15 @@ body {
   @apply bg-background text-foreground;
 }
 
-.stepContainer::-webkit-scrollbar,
 html::-webkit-scrollbar {
   display: none;
   width: 0px;
 }
 
-.stepContainer,
 html {
   scrollbar-width: none;
 }
 
-.stepContainer,
 html {
   -ms-overflow-style: none;
 }

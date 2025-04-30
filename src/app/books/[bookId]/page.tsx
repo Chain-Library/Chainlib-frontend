@@ -6,7 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import RelatedBooks from "./RelatedBooks";
-// import { BookPageProps } from "@/types";
+
+// interface BookPageProps {
+//   params: {
+//     bookId: string;
+//   };
+// }
 
 export default function Page() {
   // export default function Page({ params }: BookPageProps) {

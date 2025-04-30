@@ -32,9 +32,3 @@ export interface IOnboardStepProps {
   header: string;
   message: string;
 }
-
-export interface BookPageProps {
-  params: {
-    bookId: string;
-  };
-}

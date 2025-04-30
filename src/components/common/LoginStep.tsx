@@ -6,7 +6,7 @@ import { AnimatedStepContent } from './AnimatedContent'
 import { AnimatedStepImage } from './AnimatedImage'
 
 export default function LoginStep({ readerRef }: { readerRef: Ref<HTMLDivElement> }) {
-    // The first step is at 0 same with the index
+    // The first step is at 0, same with the index
     const [step, setStep] = useState(0)
 
     const handleClick = (index: number) => {

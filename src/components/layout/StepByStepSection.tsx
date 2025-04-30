@@ -12,7 +12,7 @@ export default function StepByStepSection() {
 
   const scrollToSection = (section: string) => {
     if (section === "writer") {
-      writerRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      writerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       setWriterIsActive(() => true)
     } else {
       readerRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -21,11 +21,13 @@ export default function StepByStepSection() {
   };
 
   return (
-    <section className="px-6 relative h-[44rem] sm:h-[34.25rem] overflow-y-auto md:px-15 w-full flex flex-col justify-start items-center scroll-smooth stepContainer">
-      <SelectChoiceButton scrollToSection={scrollToSection} writerIsActive={writerIsActive} />
+    <section className="px-6 size-full md:px-15 w-full flex flex-col justify-start items-center">
+      <div className="relative flex flex-col justify-start items-center">
+        <SelectChoiceButton scrollToSection={scrollToSection} writerIsActive={writerIsActive} />
 
-      {/* Signup steps */}
-      <SignupStep writerRef={writerRef} />
+        {/* Signup steps */}
+        <SignupStep writerRef={writerRef} />
+      </div>
 
       {/* Login Steps */}
       <LoginStep readerRef={readerRef} />
