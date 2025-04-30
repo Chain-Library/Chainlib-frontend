@@ -164,4 +164,4 @@ export function Sidebar() {
   )
 }
 
-export default SideNavBar;
+export default Sidebar;
