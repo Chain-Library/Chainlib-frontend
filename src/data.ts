@@ -2,7 +2,7 @@ import { IFooterLinks, ILink, IOnboardStepProps } from "./types";
 
 export const links: ILink[] = [
   { link: "Home", href: "/" },
-  { link: "Books", href: "/books/:bookId" },
+  { link: "Books", href: "/books/bookId" },
   { link: "How It Works", href: "/how-it-works" },
   { link: "About ChainLib", href: "/about-chainlib" },
 ];
@@ -106,3 +106,27 @@ export const loginSteps: IOnboardStepProps[] = [
     ImageSrc: "./LoginSteps/LoginStep6.svg",
   },
 ];
+
+export const bookData = {
+  title: "Native Invisibility",
+  author: "Darrin Collins",
+  authorImage: "/author1.svg",
+  rating: 4.5,
+  reviews: 109,
+  description:
+    '"Native Invisibility" delves into the complex and often insidious ways in which Indigenous peoples and their unique experiences are rendered unseen and unheard in the modern era.',
+  price: 12,
+  strikeCount: "193 STRK",
+  genre: "Fiction",
+  category: "Comic",
+  pageCount: "21 Pages",
+  language: "English",
+  publishDate: "12 April, 2025",
+  isbn: "978-3-16-148410-0",
+  publisherNote:
+    "Native Invisibility unveils the crucial ways Indigenous cultures are often unseen in our modern world. This vital book fosters understanding and action for recognition and justice.",
+  authorBio:
+    "Darrin Collins is a dedicated researcher and writer deeply committed to exploring issues of cultural visibility, marginalization, and the intersection of identity and technology. His work in Native Invisibility reflects a long-standing interest in amplifying underrepresented voices and fostering a more nuanced understanding of diverse experiences in the contemporary world.",
+  isVerified: true,
+  coverImage: "/images/bookCover1.png",
+};
