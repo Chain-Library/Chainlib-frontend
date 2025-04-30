@@ -9,13 +9,13 @@ export default function Footer() {
             <div className="flex flex-col justify-between items-start gap-7">
                 <Logo />
                 <div className="hidden item-center gap-6 md:flex">
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTwitter size={24} />
                     </div>
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTelegram size={24} />
                     </div>
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoLinkedin size={24} />
                     </div>
                 </div>
@@ -30,13 +30,13 @@ export default function Footer() {
 
             <div className="space-y-4 md:hidden">
                 <div className="flex item-center gap-6">
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTwitter size={24} />
                     </div>
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTelegram size={24} />
                     </div>
-                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border-1 grid place-content-center border-neutral-600 size-12.5">
+                    <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoLinkedin size={24} />
                     </div>
                 </div>
