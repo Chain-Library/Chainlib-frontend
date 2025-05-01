@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
 import { FileUpload } from "@/components/common/Upload"
+import { BadgeCheck, Bell, MoveLeft } from "lucide-react"
 import Image from "next/image"
-import { MoveLeft, Bell, BadgeCheck } from "lucide-react"
+import { useState } from "react"
 
-export default function page() {
+export default function Page() {
   const [seriesType, setSeriesType] = useState<string>("new")
 
   return (
@@ -13,18 +13,18 @@ export default function page() {
       <div className="max-w-6xl mx-auto py-6">
         {/* Header with profile and notification */}
         <div className="flex items-center justify-between mb-8 px-4">
-        <div className="flex items-center gap-3">
-          <button className="py-1 px-2 cursor-pointer rounded-md border border-[#888888]">
-            <MoveLeft className="w-4 h-4 text-[#888888]" />
-          </button>
-          <h1 className="text-[#6D6D6D] font-bold">Manage Content</h1>
-        </div>
+          <div className="flex items-center gap-3">
+            <button className="py-1 px-2 cursor-pointer rounded-md border border-[#888888]">
+              <MoveLeft className="w-4 h-4 text-[#888888]" />
+            </button>
+            <h1 className="text-[#6D6D6D] font-bold">Manage Content</h1>
+          </div>
 
           <div className="flex items-center justify-center space-x-4">
             {/* Notification bell */}
             <div className="relative">
               <button className="text-gray-500 hover:text-gray-700">
-            <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
+                <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
                 <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
                   1
                 </span>
@@ -233,11 +233,11 @@ export default function page() {
 
 
               <div className="flex gap-4 pt-4">
-                  <button  className="flex-1 p-3 rounded-md bg-[#EDF7FF] text-[#218DFF]">
-                    Back
-                  </button>
-                  <button className="flex-1 p-3 rounded-md bg-blue-500 hover:bg-blue-600">Continue</button>
-                </div>
+                <button className="flex-1 p-3 rounded-md bg-[#EDF7FF] text-[#218DFF]">
+                  Back
+                </button>
+                <button className="flex-1 p-3 rounded-md bg-blue-500 hover:bg-blue-600">Continue</button>
+              </div>
             </div>
           </div>
         </div>

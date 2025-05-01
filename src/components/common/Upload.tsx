@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useRef, type DragEvent, type ChangeEvent } from "react"
 import Image from "next/image"
+import { useRef, useState, type ChangeEvent, type DragEvent } from "react"
 
 interface FileUploadProps {
   supportedFormats: string
@@ -10,9 +10,9 @@ interface FileUploadProps {
   containerHeight?: string
 }
 
-export function FileUpload({ 
-  supportedFormats, 
-  icon, 
+export function FileUpload({
+  supportedFormats,
+  icon,
   acceptedFileTypes,
   containerHeight = "h-44"
 }: FileUploadProps) {
@@ -111,9 +111,8 @@ export function FileUpload({
     <div className="rounded-md">
       {!file ? (
         <div
-          className={`border-2 border-dashed bg-[#EDF7FF] rounded-md ${
-            isDragging ? "border-blue-500 bg-[#EDF7FF]" : "border-blue-200"
-          } flex flex-col items-center justify-center py-8 cursor-pointer transition-colors`}
+          className={`border-2 border-dashed bg-[#EDF7FF] rounded-md ${isDragging ? "border-blue-500 bg-[#EDF7FF]" : "border-blue-200"
+            } flex flex-col items-center justify-center py-8 cursor-pointer transition-colors`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -122,7 +121,7 @@ export function FileUpload({
           <div className="mb-4">
             {icon === "image" ? (
               <div className={`w-32 ${containerHeight} relative`}>
-                <Image 
+                <Image
                   src="/upload.png"
                   alt="Upload image"
                   width={308}
@@ -132,7 +131,7 @@ export function FileUpload({
               </div>
             ) : (
               <div className={`w-28 ${containerHeight} relative`}>
-                <Image 
+                <Image
                   src="/upload.png"
                   alt="Upload file"
                   width={308}
@@ -157,7 +156,7 @@ export function FileUpload({
           <div className="flex items-center">
             {preview ? (
               <div className="w-12 h-12 rounded overflow-hidden mr-3">
-                <img src={preview || "/placeholder.svg"} alt="Preview" className="w-full h-full object-cover" />
+                <Image src={preview || "/placeholder.svg"} alt="Preview" className="w-full h-full object-cover" />
               </div>
             ) : (
               <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center mr-3">

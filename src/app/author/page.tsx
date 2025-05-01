@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { MoveLeft, Bell, BadgeCheck } from 'lucide-react';
-import { FiBook, FiDollarSign, FiUsers, FiEye } from 'react-icons/fi';
 import ProfileCompletionModal from '@/components/common/Modal';
 import SearchBar from '@/components/common/SearchBar';
+import { BadgeCheck, Bell } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { FiBook, FiDollarSign, FiEye, FiUsers } from 'react-icons/fi';
 
 function AuthorDashboard() {
   const [showProfileModal, setShowProfileModal] = useState(true);
-  const [showProfileAlert, setShowProfileAlert] = useState(true);
-  
+  const [showProfileAlert] = useState(true);
+
   // Mock data - would be fetched from API
   const stats = {
     booksPublished: 12,
@@ -19,21 +19,21 @@ function AuthorDashboard() {
     totalReads: 12,
     followers: 12
   };
-  
+
   const recentBooks = [
     { id: 1, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true },
     { id: 2, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true },
     { id: 3, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: false },
     { id: 4, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true }
   ];
-  
+
   const trendingBooks = [
     { id: 1, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true },
     { id: 2, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true },
     { id: 3, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: false },
     { id: 4, title: 'Native Invisibility', author: 'Darrin Collins', price: 10, rating: 4.5, imageUrl: '/bookCover.png', verified: true }
   ];
-  
+
   const topAuthors = [
     { id: 1, name: 'Elizabeth Joe', imageUrl: '/authorImg.png', verified: true },
     { id: 2, name: 'Alex Paul', imageUrl: '/authorImg2.png', verified: true },
@@ -44,36 +44,36 @@ function AuthorDashboard() {
   return (
     <div className="w-full">
 
-<div className="flex items-center justify-between mb-8 px-4">
-  
+      <div className="flex items-center justify-between mb-8 px-4">
+
         <div className="flex items-center gap-3">
           <SearchBar placeholder="Search for books, authors..." />
         </div>
 
-          <div className="flex items-center justify-center space-x-4">
-            {/* Notification bell */}
-            <div className="relative">
-              <button className="text-gray-500 hover:text-gray-700">
-            <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
-                  1
-                </span>
-              </button>
-            </div>
+        <div className="flex items-center justify-center space-x-4">
+          {/* Notification bell */}
+          <div className="relative">
+            <button className="text-gray-500 hover:text-gray-700">
+              <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
+                1
+              </span>
+            </button>
+          </div>
 
-            {/* Profile */}
-            <div className="flex items-center  border border-[#E7E7E7] rounded-md p-2">
-              <div className="h-8 w-8 rounded-md overflow-hidden border border-gray-200">
-                <Image src="/profile.png" alt="Profile" width={32} height={32} className="h-full w-full object-cover" />
-              </div>
-              <div className="ml-2">
-                <p className="text-sm font-medium text-gray-800">Joseph Yanum</p>
-                <p className="text-xs text-gray-500">@joeyanum</p>
-              </div>
-              <BadgeCheck className="w-5 h-5 ml-3 text-[#218DFF]" />
+          {/* Profile */}
+          <div className="flex items-center  border border-[#E7E7E7] rounded-md p-2">
+            <div className="h-8 w-8 rounded-md overflow-hidden border border-gray-200">
+              <Image src="/profile.png" alt="Profile" width={32} height={32} className="h-full w-full object-cover" />
             </div>
+            <div className="ml-2">
+              <p className="text-sm font-medium text-gray-800">Joseph Yanum</p>
+              <p className="text-xs text-gray-500">@joeyanum</p>
+            </div>
+            <BadgeCheck className="w-5 h-5 ml-3 text-[#218DFF]" />
           </div>
         </div>
+      </div>
 
 
 
@@ -81,7 +81,7 @@ function AuthorDashboard() {
       <div className="rounded-lg p-8 mb-6 relative overflow-hidden flex flex-col md:flex-row justify-between items-center">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
-          <Image 
+          <Image
             src="/headerImg.png"
             alt="Header background"
             fill
@@ -163,10 +163,10 @@ function AuthorDashboard() {
             <p className="text-sm text-yellow-700">
               Just a few more details and your profile will be complete!
               <br />
-              <span className="text-xs">Let's get this done so you can enjoy all the features.</span>
+              <span className="text-xs">Let`&apos;`s get this done so you can enjoy all the features.</span>
             </p>
           </div>
-          <button 
+          <button
             className="px-4 py-2 text-sm text-[#454545] bg-[#FBBC0533]/20 border border-yellow-200 rounded-full hover:bg-yellow-50 transition-colors"
             onClick={() => setShowProfileModal(true)}
           >
@@ -187,7 +187,7 @@ function AuthorDashboard() {
           {recentBooks.map(book => (
             <div key={book.id} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
               <div className="relative flex justify-center items-center h-48 w-full bg-transparent">
-                <Image 
+                <Image
                   src={book.imageUrl}
                   alt={book.title}
                   width={100}
@@ -201,7 +201,7 @@ function AuthorDashboard() {
                   <p className="text-sm text-gray-600">By {book.author}</p>
                   {book.verified && (
                     <div className="ml-1">
-                      <Image 
+                      <Image
                         src="/verified.svg"
                         alt="Verified Author"
                         width={16}
@@ -235,7 +235,7 @@ function AuthorDashboard() {
           {trendingBooks.map(book => (
             <div key={book.id} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
               <div className="relative flex justify-center items-center h-48 w-full bg-transparent">
-                <Image 
+                <Image
                   src={book.imageUrl}
                   alt={book.title}
                   width={100}
@@ -249,7 +249,7 @@ function AuthorDashboard() {
                   <p className="text-sm text-gray-600">By {book.author}</p>
                   {book.verified && (
                     <div className="ml-1">
-                      <Image 
+                      <Image
                         src="/verified.svg"
                         alt="Verified Author"
                         width={16}
@@ -284,7 +284,7 @@ function AuthorDashboard() {
             <div key={author.id} className="bg-white rounded-lg overflow-hidden border border-gray-100 h-72 relative">
               {/* Full size author image with overlay */}
               <div className="absolute inset-0 w-full h-full">
-                <Image 
+                <Image
                   src={author.imageUrl}
                   alt={author.name}
                   fill
@@ -294,13 +294,13 @@ function AuthorDashboard() {
                 {/* Dark gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               </div>
-              
+
               {/* Author name and verified tag positioned at the bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
                 <div className="flex items-center justify-center">
                   <h3 className="font-semibold text-white">{author.name}</h3>
                   <div className="ml-1.5">
-                    <Image 
+                    <Image
                       src="/verified.svg"
                       alt="Verified Author"
                       width={16}
@@ -315,7 +315,7 @@ function AuthorDashboard() {
       </div>
 
       {/* Profile Completion Modal */}
-      <ProfileCompletionModal 
+      <ProfileCompletionModal
         isOpen={showProfileModal}
         onClose={() => setShowProfileModal(false)}
       />

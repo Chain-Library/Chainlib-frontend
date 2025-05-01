@@ -1,32 +1,38 @@
-import LandingPage from "@/app/landing-page/page";
-import React from "react";
-// import { redirect } from "next/navigation";
 import Navbar from '@/components/common/Navbar';
+import Authors from "@/components/landingpage/Authors";
+import Banner from "@/components/landingpage/Banner";
+import Community from "@/components/landingpage/Community";
+import Hero from "@/components/landingpage/Hero";
+import Nft from "@/components/landingpage/Nft";
+import Partener from "@/components/landingpage/Partener";
+import Tagline from "@/components/landingpage/Tagline";
 import Footer from '@/components/layout/Footer';
-import About from "./about-us/page";
+import React from "react";
+
+// import About from "./about-us/page";
 
 export default function Home() {
   return (
     <>
-      <div className="bg-white">
-        <LandingPage />
-      </div>
+      <Navbar />
+      <Hero />
+      <Tagline />
+      <Nft />
+      <Banner />
+      <Authors />
+      <Community />
+      <Partener />
+      <Footer />
 
-      <div>
-        {/* <AnalyticsChart /> */}
+      {/* <div>
+         <AnalyticsChart /> 
         <About />
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint et, sit
         exercitationem repudiandae assumenda veniam reiciendis, doloribus itaque
         aperiam aut consectetur, mollitia quo aliquam labore non minus recusandae!
         Laboriosam, necessitatibus!
-      </div>
+      </div> */}
     </>
   );
-  // <>
-  //   <Navbar />
-  //   <h1 className="my-72 text-display-large text-center">Chainlib Platform</h1>
-  //   <Footer />
-  // </>
-  // )
 }
 

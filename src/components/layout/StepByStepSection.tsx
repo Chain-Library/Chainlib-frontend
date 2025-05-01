@@ -21,7 +21,7 @@ export default function StepByStepSection() {
   };
 
   return (
-    <section className="px-6 size-full md:px-15 w-full flex flex-col justify-start items-center">
+    <main className="px-6 size-full md:px-15 w-full flex flex-col justify-start items-center">
       <div className="relative flex flex-col justify-start items-center">
         <SelectChoiceButton scrollToSection={scrollToSection} writerIsActive={writerIsActive} />
 
@@ -31,6 +31,6 @@ export default function StepByStepSection() {
 
       {/* Login Steps */}
       <LoginStep readerRef={readerRef} />
-    </section>
+    </main>
   )
 }

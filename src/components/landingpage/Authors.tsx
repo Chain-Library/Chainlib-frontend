@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import React from 'react';
 
 type AuthorCardProps = {
   name: string;
@@ -52,30 +52,30 @@ const AuthorCard = ({ name, image, verified = false }: AuthorCardProps) => (
 
 export default function TopAuthorsSection() {
   const authors = [
-    { 
-      name: "Elizabeth Joe", 
-      image: "/Eliazerbert.png", 
-      verified: true 
+    {
+      name: "Elizabeth Joe",
+      image: "/Eliazerbert.png",
+      verified: true
     },
-    { 
-      name: "Alex Paul", 
-      image: "/alex.png", 
-      verified: true 
+    {
+      name: "Alex Paul",
+      image: "/alex.png",
+      verified: true
     },
-    { 
-      name: "Samson Tersoor", 
-      image: "/samson.png", 
-      verified: true 
+    {
+      name: "Samson Tersoor",
+      image: "/samson.png",
+      verified: true
     },
-    { 
-      name: "Vamika Maya", 
-      image: "/maya.png", 
-      verified: true 
+    {
+      name: "Vamika Maya",
+      image: "/maya.png",
+      verified: true
     },
-    { 
-      name: "Faith Musa", 
-      image: "/faith.png", 
-      verified: true 
+    {
+      name: "Faith Musa",
+      image: "/faith.png",
+      verified: true
     }
   ];
 
@@ -83,12 +83,12 @@ export default function TopAuthorsSection() {
     <div className="max-w-6xl mx-auto p-4">
       <div className="mb-6">
         <h2 className="text-3xl font-bold text-[#0F265C]">Top Authors For This Week</h2>
-        <p className="text-gray-700 text-sm">This week's most-read and most-loved authors don't miss their latest work</p>
+        <p className="text-gray-700 text-sm">This week`&apos;`s most-read and most-loved authors don`&apos;`t miss their latest work</p>
       </div>
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {authors.map((author, index) => (
-          <AuthorCard 
+          <AuthorCard
             key={index}
             name={author.name}
             image={author.image}

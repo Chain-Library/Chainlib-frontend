@@ -1,11 +1,11 @@
 "use client"
 
-import type * as React from "react"
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import type * as React from "react"
+import { useEffect, useState } from "react"
 import { cn } from "../../lib/utils"
 
 type SidebarItem = {
@@ -28,13 +28,13 @@ export function Sidebar() {
       setIsMobile(mobile)
       setIsOpen(!mobile) // Open on desktop, closed on mobile
     }
-    
+
     // Initial check
     checkScreenSize()
-    
+
     // Add event listener
     window.addEventListener('resize', checkScreenSize)
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
@@ -95,7 +95,7 @@ export function Sidebar() {
       </button>
 
       {/* Sidebar */}
-      <aside 
+      <aside
         className={cn(
           "fixed top-0 left-0 h-screen bg-white border-r border-gray-100 z-40 transition-all duration-300 ease-in-out overflow-hidden",
           isOpen ? "translate-x-0 w-[225px]" : "-translate-x-full w-0",
@@ -104,7 +104,7 @@ export function Sidebar() {
       >
         <div className="p-4 flex items-center gap-2">
           <div className="w-10 h-10 flex items-center justify-center">
-            <Image 
+            <Image
               src="/logo.png"
               alt="ChainLib Logo"
               width={40}
@@ -116,10 +116,10 @@ export function Sidebar() {
 
         <nav className="flex-1 py-4">
           <ul className="space-y-1 px-2">
-            {sidebarItems.map((item, index) => {
+            {sidebarItems.map((item) => {
               const isActive = pathname === item.href;
               const isSignOut = item.label === "Sign Out";
-              
+
               return (
                 <li key={item.href} className={isSignOut ? "mt-4 pt-4 border-t border-[#EDF7FF]" : ""}>
                   <Link
@@ -131,10 +131,10 @@ export function Sidebar() {
                     onClick={() => isMobile && setIsOpen(false)}
                   >
                     <div className="w-5 h-5 relative">
-                      <Image 
-                        src={item.icon} 
-                        alt={item.label} 
-                        width={20} 
+                      <Image
+                        src={item.icon}
+                        alt={item.label}
+                        width={20}
                         height={20}
                         className={isActive ? "brightness-0 invert" : ""}
                       />
@@ -152,10 +152,10 @@ export function Sidebar() {
           </ul>
         </nav>
       </aside>
-      
+
       {/* Overlay for mobile when sidebar is open */}
       {isOpen && isMobile && (
-        <div 
+        <div
           className="fixed inset-0 bg-[#096CFF]/30 bg-opacity-50 z-30 md:hidden"
           onClick={() => setIsOpen(false)}
         />

@@ -15,7 +15,7 @@ import { useParams } from 'next/navigation';
 const ReviewPage = () => {
 
     const params = useParams();
-    const id = params?.id.toString();
+    const id = params.id ? params.id.toString() : "";
 
     const book = bookData.find((item) => item.id.toString() === id);
 

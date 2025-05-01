@@ -4,7 +4,7 @@ export const links: ILink[] = [
   { link: "Home", href: "/" },
   { link: "Books", href: "/books/bookId" },
   { link: "How It Works", href: "/how-it-works" },
-  { link: "About ChainLib", href: "/about-chainlib" },
+  { link: "About ChainLib", href: "/about-us" },
 ];
 
 export const FooterLink: IFooterLinks[] = [
@@ -12,7 +12,7 @@ export const FooterLink: IFooterLinks[] = [
   { link: "Home", href: "/" },
   { link: "Books", href: "/books" },
   { link: "How It Works", href: "/how-it-works" },
-  { link: "About", href: "/about-chainlib" },
+  { link: "About", href: "/about-us" },
   { link: "Legal", href: "/legal" },
   { link: "Privacy Policy", href: "/privacy-policy" },
   { link: "Terms Of Service", href: "/terms-of-service" },

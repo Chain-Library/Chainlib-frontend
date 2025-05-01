@@ -3,14 +3,14 @@ import Image from "next/image";
 import user from "../../../../../public/user1.svg";
 import check from "../../../public/../../../public/check.svg";
 
-interface HeaderProps {
-  title: string;
-}
+// interface HeaderProps {
+//   title: string;
+// }
 
 export function ProfileHeader() {
   return (
     <header className="bg-[#F6F6F6] p-4 border-b border-[#F6F6F6] flex items-center justify-end overflow-hidden ">
-      
+
 
       <div className="flex items-center gap-4 space-x-3">
         <div className="relative">

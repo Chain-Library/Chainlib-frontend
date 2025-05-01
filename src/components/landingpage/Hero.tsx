@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const peopleImages = [
   { id: 1, src: "/hero1.png", alt: "Person 1" },
@@ -13,7 +13,7 @@ const peopleImages = [
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center text-center px-4 py-16">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center text-center px-4 pb-16 mt-28 sm:mt-15 lg:mt-28">
 
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
@@ -33,9 +33,8 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: index * 0.4 }}
             viewport={{ once: true }}
-            className={`transform ${
-              index === 0 || index === 4 ? "translate-y-8 translate-x-0" : index === 1 || index === 3 ? "translate-y-2" : ""
-            }`}
+            className={`transform ${index === 0 || index === 4 ? "translate-y-8 translate-x-0" : index === 1 || index === 3 ? "translate-y-2" : ""
+              }`}
           >
             <Image
               src={person.src}

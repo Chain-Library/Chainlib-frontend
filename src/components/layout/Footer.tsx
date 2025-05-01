@@ -1,16 +1,19 @@
 import { FooterLink } from "@/data";
 import Link from "next/link";
-import { BiLogoLinkedin, BiLogoTelegram, BiLogoTwitter } from "react-icons/bi";
+import { BiLogoLinkedin, BiLogoTelegram } from "react-icons/bi";
+import { FaXTwitter } from "react-icons/fa6";
 import Logo from "../common/Logo";
 
 export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className="p-6 md:px-15 md:py-6 pt-8 border-t-1 border-neutral-100 flex flex-col md:flex-row items-start gap-10 md:items-center md:justify-between size-full">
             <div className="flex flex-col justify-between items-start gap-7">
                 <Logo />
                 <div className="hidden item-center gap-6 md:flex">
                     <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
-                        <BiLogoTwitter size={24} />
+                        <FaXTwitter size={24} />
                     </div>
                     <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTelegram size={24} />
@@ -20,7 +23,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="text-neutral-600 text-label-large hidden md:block">
-                    <span>2025</span>{" "}<span>ChainLib. All rights reserved</span>
+                    <span>© {currentYear}</span>{" "}<span>ChainLib. All rights reserved</span>
                 </div>
             </div>
 
@@ -31,7 +34,7 @@ export default function Footer() {
             <div className="space-y-4 md:hidden">
                 <div className="flex item-center gap-6">
                     <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
-                        <BiLogoTwitter size={24} />
+                        <FaXTwitter size={24} />
                     </div>
                     <div className="hover:bg-neutral-200 cursor-pointer rounded-full border grid place-content-center border-neutral-600 size-12.5">
                         <BiLogoTelegram size={24} />
