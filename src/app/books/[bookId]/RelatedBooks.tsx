@@ -1,3 +1,4 @@
+import { relatedBooks } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -22,7 +23,7 @@ const BookCard: React.FC<BookCardProps> = ({
   isVerified = false,
 }) => {
   return (
-    <div className="group bg-gray-50 p-5 rounded-[8px]">
+    <div className="group bg-gray-50 p-6 rounded-[8px]">
       <Link href={`/books/${id}`}>
         <div className="bg-gray-50 p-4 rounded-[8px] transition-all hover:shadow-md">
           <div className="relative w-full aspect-[3/4] mb-3">
@@ -91,7 +92,7 @@ const BookSection: React.FC<BookSectionProps> = ({
   viewAllLink,
 }) => {
   return (
-    <section className="py-8 mt-[7rem]">
+    <section className="">
       <div className="flex items-center flex-col md:flex-row justify-between mb-4">
         <div>
           <h2 className="text-[32px] font-bold text-blue-950">{title}</h2>
@@ -123,44 +124,7 @@ const BookSection: React.FC<BookSectionProps> = ({
   );
 };
 
-const relatedBooks = [
-  {
-    id: "1",
-    title: "Native Invisibility",
-    author: "Darrin Collins",
-    price: 10,
-    rating: 4.5,
-    coverImage: "/images/bookCover1.png",
-    isVerified: true,
-  },
-  {
-    id: "2",
-    title: "Native Invisibility",
-    author: "Darrin Collins",
-    price: 10,
-    rating: 4.5,
-    coverImage: "/images/bookCover1.png",
-    isVerified: true,
-  },
-  {
-    id: "3",
-    title: "Native Invisibility",
-    author: "Darrin Collins",
-    price: 10,
-    rating: 4.5,
-    coverImage: "/images/bookCover1.png",
-    isVerified: true,
-  },
-  {
-    id: "4",
-    title: "Native Invisibility",
-    author: "Darrin Collins",
-    price: 10,
-    rating: 4.5,
-    coverImage: "/images/bookCover1.png",
-    isVerified: true,
-  },
-];
+
 
 const authorBooks = [...relatedBooks]; // Using the same data for demo purposes
 
@@ -171,7 +135,7 @@ interface BookRecommendationsProps {
 const RelatedBooks: React.FC<BookRecommendationsProps> = ({ className }) => {
   return (
     <div
-      className={`max-w-7xl mx-auto mt-[12rem] px-4 sm:px-6 lg:px-8 ${className}`}
+      className={`max-w-7xl mx-auto my-24 px-4 sm:px-6 lg:px-8 space-y-18 ${className}`}
     >
       <BookSection
         title="Related Books"

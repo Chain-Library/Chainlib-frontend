@@ -1,13 +1,13 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { FaLock } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Image from 'next/image';
+import React from 'react';
+import { FaLock } from "react-icons/fa";
 
 export default function DecentralizedELibrary() {
   return (
-    <div className="bg-white p-8 max-w-6xl mx-auto pt-10">
+    <section className="bg-white p-8 max-w-6xl mx-auto pt-10 md:px-15">
       <div className="flex flex-col md:flex-row items-start md:justify-between mb-16 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -135,6 +135,6 @@ export default function DecentralizedELibrary() {
         </div>
       </div>
 
-    </div>
+    </section>
   );
 }

@@ -13,7 +13,7 @@ const peopleImages = [
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center text-center px-4 pb-16 mt-28 sm:mt-15 lg:mt-28">
+    <main className="w-full min-h-screen flex flex-col items-center justify-center text-center pb-16 mt-28 sm:mt-15 lg:mt-28 px-8 md:px-15">
 
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
@@ -25,7 +25,7 @@ export default function Hero() {
         <span className="text-[#096CFF]">A Decentralized Library</span> for the <br /> Future of Digital Publishing
       </motion.h1>
 
-      <div className="flex mt-8 bg-transparent">
+      <div className="flex mt-8">
         {peopleImages.map((person, index) => (
           <motion.div
             key={person.id}
@@ -34,14 +34,14 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: index * 0.4 }}
             viewport={{ once: true }}
             className={`transform ${index === 0 || index === 4 ? "translate-y-8 translate-x-0" : index === 1 || index === 3 ? "translate-y-2" : ""
-              }`}
+              } shadow-large`}
           >
             <Image
               src={person.src}
               alt={person.alt}
               width={140}
               height={100}
-              className="rounded shadow-lg"
+              className="rounded"
             />
           </motion.div>
         ))}
@@ -67,6 +67,6 @@ export default function Hero() {
         Get Started
       </motion.button>
 
-    </section>
+    </main>
   );
 }

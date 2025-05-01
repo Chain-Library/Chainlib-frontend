@@ -4,7 +4,7 @@ import Banner from "@/components/landingpage/Banner";
 import Community from "@/components/landingpage/Community";
 import Hero from "@/components/landingpage/Hero";
 import Nft from "@/components/landingpage/Nft";
-import Partener from "@/components/landingpage/Partener";
+import Partners from "@/components/landingpage/Partners";
 import Tagline from "@/components/landingpage/Tagline";
 import Footer from '@/components/layout/Footer';
 import React from "react";
@@ -21,17 +21,8 @@ export default function Home() {
       <Banner />
       <Authors />
       <Community />
-      <Partener />
+      <Partners />
       <Footer />
-
-      {/* <div>
-         <AnalyticsChart /> 
-        <About />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint et, sit
-        exercitationem repudiandae assumenda veniam reiciendis, doloribus itaque
-        aperiam aut consectetur, mollitia quo aliquam labore non minus recusandae!
-        Laboriosam, necessitatibus!
-      </div> */}
     </>
   );
 }

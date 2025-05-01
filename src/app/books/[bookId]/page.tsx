@@ -32,7 +32,7 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <section className="max-w-7xl mx-auto mt-34 sm:mt-20 lg:mt-34 px-4 sm:px-6 lg:px-8 py-8">
+      <section className="max-w-7xl mx-auto mt-34 sm:mt-20 lg:mt-34 px-6 md:px-15 py-8">
         {/* Back Button */}
         <Link
           href="/"
@@ -53,7 +53,7 @@ export default function Page() {
           <span>Back</span>
         </Link>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 max-w-6xl justify-self-start place-self-start">
           {/* Left Column - Book Cover */}
           <div className="md:col-span-1">
             <div className="bg-gray-100 p-4 hover:shadow-lg transition rounded-lg flex justify-center">

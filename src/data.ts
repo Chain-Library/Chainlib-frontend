@@ -63,6 +63,45 @@ export const signupSteps: IOnboardStepProps[] = [
   },
 ];
 
+export const relatedBooks = [
+  {
+    id: "1",
+    title: "Native Invisibility",
+    author: "Darrin Collins",
+    price: 10,
+    rating: 4.5,
+    coverImage: "/images/bookCover1.png",
+    isVerified: true,
+  },
+  {
+    id: "2",
+    title: "Native Invisibility",
+    author: "Darrin Collins",
+    price: 10,
+    rating: 4.5,
+    coverImage: "/images/bookCover1.png",
+    isVerified: true,
+  },
+  {
+    id: "3",
+    title: "Native Invisibility",
+    author: "Darrin Collins",
+    price: 10,
+    rating: 4.5,
+    coverImage: "/images/bookCover1.png",
+    isVerified: true,
+  },
+  {
+    id: "4",
+    title: "Native Invisibility",
+    author: "Darrin Collins",
+    price: 10,
+    rating: 4.5,
+    coverImage: "/images/bookCover1.png",
+    isVerified: true,
+  },
+];
+
 export const loginSteps: IOnboardStepProps[] = [
   {
     message: "Sign up quickly with your wallet and start exploring.",
