@@ -6,8 +6,6 @@ import ExploreBooks from "@/components/BookListingPage/ExploreBooks";
 import NewRelease from "@/components/BookListingPage/NewRelease";
 import NftEdition from "@/components/BookListingPage/NftEdition";
 import Trending from "@/components/BookListingPage/Trending";
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
 import { Input } from "@/components/ui/input";
 import bookData from "@/lib/MockData";
 import { useMemo, useState } from "react";
@@ -80,7 +78,6 @@ export default function Page() {
 
     return (
         <div className="w-full h-full flex flex-col items-start justify-start gap-6 " >
-            <Header />
             <BooksPageNav setDisplayedSection={setDisplayedSection} displayedSection={displayedSection} />
             <Input className=" max-w-[250px] self-end mr-[20px] " type={"search"} value={searchTerm} onChange={handleChange} placeholder="Search ..." />
 
@@ -99,7 +96,7 @@ export default function Page() {
 
 
 
-            <Footer />
+
         </div>
     )
 }
