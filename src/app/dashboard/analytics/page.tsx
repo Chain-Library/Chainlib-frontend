@@ -77,7 +77,7 @@ export default function AnalyticsDashboard() {
                       Stats for Act
                     </h3>
 
-                    <div className="p-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 border rounded-lg border-gray-200/40">
+                    <div className="p-6 h-[350px] grid grid-cols-1  content-start gap-6 sm:grid-cols-2 xl:grid-cols-3 border rounded-lg border-gray-200/40">
                       <div className="p-4 border rounded-lg">
                         <div className="text-sm text-gray-600 mb-2">Read</div>
                         <div className="flex items-center gap-2">
@@ -146,7 +146,7 @@ export default function AnalyticsDashboard() {
                   </div>
 
                   {/* Top Performing Books */}
-                  <div className=" rounded-lg ">
+                  <div className=" h-[350px] rounded-lg ">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl  font-bold text-gray-400">
                         Top Performing Books
