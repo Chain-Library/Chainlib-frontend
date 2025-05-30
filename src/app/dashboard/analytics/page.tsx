@@ -58,11 +58,11 @@ export default function AnalyticsDashboard() {
         <div className="flex flex-col bg-white rounded-lg border border-gray-200/40 p-6 gap-6">
           {/* Book Performance Stats */}
           <div className="bg-white p-3">
-            <h2 className="text-xl font-bold text-gray-400 mb-4">
+            <h2 className="text-xl px-4 font-bold text-gray-400 mb-4">
               Book Performance Stats
             </h2>
             <Tabs defaultValue="week" className="w-full">
-              <TabsList>
+              <TabsList className="bg-transparent">
                 <TabsTrigger value="week">This Week</TabsTrigger>
                 <TabsTrigger value="month">This Month</TabsTrigger>
                 <TabsTrigger value="year">This Year</TabsTrigger>
