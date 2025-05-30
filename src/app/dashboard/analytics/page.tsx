@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Star } from "lucide-react";
+import { Star, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
 
 export default function AnalyticsDashboard() {
   const books = [
@@ -15,6 +16,14 @@ export default function AnalyticsDashboard() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
+        {/* Header with back button */}
+        <div className="flex lg:hidden items-center gap-4 mb-6">
+          <Link href="/dashboard" className="text-gray-600 hover:text-gray-900">
+            <ArrowLeft className="h-6 w-6" />
+          </Link>
+          <h1 className="text-2xl font-bold text-gray-900">Analytics</h1>
+        </div>
+
         {/* Top Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-white rounded-lg border border-gray-200/40 p-6 gap-6">
           <div className="bg-white p-3 rounded-lg border border-gray-200/40">
