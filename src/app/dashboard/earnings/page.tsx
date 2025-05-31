@@ -3,15 +3,46 @@
 
 import EarningsSummary from "@/components/ dashboard-earnings/EarningSummary"
 import LinkWallet from "@/components/ dashboard-earnings/LinkWallet"
+import RevenueBreakdown from "@/components/ dashboard-earnings/RevenueBreakdown"
 import type { EarningTab } from "@/lib/interfaces/EarningTabInterface"
+import { RevenueChartInterface } from "@/lib/interfaces/RevenueChartInterface"
 import { useEffect, useState } from "react"
 
 const earningsSumaryDetails: EarningTab[] = [
-  { title: "Current Balance", amount: 3150.0, border: "border-[var(--color-primary-100)]" },
-  { title: "Pending Payout", amount: 100.06, border: "border-[#2396413D]" },
-  { title: "Total Payout", amount: 2500.01, border: "border-[#822ECB3D]" },
-  { title: "Total Earned", amount: 2730.19, border: "border-[var(--color-primary-100)]" },
+  { title: "Current Balance", amount:  3150.0 , border: "#D6ECFF" },
+  { title: "Pending Payout", amount: 100.06, border: "#2396413D" },
+  { title: "Total Payout", amount: 2500.01, border: "#822ECB3D" },
+  { title: "Total Earned", amount: 2730.19, border: "#D6ECFF" },
 ]
+
+const chartData: RevenueChartInterface[] = [
+  {
+    name: "Monthly Subcription Payment",
+    value: 121,
+    color: "#236FEA",
+    percentage: "40%"
+  },
+  {
+    name: "NFT Royalty",
+    value: 12,
+    color: "#FBBC05",
+    percentage: "10%"
+  },
+    {
+    name: "NFT",
+    value: 101,
+    color: "#822ECB",
+    percentage: "22%"
+  },
+  {
+    name: "Book Purchase",
+    value: 131,
+    color: "#34A853",
+    percentage: "28%"
+  },
+]
+
+
 
 function EarningsPage() {
   const [walletAddress, setWalletAddress] = useState({
@@ -46,7 +77,8 @@ function EarningsPage() {
   return (
     <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto">
       <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} />
-      <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress} />
+      <RevenueBreakdown chartData={chartData}  />
+      <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress}  />
     </div>
   )
 }
