@@ -13,7 +13,7 @@ interface RevenueBreakdownProps {
 
 export default function RevenueBreakdown({ chartData }: RevenueBreakdownProps) {
     return (
-        <section className=" w-full flex flex-col gap-4 items-start bg-[var(--color-background)] p-6 " >
+        <section className=" w-full flex flex-col gap-4 items-start bg-[var(--color-background)] p-6 rounded-lg " >
 
             <h2 className="text-lg font-bold text-[var(--color-neutral-300)] " >Revenue Breakdown</h2>
 

@@ -7,6 +7,7 @@ import RevenueBreakdown from "@/components/ dashboard-earnings/RevenueBreakdown"
 import type { EarningTab } from "@/lib/interfaces/EarningTabInterface"
 import { RevenueChartInterface } from "@/lib/interfaces/RevenueChartInterface"
 import { useEffect, useState } from "react"
+import TransactionHistory from "../../../components/ dashboard-earnings/TransactionHistory"
 
 const earningsSumaryDetails: EarningTab[] = [
   { title: "Current Balance", amount:  3150.0 , border: "#D6ECFF" },
@@ -77,6 +78,7 @@ function EarningsPage() {
   return (
     <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto">
       <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} />
+      <TransactionHistory/>
       <RevenueBreakdown chartData={chartData}  />
       <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress}  />
     </div>
