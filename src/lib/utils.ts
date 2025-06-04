@@ -46,3 +46,11 @@ export const handlePaste = async (
     return null
   }
 }
+
+
+
+export const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "long",
+  });
