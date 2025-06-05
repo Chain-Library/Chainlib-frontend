@@ -1,6 +1,7 @@
 import { TransactionHistoryInterface } from "@/lib/interfaces/TransactionIHistoryInterface";
 import { formatDate } from "@/lib/utils";
 import React from "react";
+import TransactionModalButton from "./TransactionModalButton";
 
 
 interface LoanRowProps {
@@ -25,9 +26,7 @@ export default function LoanRow({ tableData}: LoanRowProps) {
       <td className="py-3.5 px-2 md:px-4 flex items-start "> <span className={` border-[0.5px] rounded-[12px] py-[2px] px-2 font-normal text-[10px]  ${tableData.status ? "bg-[#34A8531A] border-[#34A853] text-[#34A853] " : "bg-[#ED4D481A] border-[#ED4D48] text-[#ED4D48] " }`}  >{tableData.status ? "Successful" : "Failed"} </span> </td>
       <td className="py-3.5 px-2 md:px-4"> {formatDate(tableData.date)} </td>
       <td className="py-3.5 px-2 md:px-4">
-        <button  className=" text-[#096CFF] hover:text-[#054199]  rounded-full text-sm font-normal ">
-          View details
-        </button>
+      <TransactionModalButton/>
       </td>
     </tr>
   );

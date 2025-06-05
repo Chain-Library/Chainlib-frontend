@@ -76,7 +76,7 @@ function EarningsPage() {
   }, [walletAddress])
 
   return (
-    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto">
+    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font- ">
       <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} />
       <TransactionHistory/>
       <RevenueBreakdown chartData={chartData}  />

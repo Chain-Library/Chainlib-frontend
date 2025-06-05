@@ -41,7 +41,7 @@ export default function TransactionTable() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-4 md:px-10 md:py-12 w-full md:flex-1 h-full flex flex-col">
+    <div className="bg-white  mt-4 w-full md:flex-1 h-full flex flex-col">
       <FilterBar />
 
       <div className="overflow-x-auto mt-6 flex-1">
@@ -95,7 +95,7 @@ export default function TransactionTable() {
                   onClick={() => typeof page === 'number' && setCurrentPage(page)}
                   className={`px-2 py-1 rounded cursor-pointer text-sm ${
                     page === currentPage
-                      ? 'text-white bg-[#096CFF]'
+                      ? 'text-[#096CFF]'
                       : typeof page === 'number'
                       ? 'text-[#888888] hover:text-[#096CFF]'
                       : 'cursor-default text-[#888888]'

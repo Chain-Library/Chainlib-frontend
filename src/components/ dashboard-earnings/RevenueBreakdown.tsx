@@ -21,7 +21,7 @@ export default function RevenueBreakdown({ chartData }: RevenueBreakdownProps) {
 
 
 
-            <div className="w-full flex items-center justify-between gap-[120px] h-full px-6 pr-[5%] " >
+            <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-[120px] h-full px-0 md:px-6 md:pr-[5%] " >
 
 
                 <RevenueChart chartData={chartData} />

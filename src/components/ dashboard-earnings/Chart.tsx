@@ -16,14 +16,14 @@ export default function RevenueChart({chartData}: RevenueChartProps) {
 
 
 
-    console.log(chartData)
+
 
 
 
 
     return (
 
-<div className="w-full max-w-[651px] h-full   border-[1px] border-[var(--color-neutral-100)] rounded-lg px-6 py-6 flex items-center justify-center  " >
+<div className="w-full max-w-[651px] h-full   border-[1px] border-[var(--color-neutral-100)] rounded-lg px-0 md:px-6 py-6 flex items-center justify-center  " >
 
 
 <ResponsiveContainer width="100%" height={300} >
