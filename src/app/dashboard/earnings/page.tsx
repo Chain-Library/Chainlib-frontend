@@ -8,6 +8,9 @@ import type { EarningTab } from "@/lib/interfaces/EarningTabInterface"
 import { RevenueChartInterface } from "@/lib/interfaces/RevenueChartInterface"
 import { useEffect, useState } from "react"
 import TransactionHistory from "../../../components/ dashboard-earnings/TransactionHistory"
+import RequestPaymentModal from "@/components/ dashboard-earnings/RequestPaymentModal"
+import { PaymentPropInterface } from "@/lib/interfaces/PaymentPropInterface"
+
 
 const earningsSumaryDetails: EarningTab[] = [
   { title: "Current Balance", amount:  3150.0 , border: "#D6ECFF" },
@@ -15,6 +18,9 @@ const earningsSumaryDetails: EarningTab[] = [
   { title: "Total Payout", amount: 2500.01, border: "#822ECB3D" },
   { title: "Total Earned", amount: 2730.19, border: "#D6ECFF" },
 ]
+
+
+
 
 const chartData: RevenueChartInterface[] = [
   {
@@ -46,12 +52,21 @@ const chartData: RevenueChartInterface[] = [
 
 
 function EarningsPage() {
+  const [openRequestModal, setOpenRequestModal] =  useState(false)
   const [walletAddress, setWalletAddress] = useState({
     braavos: "",
     argent: "",
   })
 
   const ADDRESS_KEY = "walletAddressKey"
+
+  const [paymentDetails, setPaymentDetails] = useState<PaymentPropInterface> ({
+  amount: 0.00,
+  wallet: "",
+  walletAddress: ""
+})
+
+
 
   // This function loads saved addresses
   useEffect(() => {
@@ -76,11 +91,12 @@ function EarningsPage() {
   }, [walletAddress])
 
   return (
-    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font- ">
-      <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} />
+    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font-inter ">
+      <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} setOpenRequestModal={setOpenRequestModal} />
       <TransactionHistory/>
       <RevenueBreakdown chartData={chartData}  />
       <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress}  />
+{openRequestModal &&       <RequestPaymentModal paymentDetails={paymentDetails} setPaymentDetails={setPaymentDetails} walletAddress={walletAddress}  setOpenRequestModal={setOpenRequestModal} />}
     </div>
   )
 }

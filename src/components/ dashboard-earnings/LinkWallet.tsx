@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Input } from "../ui/input"
 import { handlePaste } from "../../lib/utils"
 
-interface WalletAddressType {
+export interface WalletAddressType {
   braavos: string
   argent: string
 }
