@@ -7,7 +7,7 @@ import NewRelease from "@/components/BookListingPage/NewRelease";
 import NftEdition from "@/components/BookListingPage/NftEdition";
 import Trending from "@/components/BookListingPage/Trending";
 import { Input } from "@/components/ui/input";
-import bookData from "@/lib/MockData";
+import { bookData } from "@/lib/MockData";
 import { useMemo, useState } from "react";
 
 

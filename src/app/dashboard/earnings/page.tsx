@@ -91,7 +91,7 @@ function EarningsPage() {
   }, [walletAddress])
 
   return (
-    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font-inter ">
+    <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font-inter min-w-[350px] ">
       <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} setOpenRequestModal={setOpenRequestModal} />
       <TransactionHistory/>
       <RevenueBreakdown chartData={chartData}  />

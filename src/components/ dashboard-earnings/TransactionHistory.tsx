@@ -11,7 +11,7 @@ export default function TransactionHistory() {
 
 
 
-<TransactionTable/>
+            <TransactionTable />
 
 
 
@@ -23,6 +23,6 @@ export default function TransactionHistory() {
 
 
 
-                  </section>
+        </section>
     )
 }
