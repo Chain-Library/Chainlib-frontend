@@ -1,7 +1,7 @@
 
 "use client"
 
-import bookData from '@/lib/MockData';
+import { bookData } from '@/lib/MockData';
 import { useParams } from 'next/navigation';
 
 

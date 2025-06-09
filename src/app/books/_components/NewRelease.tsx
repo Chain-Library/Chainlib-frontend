@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import Spinner from "@/components/ui/Spinner";
-import bookData from "@/lib/MockData";
+import { bookData } from "@/lib/MockData";
 import { useState } from "react";
 import BookCard from "./BookCard";
 

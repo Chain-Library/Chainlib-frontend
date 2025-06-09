@@ -87,6 +87,7 @@
   /* --font-sans: Inter, var(--font-geist-sans); */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
 
   /* DIsplay TextSizes */
   --text-display-large: 57px;
