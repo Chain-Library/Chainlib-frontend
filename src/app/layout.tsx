@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/landingpage/NavBar";
-import { Providers } from "@/components/blockchain/Providers";
 import Footer from "@/components/landingpage/Footer";
+import { WalletProvider } from "../components/blockchain/WalletProvider";
+import { StarknetProvider } from "../components/blockchain/Providers";
 import { Inter } from "next/font/google";
-
 
 export const metadata: Metadata = {
   title: "ChainLib",
@@ -26,7 +26,9 @@ export default function RootLayout({
     <html lang="en" className={inter.className} >
       <body>
         <NavBar />
-        <Providers>{children}</Providers>
+        <StarknetProvider>
+          <WalletProvider>{children}</WalletProvider>
+        </StarknetProvider>
         <Footer />
       </body>
     </html>
