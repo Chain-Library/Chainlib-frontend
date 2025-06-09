@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import BackButton from '../_components/backButton';
 import Slide from './_component/slide';
 
+export const dynamic = "force-dynamic";
+
 export default function AuthLayout({
     children,
 }: Readonly<{
