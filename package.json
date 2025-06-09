@@ -24,6 +24,7 @@
     "@starknet-react/chains": "^3.1.2",
     "@starknet-react/core": "^3.7.2",
     "@starknet-react/typescript-config": "^0.0.1",
+    "chart.js": "^4.4.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",

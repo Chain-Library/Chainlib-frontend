@@ -1,9 +1,10 @@
 "use client"
-import bookData from "@/lib/MockData";
+
 import BookCard from "../reader/BookCard";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import Spinner from "../ui/Spinner";
+import { bookData } from "@/lib/MockData";
 
 
 export default function Trending() {

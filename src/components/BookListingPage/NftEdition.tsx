@@ -1,6 +1,7 @@
 "use client"
 
-import bookData from "@/lib/MockData";
+
+import { bookData } from "@/lib/MockData";
 import BookCard from "../reader/BookCard";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
