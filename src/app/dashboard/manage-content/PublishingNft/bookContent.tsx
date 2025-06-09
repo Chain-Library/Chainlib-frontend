@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, ChangeEvent } from "react";
 import Image from "next/image";
-import fluentdocument from "../../../../../public/fluentdocument.png";
-import basildocument from "../../../../../public/basildocument.png";
+import React, { ChangeEvent, useState } from "react";
 
 type BookData = {
     bookTitle: string;
@@ -44,7 +42,7 @@ function BookContent({ bookData, updateBookData, nextStep }: BookContentProps) {
                 <div>
                     <div className="border-2 border-dashed border-blue-200 rounded-md p-4 flex flex-col items-center justify-center h-64 bg-blue-50">
                         <Image
-                            src={basildocument}
+                            src="/basildocument.png"
                             alt="document upload"
                             width={20}
                             height={10}
@@ -118,7 +116,7 @@ function BookContent({ bookData, updateBookData, nextStep }: BookContentProps) {
                         onClick={() => document.getElementById('manuscript-upload')?.click()}
                     >
                         <Image
-                            src={fluentdocument}
+                            src="/fluentdocument.png"
                             alt="document upload"
                             width={20}
                             height={10}
@@ -163,7 +161,7 @@ function BookContent({ bookData, updateBookData, nextStep }: BookContentProps) {
                             onClick={() => document.getElementById('bonus-content-upload')?.click()}
                         >
                             <Image
-                                src={fluentdocument}
+                                src="/fluentdocument.png"
                                 width={20}
                                 height={10}
                                 alt="document upload"

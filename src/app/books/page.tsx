@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from "@/app/_components/Footer";
-import bookData from "@/lib/MockData";
+import { bookData } from "@/lib/MockData";
 import { useMemo, useState } from "react";
 import Navbar from "../_components/Navbar";
 import BooksPageNav from "./_components/BooksPageNav";
