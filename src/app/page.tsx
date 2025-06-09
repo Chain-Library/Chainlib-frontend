@@ -1,13 +1,28 @@
-import React from "react";
-import LandingPage from "@/app/landing-page/page";
+import Authors from "@/app/_components/ui/Authors";
+import Banner from "@/app/_components/ui/Banner";
+import Community from "@/app/_components/ui/Community";
+import Hero from "@/app/_components/ui/Hero";
+import Nft from "@/app/_components/ui/Nft";
+import Partners from "@/app/_components/ui/Partners";
+import Tagline from "@/app/_components/ui/Tagline";
+import Footer from "./_components/Footer";
+import Navbar from "./_components/Navbar";
+import PopupModal from "./_components/PopupModal";
+
 
 export default function Home() {
   return (
     <>
-      <div className="bg-white">
-       <LandingPage />
-      </div>
-      
+      <Navbar />
+      <Hero />
+      <Tagline />
+      <Nft />
+      <Banner />
+      <Authors />
+      <Community />
+      <Partners />
+      <Footer />
+      <PopupModal />
     </>
   );
 }

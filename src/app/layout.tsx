@@ -1,13 +1,17 @@
+import { Providers } from "@/components/blockchain/Providers";
 import type { Metadata } from "next";
+// import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/landingpage/NavBar";
-import Footer from "@/components/landingpage/Footer";
-import { WalletProvider } from "../components/blockchain/WalletProvider";
-import { StarknetProvider } from "../components/blockchain/Providers";
+
+// const inter = Inter({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '700'],
+//   display: 'swap',
+// });
 
 export const metadata: Metadata = {
   title: "ChainLib",
-  description: "An E-Libray Platform",
+  description: "An E-Library Platform",
 };
 
 export default function RootLayout({
@@ -16,13 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <NavBar />
-        <StarknetProvider>
-          <WalletProvider>{children}</WalletProvider>
-        </StarknetProvider>
-        <Footer />
+    <html lang="en" >
+      {/* <html lang="en" className={inter.className}> */}
+      <body className="relative bg-background font-sans w-screen text-neutral-900">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

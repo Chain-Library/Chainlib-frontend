@@ -39,7 +39,7 @@ export default function NavMenu() {
             animate={{ opacity: 1, y: "0%", height: "100vh" }}
             exit={{ opacity: 0, y: "-100%", height: "0%" }}
             transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
-            className="w-screen h-screen origin-top p-6 grid place-content-center absolute top-0 left-0 bg-background -z-10"
+            className="w-screen h-screen origin-top p-6 grid place-content-evenly absolute top-0 left-0 bg-background -z-10"
         >
             <div className="flex flex-col justify-baseline items-start gap-y-8">
                 {links.map(({ link, href }, index) =>
@@ -48,6 +48,11 @@ export default function NavMenu() {
                     <Link href={href}>{link}</Link>
                 </motion.div>)
                 )}
+            </div>
+
+            <div className="flex items-end justify-start gap-4">
+                <Link className="cursor-pointer px-12 py-4 rounded-base flex items-center font-bold justify-center text-headline-small border border-neutral-600 text-neutral-500" href="/auth/sign-in">Login</Link>
+                <Link className="cursor-pointer px-12 py-4 rounded-base flex items-center font-bold justify-center text-headline-small bg-primary-600 text-background" href="/auth/sign-up">SignUp</Link>
             </div>
         </motion.div>
     )
