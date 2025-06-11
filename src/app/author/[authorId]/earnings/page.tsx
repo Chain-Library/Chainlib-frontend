@@ -3,17 +3,17 @@
 
 import EarningsSummary from "@/components/ dashboard-earnings/EarningSummary"
 import LinkWallet from "@/components/ dashboard-earnings/LinkWallet"
+import RequestPaymentModal from "@/components/ dashboard-earnings/RequestPaymentModal"
 import RevenueBreakdown from "@/components/ dashboard-earnings/RevenueBreakdown"
+import TransactionHistory from "@/components/ dashboard-earnings/TransactionHistory"
 import type { EarningTab } from "@/lib/interfaces/EarningTabInterface"
+import { PaymentPropInterface } from "@/lib/interfaces/PaymentPropInterface"
 import { RevenueChartInterface } from "@/lib/interfaces/RevenueChartInterface"
 import { useEffect, useState } from "react"
-import TransactionHistory from "../../../components/ dashboard-earnings/TransactionHistory"
-import RequestPaymentModal from "@/components/ dashboard-earnings/RequestPaymentModal"
-import { PaymentPropInterface } from "@/lib/interfaces/PaymentPropInterface"
 
 
 const earningsSumaryDetails: EarningTab[] = [
-  { title: "Current Balance", amount:  3150.0 , border: "#D6ECFF" },
+  { title: "Current Balance", amount: 3150.0, border: "#D6ECFF" },
   { title: "Pending Payout", amount: 100.06, border: "#2396413D" },
   { title: "Total Payout", amount: 2500.01, border: "#822ECB3D" },
   { title: "Total Earned", amount: 2730.19, border: "#D6ECFF" },
@@ -35,7 +35,7 @@ const chartData: RevenueChartInterface[] = [
     color: "#FBBC05",
     percentage: "10%"
   },
-    {
+  {
     name: "NFT",
     value: 101,
     color: "#822ECB",
@@ -52,7 +52,7 @@ const chartData: RevenueChartInterface[] = [
 
 
 function EarningsPage() {
-  const [openRequestModal, setOpenRequestModal] =  useState(false)
+  const [openRequestModal, setOpenRequestModal] = useState(false)
   const [walletAddress, setWalletAddress] = useState({
     braavos: "",
     argent: "",
@@ -60,11 +60,11 @@ function EarningsPage() {
 
   const ADDRESS_KEY = "walletAddressKey"
 
-  const [paymentDetails, setPaymentDetails] = useState<PaymentPropInterface> ({
-  amount: 0.00,
-  wallet: "",
-  walletAddress: ""
-})
+  const [paymentDetails, setPaymentDetails] = useState<PaymentPropInterface>({
+    amount: 0.00,
+    wallet: "",
+    walletAddress: ""
+  })
 
 
 
@@ -93,10 +93,10 @@ function EarningsPage() {
   return (
     <div className="flex flex-col gap-8 w-full px-6 py-8 mx-auto font-inter min-w-[350px] ">
       <EarningsSummary earningsSumaryDetails={earningsSumaryDetails} setOpenRequestModal={setOpenRequestModal} />
-      <TransactionHistory/>
-      <RevenueBreakdown chartData={chartData}  />
-      <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress}  />
-{openRequestModal &&       <RequestPaymentModal paymentDetails={paymentDetails} setPaymentDetails={setPaymentDetails} walletAddress={walletAddress}  setOpenRequestModal={setOpenRequestModal} />}
+      <TransactionHistory />
+      <RevenueBreakdown chartData={chartData} />
+      <LinkWallet walletAddress={walletAddress} setWalletAddress={setWalletAddress} />
+      {openRequestModal && <RequestPaymentModal paymentDetails={paymentDetails} setPaymentDetails={setPaymentDetails} walletAddress={walletAddress} setOpenRequestModal={setOpenRequestModal} />}
     </div>
   )
 }

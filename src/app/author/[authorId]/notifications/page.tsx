@@ -1,11 +1,11 @@
 "use client";
 
+import NotificationDetail from "@/app/dashboard/components/notification-detail";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Check } from "lucide-react";
 import Avatar from "@mui/material/Avatar";
+import { Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import NotificationDetail from "../components/notification-detail";
 
 export default function Component() {
   const notifications = [
