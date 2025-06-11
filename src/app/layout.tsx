@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import NavBar from "@/components/landingpage/NavBar";
-import Footer from "@/components/landingpage/Footer";
-import { WalletProvider } from "../components/blockchain/WalletProvider";
-import { StarknetProvider } from "../components/blockchain/Providers";
 import { Inter } from "next/font/google";
+import { StarknetProvider } from "../components/blockchain/Providers";
+import { WalletProvider } from "../components/blockchain/WalletProvider";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ChainLib",
-  description: "An E-Libray Platform",
+  description: "An E-Library Platform",
 };
 
 const inter = Inter({
@@ -25,11 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className} >
       <body>
-        <NavBar />
         <StarknetProvider>
           <WalletProvider>{children}</WalletProvider>
         </StarknetProvider>
-        <Footer />
       </body>
     </html>
   );

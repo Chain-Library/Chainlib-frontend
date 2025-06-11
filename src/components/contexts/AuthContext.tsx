@@ -1,9 +1,13 @@
-import React from 'react'
+"use client"
 
-function AuthContext() {
+import { createContext, ReactNode } from "react"
+
+export const AuthContext = createContext({})
+
+
+export default function AuthContextProvider({ children }: { children: ReactNode }) {
+
   return (
-    <div>AuthContext</div>
+    <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>
   )
 }
-
-export default AuthContext
