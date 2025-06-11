@@ -3,24 +3,13 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { FiX } from 'react-icons/fi';
 
-export default function PopupModal() {
-    const [isVisible, setIsVisible] = useState(false);
-
+export default function PopupModal({ isVisible, setIsVisible }: { isVisible: boolean; setIsVisible: (x: boolean) => void }) {
     const handleClose = () => {
         setIsVisible(false);
     };
-
-    useEffect(() => {
-        const timerId = setTimeout(() => setIsVisible(true), 3000)
-
-        return () => {
-            clearTimeout(timerId)
-        }
-    }, [])
-
 
     // When modal is open, prevent body scrolling
     useEffect(() => {

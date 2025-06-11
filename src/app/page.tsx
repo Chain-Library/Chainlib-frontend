@@ -7,8 +7,6 @@ import Partners from "@/app/_components/ui/Partners";
 import Tagline from "@/app/_components/ui/Tagline";
 import Footer from "./_components/Footer";
 import Navbar from "./_components/Navbar";
-import PopupModal from "./_components/PopupModal";
-
 
 export default function Home() {
   return (
@@ -22,7 +20,6 @@ export default function Home() {
       <Community />
       <Partners />
       <Footer />
-      <PopupModal />
     </>
   );
 }

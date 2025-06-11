@@ -1,5 +1,3 @@
-import Footer from "@/components/landingpage/Footer";
-import NavBar from "@/components/landingpage/NavBar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { StarknetProvider } from "../components/blockchain/Providers";
@@ -25,11 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className} >
       <body>
-        <NavBar />
         <StarknetProvider>
           <WalletProvider>{children}</WalletProvider>
         </StarknetProvider>
-        <Footer />
       </body>
     </html>
   );
