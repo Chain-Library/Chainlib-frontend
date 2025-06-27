@@ -25,11 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className} >
       <body>
-        <NavBar />
+        {/* <NavBar /> */}
         <StarknetProvider>
           <WalletProvider>{children}</WalletProvider>
         </StarknetProvider>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
