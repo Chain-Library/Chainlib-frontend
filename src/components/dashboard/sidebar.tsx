@@ -38,6 +38,11 @@ export function Sidebar() {
       href: "/dashboard/analytics",
     },
     {
+      icon: User,
+      label: "Stats & Achievements",
+      href: "/dashboard/stats-and-achievements",
+    },
+    {
       icon: MessageSquare,
       label: "Readers Feedback",
       href: "/dashboard/feedback",
