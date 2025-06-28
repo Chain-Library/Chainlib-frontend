@@ -1,16 +1,12 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-  CheckCircle,
-  Star,
-  ArrowRight,
-  Info,
-  MessageSquare,
-} from 'lucide-react';
+import { CheckCircle, Star, ArrowRight, Info } from 'lucide-react';
 import Image from 'next/image';
-import { Header } from '@/components/dashboard/header';
 import ximage from '@/assets/Images/1.png';
+
+import DashboardIcons from '@/assets/icons/readerdashboardicons';
+
 export default function ChainlibDashboard() {
   const continueReadingBooks = [
     {
@@ -189,7 +185,7 @@ export default function ChainlibDashboard() {
           </CardContent>
         </Card>
 
-        <section>
+        <section className=" bg-white rounded-lg p-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
               Continue Reading
@@ -202,7 +198,7 @@ export default function ChainlibDashboard() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white rounded-lg p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {continueReadingBooks.map((book) => (
               <Card
                 key={book.id}
@@ -217,17 +213,15 @@ export default function ChainlibDashboard() {
                       height={160}
                       className="w-full h-40 object-cover rounded-lg"
                     />
-                    {book.nft && (
-                      <Badge className="absolute top-2 right-2 bg-purple-100 text-purple-700 text-xs">
-                        NFT
-                      </Badge>
-                    )}
                   </div>
 
-                  <div className="mb-3">
-                    <p className="text-xs text-gray-500 mb-1">
-                      {book.progress}% Completed
-                    </p>
+                  <div className="mb-3 ">
+                    <div className="flex items-center gap-2 justify-start">
+                      <div>{book.nft && <DashboardIcons.NFTIcon />}</div>
+                      <p className="text-[10px] text-[#454545] mb-1 bg-[#F6F6F6] px-2 py-1 rounded-full inline-block">
+                        {book.progress}% Completed
+                      </p>
+                    </div>
                     <div className="w-full bg-gray-200 rounded-full h-1.5">
                       <div
                         className="bg-blue-500 h-1.5 rounded-full"
@@ -241,12 +235,10 @@ export default function ChainlibDashboard() {
                   </h3>
                   <div className="flex items-center gap-1 mb-3">
                     <p className="text-xs text-gray-600">By {book.author}</p>
-                    {book.verified && (
-                      <CheckCircle className="w-3 h-3 text-blue-500" />
-                    )}
+                    {book.verified && <DashboardIcons.VerifiedIcon />}
                   </div>
 
-                  <Button className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 border-0">
+                  <Button className="w-full bg-[#EDF7FF] from-[#EDF7FF] to-[#096CFF] hover:bg-blue-200 text-[#0F265C] border-0">
                     Continue Reading
                   </Button>
                 </CardContent>
@@ -255,15 +247,14 @@ export default function ChainlibDashboard() {
           </div>
         </section>
 
-        {/* New Release */}
-        <section>
+        <section className=" bg-white rounded-lg p-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
               New Release
             </h2>
             <Button
               variant="ghost"
-              className="text-gray-500 hover:text-gray-700"
+              className="border border-[#E7E7E7] text-[#B0B0B0] rounded-2xl"
             >
               View All <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
@@ -271,7 +262,10 @@ export default function ChainlibDashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {newReleaseBooks.map((book) => (
-              <Card key={book.id} className="overflow-hidden">
+              <Card
+                key={book.id}
+                className="overflow-hidden bg-transparent shadow-none border border-[#E7E7E7] rounded-md"
+              >
                 <CardContent className="p-4">
                   <Image
                     src={book.cover || '/placeholder.svg'}
@@ -286,9 +280,7 @@ export default function ChainlibDashboard() {
                   </h3>
                   <div className="flex items-center gap-1 mb-2">
                     <p className="text-xs text-gray-600">By {book.author}</p>
-                    {book.verified && (
-                      <CheckCircle className="w-3 h-3 text-blue-500" />
-                    )}
+                    {book.verified && <DashboardIcons.VerifiedIcon />}
                   </div>
 
                   <div className="flex items-center gap-2 mb-2">
@@ -302,11 +294,11 @@ export default function ChainlibDashboard() {
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                    <DashboardIcons.StarIcon />
                     <span className="text-xs text-gray-600">{book.rating}</span>
                     {book.reviews && (
                       <>
-                        <MessageSquare className="w-3 h-3 text-gray-400 ml-1" />
+                        <DashboardIcons.CommentIcon />
                         <span className="text-xs text-gray-600">
                           {book.reviews}
                         </span>
@@ -319,15 +311,14 @@ export default function ChainlibDashboard() {
           </div>
         </section>
 
-        {/* Trending Books */}
-        <section>
+        <section className=" bg-white rounded-lg p-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
               Trending Books
             </h2>
             <Button
               variant="ghost"
-              className="text-gray-500 hover:text-gray-700"
+              className="border border-[#E7E7E7] text-[#B0B0B0] rounded-2xl"
             >
               View All <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
@@ -335,7 +326,10 @@ export default function ChainlibDashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {newReleaseBooks.map((book) => (
-              <Card key={`trending-${book.id}`} className="overflow-hidden">
+              <Card
+                key={`trending-${book.id}`}
+                className="overflow-hidden bg-transparent shadow-none border border-[#E7E7E7] rounded-md"
+              >
                 <CardContent className="p-4">
                   <Image
                     src={book.cover || '/placeholder.svg'}
@@ -350,9 +344,7 @@ export default function ChainlibDashboard() {
                   </h3>
                   <div className="flex items-center gap-1 mb-2">
                     <p className="text-xs text-gray-600">By {book.author}</p>
-                    {book.verified && (
-                      <CheckCircle className="w-3 h-3 text-blue-500" />
-                    )}
+                    {book.verified && <DashboardIcons.VerifiedIcon />}
                   </div>
 
                   <div className="flex items-center gap-2 mb-2">
@@ -366,11 +358,11 @@ export default function ChainlibDashboard() {
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                    <DashboardIcons.StarIcon />
                     <span className="text-xs text-gray-600">{book.rating}</span>
                     {book.reviews && (
                       <>
-                        <MessageSquare className="w-3 h-3 text-gray-400 ml-1" />
+                        <DashboardIcons.CommentIcon />
                         <span className="text-xs text-gray-600">
                           {book.reviews}
                         </span>
@@ -383,15 +375,14 @@ export default function ChainlibDashboard() {
           </div>
         </section>
 
-        {/* Recommendation */}
-        <section>
+        <section className=" bg-white rounded-lg p-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
               Recommendation
             </h2>
             <Button
               variant="ghost"
-              className="text-gray-500 hover:text-gray-700"
+              className="border border-[#E7E7E7] text-[#B0B0B0] rounded-2xl"
             >
               View All <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
@@ -399,7 +390,10 @@ export default function ChainlibDashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {newReleaseBooks.map((book) => (
-              <Card key={`rec-${book.id}`} className="overflow-hidden">
+              <Card
+                key={`rec-${book.id}`}
+                className="overflow-hidden bg-transparent shadow-none border border-[#E7E7E7] rounded-md"
+              >
                 <CardContent className="p-4">
                   <Image
                     src={book.cover || '/placeholder.svg'}
@@ -415,7 +409,7 @@ export default function ChainlibDashboard() {
                   <div className="flex items-center gap-1 mb-2">
                     <p className="text-xs text-gray-600">By {book.author}</p>
                     {book.verified && (
-                      <CheckCircle className="w-3 h-3 text-blue-500" />
+                      <DashboardIcons.VerifiedIcon className="w-3 h-3 text-blue-500" />
                     )}
                   </div>
 
@@ -430,11 +424,11 @@ export default function ChainlibDashboard() {
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                    <DashboardIcons.StarIcon />
                     <span className="text-xs text-gray-600">{book.rating}</span>
                     {book.reviews && (
                       <>
-                        <MessageSquare className="w-3 h-3 text-gray-400 ml-1" />
+                        <DashboardIcons.CommentIcon />
                         <span className="text-xs text-gray-600">
                           {book.reviews}
                         </span>
@@ -447,7 +441,6 @@ export default function ChainlibDashboard() {
           </div>
         </section>
 
-        {/* NFT Edition */}
         <section className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-xl p-6 md:p-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl md:text-2xl font-bold text-white">
@@ -508,7 +501,6 @@ export default function ChainlibDashboard() {
           </div>
         </section>
 
-        {/* Top Authors for the Week */}
         <section>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
