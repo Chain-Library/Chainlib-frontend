@@ -23,13 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className} >
+    <html lang="en" className={inter.className}>
       <body>
-        <NavBar />
         <StarknetProvider>
           <WalletProvider>{children}</WalletProvider>
         </StarknetProvider>
-        <Footer />
       </body>
     </html>
   );

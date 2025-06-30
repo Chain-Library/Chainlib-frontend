@@ -24,13 +24,11 @@ export default function WalletConnectModal({
   isOpen,
   onClose,
 }: WalletConnectModalProps) {
-  const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
-  const { connectors, connectAsync} = useWalletContext();
+  const [selectedWallet, setSelectedWallet] = useState<number | null>(null);
+  const { connectors, connectAsync } = useWalletContext();
   const router = useRouter();
 
-
-
-  const handleSelect = (walletId: string) => {
+  const handleSelect = (walletId: number) => {
     setSelectedWallet(walletId);
   };
 
@@ -38,7 +36,7 @@ export default function WalletConnectModal({
   const handleConfirm = async () => {
     if (!selectedWallet) return;
 
-    const connector = connectors.find((c) => c.id === selectedWallet);
+    const connector = connectors[selectedWallet - 1];
     if (!connector) {
       console.error("Connector not found:", selectedWallet);
       return;
@@ -48,7 +46,7 @@ export default function WalletConnectModal({
       await connectAsync({ connector }); // ■ await the wallet prompt
       router.push("/sign-in"); // ■ now safe to navigate
       onClose();
-    } catch (err) {  
+    } catch (err) {
       console.error("Wallet connection failed:", err); // ■ handle rejections
     }
   };
@@ -106,60 +104,60 @@ export default function WalletConnectModal({
           />
 
           <motion.div
-            className="relative w-full max-w-md rounded-2xl bg-blue-600 p-6 shadow-xl"
+            className="relative w-fit px-[80px] rounded-2xl bg-white py-[60px] shadow-xl relative"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">
-                Connect Wallet
-              </h2>
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <X size={20} />
-              </button>
-            </div>
+            <button
+              onClick={onClose}
+              className="text-gray-400 absolute top-5 right-5 bg-[#F6F6F6] p-2 rounded-[8px]"
+            >
+              <X size={20} />
+            </button>
+            <h2 className="text-xl font-semibold text-[#0F265C] text-center mb-1">
+              Connect Wallet
+            </h2>
 
-            <p className="text-gray-300 mb-4 text-center">
+            <p className="text-[#0F265C] mb-4 text-center text-sm">
               Choose a wallet you want to connect to Chain Lib
             </p>
 
-            <div className="space-y-3 mb-6">
-              {connectors.map((wallet, index) => (
-                <AnimationWrapper
-                  key={wallet?.id}
-                  variant="slideRight"
-                  delay={index * 0.1}
-                >
-                  <button
-                    className={`w-full flex items-center gap-3 p-3 rounded-full border border-gray-700 hover:border-gray-500 transition-colors ${
-                      selectedWallet === wallet.id
-                        ? "border-teal-500 bg-[#0d0e24]"
-                        : ""
-                    }`}
-                    onClick={() => handleSelect(wallet.id)}
+            <div className="space-x-8 mb-6 flex justify-center">
+              {connectors.map((wallet, index) => {
+                console.log(connectors, "connectors");
+                return (
+                  <AnimationWrapper
+                    key={wallet?.id}
+                    variant="slideRight"
+                    delay={index * 0.1}
                   >
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center`}
+                    <button
+                      style={{ boxShadow: "0px 6px 6px 0px #1212120A" }}
+                      className={`w-[200px] text-black border p-2 rounded-[10px] transition-all ease-in-out duration-200 
+                        ${
+                          selectedWallet === index + 1
+                            ? "border-[#6366F1] bg-[#F6F6F6]"
+                            : "border-[#E0E0E0] hover:border-[#6366F1] hover:bg-[#F0F2FF] bg-white"
+                        }`}
+                      onClick={() => handleSelect(index + 1)}
                     >
-                      <div className="">
+                      <div className="bg-[#E0F0FF] flex justify-center items-center mb-5 h-[120px] rounded-[8px]">
                         <Image
                           src={getIconSource(wallet.icon)}
                           alt={wallet.name}
-                          width={30}
-                          height={30}
+                          width={40}
+                          height={40}
                           className="object-contain"
                         />
                       </div>
-                    </div>
-                    <span className="text-white">{wallet.name}</span>
-                  </button>
-                </AnimationWrapper>
-              ))}
+
+                      <span className={`font-medium`}>{wallet.name}</span>
+                    </button>
+                  </AnimationWrapper>
+                );
+              })}
             </div>
 
             {/* ③ Confirmation button */}
