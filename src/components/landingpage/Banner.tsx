@@ -47,23 +47,11 @@ export default function BookCategories() {
               key={rowIndex}
               initial="hidden"
               animate="visible"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.1,
-                  },
-                },
-              }}
               className="flex flex-wrap justify-center gap-3"
             >
               {row.map((cat, catIndex) => (
                 <motion.span
                   key={catIndex}
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1 },
-                  }}
                   className={`px-6 py-2 rounded-full ${cat.color} text-blue-900 font-medium hover:scale-105 transition-all cursor-pointer`}
                 >
                   {cat.label}
