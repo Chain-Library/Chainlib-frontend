@@ -118,24 +118,20 @@ function AuthorDashboard() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-8 px-4">
-        <div className="flex items-center gap-3">
-          <SearchBar placeholder="Search for books, authors..." />
-        </div>
+        <SearchBar placeholder="Search for books, authors..." />
 
         <div className="flex items-center justify-center space-x-4">
           {/* Notification bell */}
-          <div className="relative">
-            <button className="text-gray-500 hover:text-gray-700">
-              <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
-                1
-              </span>
-            </button>
-          </div>
+          <button className="text-gray-500 hover:text-gray-700 relative">
+            <Bell className="w-5 h-5 text-[#5D5D5D]" fill="currentColor" />
+            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white">
+              1
+            </span>
+          </button>
 
           {/* Profile */}
           <div className="flex items-center  border border-[#E7E7E7] rounded-md p-2">
-            <div className="h-8 w-8 rounded-md overflow-hidden border border-gray-200">
+            <div className="rounded-md overflow-hidden border border-gray-200">
               <Image
                 src="/profile.png"
                 alt="Profile"
