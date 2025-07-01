@@ -1,32 +1,22 @@
-# name: Build Project
 
-# on: [push, pull_request]
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     container:
-#       image: node:20
-#     steps:
-#       - uses: actions/checkout@v3
-#         with:
-#           node-version: 20
-#       - run: npm ci
-#       - run: npm run build
-
-
-#       # //ci
+name: Run Frontend Tests
 
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: node:20
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
       - name: Install dependencies
-        run: |
-          npm install --legacy-peer-deps
-          
-      - run: npm ci
-      - run: npm run build
+        run: npm install --legacy-peer-deps
+
+      - name: Run build
+        run: npm run build
