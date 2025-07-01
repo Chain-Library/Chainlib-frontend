@@ -1,18 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion"; // Import Variants explicitly
 import { X } from "lucide-react";
 import Image from "next/image";
 import AnimationWrapper from "../motion/Animation-wrapper";
 import { useWalletContext } from "./WalletProvider";
 import { useRouter } from "next/navigation";
-
-// interface WalletOption {
-//   id: string;
-//   name: string;
-//   icon: string;
-// }
 
 interface WalletConnectModalProps {
   isOpen: boolean;
@@ -25,16 +19,13 @@ export default function WalletConnectModal({
   onClose,
 }: WalletConnectModalProps) {
   const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
-  const { connectors, connectAsync} = useWalletContext();
+  const { connectors, connectAsync } = useWalletContext();
   const router = useRouter();
-
-
 
   const handleSelect = (walletId: string) => {
     setSelectedWallet(walletId);
   };
 
-  // ② On confirm, look up the connector object and call connectWallet
   const handleConfirm = async () => {
     if (!selectedWallet) return;
 
@@ -45,15 +36,16 @@ export default function WalletConnectModal({
     }
 
     try {
-      await connectAsync({ connector }); // ■ await the wallet prompt
-      router.push("/sign-in"); // ■ now safe to navigate
+      await connectAsync({ connector });
+      router.push("/sign-in");
       onClose();
-    } catch (err) {  
-      console.error("Wallet connection failed:", err); // ■ handle rejections
+    } catch (err) {
+      console.error("Wallet connection failed:", err);
     }
   };
 
-  const modalVariants = {
+  // Explicitly type modalVariants as Variants
+  const modalVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
@@ -73,23 +65,20 @@ export default function WalletConnectModal({
     },
   };
 
-  const backdropVariants = {
+  const backdropVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
     exit: { opacity: 0 },
   };
 
-  // helper to get icon source
+  // Helper to get icon source
   function getIconSource(
     icon: string | { dark: string; light: string }
   ): string {
     if (typeof icon === "string") {
-      // If it's a string, use it directly
       return icon;
-    } else {
-      // If it's an object, use the dark variant (or light, as needed)
-      return icon.dark; // Or icon.light, depending on your theme
     }
+    return icon.dark; // Or icon.light, depending on theme
   }
 
   return (
@@ -125,7 +114,7 @@ export default function WalletConnectModal({
             </div>
 
             <p className="text-gray-300 mb-4 text-center">
-              Choose a wallet you want to connect to Chain Lib
+              Choose a wallet you want Hüto connect to Chain Lib
             </p>
 
             <div className="space-y-3 mb-6">
@@ -162,7 +151,6 @@ export default function WalletConnectModal({
               ))}
             </div>
 
-            {/* ③ Confirmation button */}
             <AnimationWrapper variant="slideUp" delay={0.3}>
               <button
                 onClick={handleConfirm}
