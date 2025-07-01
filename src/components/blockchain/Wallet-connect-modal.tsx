@@ -105,7 +105,6 @@ export default function WalletConnectModal({
 
           <motion.div
             className="relative w-fit px-[80px] rounded-2xl bg-white py-[60px] shadow-xl relative"
-            variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
