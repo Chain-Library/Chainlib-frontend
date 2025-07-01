@@ -5,9 +5,7 @@ export default function Dashboard() {
   return (
     <div>
       <Header title="Dashboard" />
-      <div className="p-6">
-        <h2 className="text-lg font-semibold mb-4">Overview</h2>
-
+      <div className="p-6 mt-16">
         <div className="bg-white p-6 rounded-lg border border-[#e7e7e7] mb-8">
           <h3 className="font-semibold mb-4">Monthly Sales</h3>
           <div className="h-64 bg-[#f6f6f6] rounded-lg flex items-center justify-center">

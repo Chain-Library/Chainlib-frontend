@@ -12,11 +12,14 @@ import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";
 
 // starknet imports
 import { useWalletContext } from "../blockchain/WalletProvider";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
   const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const path = usePathname()
+  
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const { account, connectWallet, disconnectWallet, connectors } =
@@ -61,6 +64,10 @@ const NavBar = () => {
     disconnectWallet(); // real Starknet-React disconnect :contentReference[oaicite:4]{index=4}
     setIsDisconnectModalOpen(false);
   };
+
+  if (path.includes("dashboard")) {
+    return
+  }
 
   return (
     <>

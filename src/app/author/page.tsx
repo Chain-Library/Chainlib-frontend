@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MoveLeft, Bell, BadgeCheck } from 'lucide-react';
+import { Bell, BadgeCheck } from 'lucide-react';
 import { FiBook, FiDollarSign, FiUsers, FiEye } from 'react-icons/fi';
 import ProfileCompletionModal from '@/components/common/Modal';
 import SearchBar from '@/components/common/SearchBar';
 
 function AuthorDashboard() {
   const [showProfileModal, setShowProfileModal] = useState(true);
-  const [showProfileAlert, setShowProfileAlert] = useState(true);
+  const [showProfileAlert] = useState(true);
   
   // Mock data - would be fetched from API
   const stats = {
@@ -163,7 +163,7 @@ function AuthorDashboard() {
             <p className="text-sm text-yellow-700">
               Just a few more details and your profile will be complete!
               <br />
-              <span className="text-xs">Let's get this done so you can enjoy all the features.</span>
+              <span className="text-xs">Let&#39;s get this done so you can enjoy all the features.</span>
             </p>
           </div>
           <button 
