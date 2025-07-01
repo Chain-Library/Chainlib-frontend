@@ -24,11 +24,9 @@ jobs:
       image: node:20
     steps:
       - uses: actions/checkout@v3
-        with:
-          node-version: 20
       - name: Install dependencies
         run: |
-          npm install --leagcy-peer-deps
+          npm install --legacy-peer-deps
           
       - run: npm ci
       - run: npm run build
