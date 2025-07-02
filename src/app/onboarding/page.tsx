@@ -4,7 +4,6 @@ import { ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-
 interface WalletOptionProps {
   icon: string;
   name: string;
@@ -25,14 +24,6 @@ interface AnimatedLoaderProps {
   size?: number;
 }
 
-interface SuccessIconProps {
-  size?: number;
-}
-
-interface ErrorIconProps {
-  size?: number;
-}
-
 const mockImages = {
   logo: '/onboarding/logo.svg',
   backgroundDesktop: '/onboarding/Banner.svg',
@@ -41,10 +32,8 @@ const mockImages = {
   argentWallet: '/onboarding/argent.svg'
 };
 
-
 const AnimatedLoader: React.FC<AnimatedLoaderProps> = ({ size = 60 }) => {
   console.log('AnimatedLoader rendering with size:', size); 
-  
   
   const CSSLoader = () => (
     <div className="flex items-center justify-center">
@@ -86,7 +75,7 @@ const AnimatedLoader: React.FC<AnimatedLoaderProps> = ({ size = 60 }) => {
   }
 };
 
-const SuccessIcon: React.FC<SuccessIconProps> = ({ size = 40 }) => {
+const SuccessIcon: React.FC = () => {
   return (
     <div className="flex items-center justify-center">
       <motion.div 
@@ -132,7 +121,7 @@ const SuccessIcon: React.FC<SuccessIconProps> = ({ size = 40 }) => {
   );
 };
 
-const ErrorIcon: React.FC<ErrorIconProps> = ({ size = 60 }) => {
+const ErrorIcon: React.FC = () => {
   return (
     <div className="flex items-center justify-center">
       <div 
@@ -184,7 +173,6 @@ const WalletOption: React.FC<WalletOptionProps> = ({ icon, name, onConnect, isCo
     </div>
   );
 };
-
 
 const DesktopLeftPanel: React.FC<DesktopLeftPanelProps> = ({ step }) => {
   const getContent = () => {
@@ -240,8 +228,6 @@ const DesktopLeftPanel: React.FC<DesktopLeftPanelProps> = ({ step }) => {
         backgroundPosition: 'center'
       }}
     >
-      
-      
       <div className="relative">
         <div className="flex items-center space-x-3 mb-8">
           <Image src={mockImages.logo} alt="ChainLib" className="w-15 h-15 rounded-full" width={40} height={40}/>
@@ -262,6 +248,7 @@ const DesktopLeftPanel: React.FC<DesktopLeftPanelProps> = ({ step }) => {
     </div>
   );
 };
+
 const MobileHeader: React.FC<MobileHeaderProps> = ({ onBack, showBack = true }) => {
   return (
     <div className="flex items-center justify-between px-4 pt-8">
@@ -279,11 +266,11 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ onBack, showBack = true }) 
     </div>
   );
 };
+
 const ChainLibOnboarding: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<string>('wallet-selection');
   const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState<boolean>(false);
-
 
   useEffect(() => {
     if (currentStep === 'connecting') {
@@ -311,12 +298,7 @@ const ChainLibOnboarding: React.FC = () => {
     setCurrentStep('connecting');
   };
 
-  const handleSignMessage = () => {
-    setCurrentStep('connected');
-  };
-
   const handleProceed = () => {
-    
     const isSuccess = Math.random() > 0.5; 
     if (isSuccess) {
       setCurrentStep('final-success');
@@ -475,7 +457,7 @@ const ChainLibOnboarding: React.FC = () => {
         return (
           <div className="border border-gray-200 rounded-lg p-6">
             <div className="text-center space-y-6">
-              <SuccessIcon size={40} />
+              <SuccessIcon />
               
               <div className="space-y-2">
                 <h2 className="text-lg font-medium text-gray-900">{selectedWallet} Wallet Connected</h2>
@@ -495,7 +477,7 @@ const ChainLibOnboarding: React.FC = () => {
         return (
           <div className="border border-gray-200 rounded-lg p-6">
             <div className="text-center space-y-6">
-              <ErrorIcon size={60} />
+              <ErrorIcon />
               
               <div className="space-y-2">
                 <h2 className="text-lg font-medium text-gray-900">Unable to Connect</h2>
@@ -515,7 +497,7 @@ const ChainLibOnboarding: React.FC = () => {
         return (
           <div className="border border-gray-200 rounded-lg p-6">
             <div className="text-center space-y-6">
-              <ErrorIcon size={60} />
+              <ErrorIcon />
               
               <div className="space-y-2">
                 <h2 className="text-lg font-medium text-gray-900">Unable to Connect</h2>
@@ -553,7 +535,7 @@ const ChainLibOnboarding: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex mt-16">
+    <div className="h-screen bg-white flex">
       <DesktopLeftPanel step={currentStep} />
       
       <div className="flex-1 lg:w-1/2 flex flex-col">
