@@ -9,6 +9,7 @@ import {
   LogOut,
   MessageSquare,
   User,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,6 +42,11 @@ export function Sidebar() {
       icon: MessageSquare,
       label: "Readers Feedback",
       href: "/dashboard/feedback",
+    },
+    {
+      icon: MessageCircle,
+      label: "Discussions & Clubs",
+      href: "/dashboard/discussions",
     },
     {
       icon: Bell,
