@@ -5,10 +5,13 @@ import Authors from "@/components/landingpage/Authors";
 import Banner from "@/components/landingpage/Banner";
 import Community from "@/components/landingpage/Community";
 import Partener from "@/components/landingpage/Partener";
+import NavBar from "@/components/landingpage/NavBar";
+import Footer from "@/components/landingpage/Footer";
 
 export default function landing() {
   return (
     <>
+      <NavBar />
       <Hero />
       <Tagline />
       <Nft />
@@ -16,6 +19,7 @@ export default function landing() {
       <Authors />
       <Community />
       <Partener />
+      <Footer />
     </>
   );
 }
