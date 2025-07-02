@@ -9,6 +9,8 @@ import {
   LogOut,
   MessageSquare,
   User,
+  ClipboardList,
+  Heart
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,6 +33,17 @@ export function Sidebar() {
       icon: DollarSign,
       label: "Earnings",
       href: "/dashboard/earnings",
+    },
+    {
+      icon: Heart,
+      label: "Wishlist",
+      href: "/dashboard/wishlist",
+      badge: 4,
+    },
+    {
+      icon: ClipboardList,
+      label: "Trasactions",
+      href: "/dashboard/transactions",
     },
     {
       icon: LineChart,
@@ -81,7 +94,13 @@ export function Sidebar() {
                   {item.label}
                 </span>
                 {item.badge && (
-                  <div className="ml-auto w-5 h-5 bg-[#ff5c5c] rounded-full flex items-center justify-center">
+                  <div
+                    className={`ml-auto w-5 h-5 ${
+                      item.label == "Notification"
+                        ? "bg-[#ff5c5c]"
+                        : "bg-[#096CFF]"
+                    }  rounded-full flex items-center justify-center`}
+                  >
                     <span className="text-white text-xs">{item.badge}</span>
                   </div>
                 )}

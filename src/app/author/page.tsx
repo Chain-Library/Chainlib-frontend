@@ -247,9 +247,7 @@ function AuthorDashboard() {
             <p className="text-sm text-yellow-700">
               Just a few more details and your profile will be complete!
               <br />
-              <span className="text-xs">
-                Let's get this done so you can enjoy all the features.
-              </span>
+              <span className="text-xs">Let&#39;s get this done so you can enjoy all the features.</span>
             </p>
           </div>
           <button
