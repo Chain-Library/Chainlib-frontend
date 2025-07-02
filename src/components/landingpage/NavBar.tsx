@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Image4 from "@/assets/Images/ImageLogo.png";
 import { useState, useRef, useEffect } from "react";
-import {  MoreVertical } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import AnimationWrapper from "@/components/motion/Animation-wrapper";
 import WalletConnectModal from "../blockchain/Wallet-connect-modal";
 import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";
@@ -13,14 +13,22 @@ import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";
 // starknet imports
 import { useWalletContext } from "../blockchain/WalletProvider";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const NavBar = () => {
+  const pathname = usePathname();
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
   const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const path = usePathname()
   
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Books", href: "/books" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "About ChainLib", href: "/about-us" },
+  ];
 
   const { account, connectWallet, disconnectWallet, connectors } =
     useWalletContext();
@@ -71,49 +79,35 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex justify-between h-16 items-center px-10 sticky top-0 left-0 bg-white">
-        <div className="flex items-center">
-          <Link href="/">
-            <span className="flex items-center cursor-pointer">
-              <Image
-                src={Image4}
-                alt="Logo"
-                width={24}
-                height={24}
-                className="h-9 w-9"
-              />
-              <span className="ml-2 text-[#0F265C] text-lg font-medium">
-                ChainLib
-              </span>
+      <div className="flex justify-between py-4 items-center px-[60px] z-[50] sticky top-0 left-0 bg-white border-b-[#E7E7E7] border-b-1">
+        <Link href="/">
+          <span className="flex items-center cursor-pointer space-x-2">
+            <Image
+              src={Image4}
+              alt="Logo"
+              width={36}
+              height={36}
+              className="h-9 w-9"
+            />
+            <span className="text-[#0F265C] text-xl leading-[26px] font-bold">
+              ChainLib
             </span>
-          </Link>
-        </div>
+          </span>
+        </Link>
 
-        <nav className="hidden md:flex space-x-8">
-          <Link
-            href="/"
-            className="text-gray-500 font-medium hover:text-gray-900"
-          >
-            Home
-          </Link>
-          <Link
-            href="/books"
-            className="text-gray-500 font-medium hover:text-gray-900"
-          >
-            Books
-          </Link>
-          <Link
-            href="/how-it-works"
-            className="text-gray-500 font-medium hover:text-gray-900"
-          >
-            How It Works
-          </Link>
-          <Link
-            href="/about-us"
-            className="text-gray-500 font-medium  hover:text-gray-900"
-          >
-            About ChainLib
-          </Link>
+        <nav className="hidden md:flex space-x-6 text-[#5D5D5D] text-sm">
+          {navItems.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className={clsx(
+                "hover:text-gray-900 py-2 px-4 rounded-[16px]",
+                pathname === href && "bg-[#EDF7FF]"
+              )}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
         {/* <div className="hidden md:flex items-center space-x-4">
@@ -180,7 +174,6 @@ const NavBar = () => {
                       >
                         Sign in
                       </Link>
-                  
                     </div>
                   </div>
                 )}
@@ -204,5 +197,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
