@@ -7,6 +7,10 @@ const nextConfig = {
       enabled: true, // Set turbo to true within an object
     },
   },
+  images: {
+    domains: ['randomuser.me'],
+  },
+
 };
 
 // export default nextConfig;
