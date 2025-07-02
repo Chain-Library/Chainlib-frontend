@@ -17,20 +17,15 @@ export default function WalletDisconnectModal({
   onClose,
   onDisconnect,
 }: WalletDisconnectModalProps) {
-
-
   //pathname check
   const pathName = usePathname();
   const signInPath = "/sign-in";
-  
 
   //router
   const router = useRouter();
 
   const handleDisconnect = () => {
-    if (
-      signInPath === pathName
-    ) {
+    if (signInPath === pathName) {
       router.push("/"); // ■ now safe to navigate
     }
     onDisconnect();
@@ -68,7 +63,6 @@ export default function WalletDisconnectModal({
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <motion.div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm"
-            variants={backdropVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -77,7 +71,6 @@ export default function WalletDisconnectModal({
 
           <motion.div
             className="relative w-full max-w-sm rounded-2xl bg-[#0a0b1e] p-6 shadow-xl"
-            variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
