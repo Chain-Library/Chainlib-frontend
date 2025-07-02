@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <Header title="Manage Content" />
 
-      <div className="p-6">
+      <div className="p-6 mt-16">
         <ManageContent />
       </div>
     </div>

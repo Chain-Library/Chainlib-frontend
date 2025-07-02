@@ -6,7 +6,7 @@ import ClubCard from "./ClubCard";
 import { ClubDetailsProps } from "@/lib/types";
 import ClubModal from "./components/ClubDetails";
 
-export const clubCards: ClubDetailsProps[] = [
+ const clubCards: ClubDetailsProps[] = [
   {
     id: "1",
     name: "Fantasy Enthusiasts",

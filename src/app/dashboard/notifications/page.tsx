@@ -1,74 +1,74 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, Check } from "lucide-react";
-import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
-import NotificationDetail from "../components/notification-detail";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CheckCheck } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Header } from "@/components/dashboard/header";
+import { NotificationDetailPage } from "./notification-detail";
 
-export default function Component() {
-  const notifications = [
-    {
-      id: 1,
-      title: "New updates for Writers",
-      time: "12:16 PM",
-      isNew: true,
-      date: "Today",
-    },
-    {
-      id: 2,
-      title: "New updates for Writers",
-      time: "12:19 PM",
-      isNew: true,
-      date: "Today",
-    },
-    {
-      id: 3,
-      title: "New updates for Writers",
-      time: "12:16 PM",
-      isNew: true,
-      date: "Yesterday",
-    },
-    {
-      id: 4,
-      title: "New updates for Writers",
-      time: "12:19 PM",
-      isNew: true,
-      date: "Yesterday",
-    },
-    {
-      id: 5,
-      title: "New updates for Writers",
-      time: "12:25 PM",
-      isNew: true,
-      date: "Yesterday",
-    },
-    {
-      id: 6,
-      title: "New updates for Writers",
-      time: "12:19 PM",
-      isNew: true,
-      date: "12 April, 2025",
-    },
-  ];
+const notifications = [
+  {
+    id: 1,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "Today",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+  {
+    id: 2,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "Today",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+  {
+    id: 3,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "Yesterday",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+  {
+    id: 4,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "Yesterday",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+  {
+    id: 5,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "Yesterday",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+  {
+    id: 6,
+    title: "New updates for Writers",
+    time: "12:18 PM",
+    date: "12 April, 2025",
+    isNew: true,
+    content: "Step up your writing with our latest update",
+  },
+];
 
-  const [selectedNotification, setSelectedNotification] = useState<
-    (typeof notifications)[0] | null
-  >(null);
-
-  const handleViewDetails = (notification: (typeof notifications)[0]) => {
-    setSelectedNotification(notification);
-  };
-
-  const handleBack = () => {
-    setSelectedNotification(null);
-  };
-
-  const handleDelete = (id: number) => {
-    console.log("Delete notification:", id);
-    setSelectedNotification(null);
-  };
+function NotificationPage() {
+  const [filter, setFilter] = useState("");
+  const [viewNotf, setViewNotf] = useState(false);
 
   const groupedNotifications = notifications.reduce((acc, notification) => {
     if (!acc[notification.date]) {
@@ -78,94 +78,115 @@ export default function Component() {
     return acc;
   }, {} as Record<string, typeof notifications>);
 
-  return (
-    <main className="w-full relative p-6 pr-10">
-      <div className=" bg-[#FFFFFF] p-4 rounded-[8px] w-full mx-auto shadow-md">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <h2 className="text-sm font-medium text-gray-900">
-              All Notifications (7)
-            </h2>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-xs text-gray-500 h-auto p-0"
-            >
-              Filter by
-              <ChevronDown className="ml-1 h-3 w-3" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-xs text-blue-600 h-auto p-0 hover:text-blue-700"
-            >
-              <Check className="mr-1 h-3 w-3" />
-              Mark all as read
-            </Button>
-          </div>
-        </div>
+  function backhandler() {
+    setViewNotf(false);
+  }
+  function viewNotificationhandler() {
+    setViewNotf(true);
+  }
+  if (viewNotf) {
+    return <NotificationDetailPage back={backhandler} />;
+  }
 
-        <div className="space-y-4">
-          {Object.entries(groupedNotifications).map(([date, notifications]) => (
-            <div key={date}>
-              <div className="bg-[#F6F6F6] px-4 pt-3 mb-3 flex items-center rounded-sm">
-                <h3 className="text-xs font-medium text-gray-500 mb-3">
-                  {date}
-                </h3>
+  return (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <Header title="Notification" />
+
+      {/* Content */}
+      <div className="flex-1 p-4 lg:p-6 overflow-auto mt-16">
+        <div className="bg-white rounded-lg border border-gray-200">
+          {/* Header */}
+          <div className="p-4 lg:p-6 border-b border-gray-200">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-end justify-between">
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[#B0B0B0]">
+                  <h2 className="text-lg font-medium">All Notifications</h2> (7)
+                </div>
+                <div className="flex items-center gap-4">
+                  <Select value={filter} onValueChange={setFilter}>
+                    <SelectTrigger className="w-32 bg-[#F6F6F6] shadow-none rounded-[8px] border-none">
+                      <SelectValue placeholder="Filter by" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All</SelectItem>
+                      <SelectItem value="unread">Unread</SelectItem>
+                      <SelectItem value="read">Read</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-              <div className="space-y-3">
-                {notifications.map((notification) => (
-                  <div
-                    key={notification.id}
-                    className="flex items-center gap-3"
-                  >
-                    <Avatar className="flex justify-center items-center h-8 w-8 bg-gray-200">
-                      W
-                    </Avatar>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-gray-900">
-                          {notification.title}
-                        </span>
-                        {notification.isNew && (
-                          <Badge
-                            variant="secondary"
-                            className="text-xs px-2 py-0.5 bg-red-100 text-red-700 hover:bg-red-100"
-                          >
-                            New
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        {notification.time}
+              <Button variant="ghost" className="text-[#5D5D5D] bg-[#F6F6F6]">
+                <CheckCheck className="w-4 h-4 mr-2" />
+                Mark all as read
+              </Button>
+            </div>
+          </div>
+
+          {/* Notifications */}
+          <div className="divide-y divide-gray-200">
+            {Object.entries(groupedNotifications).map(
+              ([date, dateNotifications]) => (
+                <div key={date}>
+                  {date !== "Today" && (
+                    <div className="px-4 lg:px-6 py-3 bg-gray-50">
+                      <p className="text-sm font-medium text-gray-600">
+                        {date}
                       </p>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-xs text-blue-600 h-auto p-0 hover:text-blue-700"
-                      onClick={() => handleViewDetails(notification)}
+                  )}
+                  {date === "Today" && (
+                    <div className="px-4 lg:px-6 py-3">
+                      <p className="text-sm font-medium text-gray-600">
+                        {date}
+                      </p>
+                    </div>
+                  )}
+                  {dateNotifications.map((notification) => (
+                    <div
+                      key={notification.id}
+                      className="p-4 lg:p-6 hover:bg-gray-50"
                     >
-                      View Details
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                      <div className="flex items-start gap-4">
+                        <Avatar className="w-10 h-10 bg-gray-200">
+                          <AvatarFallback></AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-medium text-gray-900">
+                              {notification.title}
+                            </h3>
+                            {notification.isNew && (
+                              <Badge
+                                variant="destructive"
+                                className="text-xs text-[#ED4D48] bg-[#ED4D4833]"
+                              >
+                                New
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-sm text-gray-500">
+                            {notification.time}
+                          </p>
+                        </div>
+                        <Button
+                          variant="link"
+                          className="text-blue-600"
+                          onClick={viewNotificationhandler}
+                        >
+                          View Details
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )
+            )}
+          </div>
         </div>
       </div>
-      {selectedNotification && (
-        <div className="absolute inset-0 bg-white">
-          <NotificationDetail
-            notification={selectedNotification}
-            onBack={handleBack}
-            onDelete={handleDelete}
-          />
-        </div>
-      )}
-    </main>
+    </div>
   );
 }
+
+export default NotificationPage;

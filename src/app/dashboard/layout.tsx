@@ -10,7 +10,9 @@ export default function RootLayout({
   return (
     <div className="flex min-h-screen bg-[#f6f6f6]">
       <Sidebar />
-      <div className="ml-64 w-full">{children}</div>
+      <div className="ml-64 w-full relative">
+        {children}
+      </div>
     </div>
   );
 }

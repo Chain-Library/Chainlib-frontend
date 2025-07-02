@@ -12,7 +12,7 @@ import {
   useAccount,
   useDisconnect,
   Connector,
-  ConnectVariables
+  ConnectVariables,
 } from "@starknet-react/core";
 
 interface WalletContextProps {
@@ -69,7 +69,6 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({
     </WalletContext.Provider>
   );
 };
-
 
 export const useWalletContext = () => {
   const ctx = useContext(WalletContext);
