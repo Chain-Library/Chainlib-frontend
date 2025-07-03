@@ -24,7 +24,7 @@ export default function SignOutPage() {
   };
 
   return (
-    <div className=" min-h-screen bg-white m-6 rounded-[8px]">
+    <div className=" min-h-screen bg-white m-4 md:m-6 rounded-[8px]">
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center gap-3">
         <button onClick={() => router.back()} className="p-1">

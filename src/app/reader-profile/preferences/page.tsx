@@ -57,7 +57,7 @@ export default function PreferencesPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen m-6 rounded-xl">
+    <div className="bg-white min-h-screen m-4 md:m-6 rounded-xl">
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center gap-3">
         <button onClick={() => router.back()} className="p-1">

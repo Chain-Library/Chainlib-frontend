@@ -67,7 +67,7 @@ export default function ProfileDetailsPage() {
   };
 
   return (
-    <div className="bg-white min-h-screen m-6 rounded-xl">
+    <div className="bg-white m-4 md:m-6 rounded-xl">
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">

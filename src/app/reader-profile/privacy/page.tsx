@@ -35,7 +35,7 @@ export default function PrivacySettingsPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen m-4 md:m-6 rounded-lg ">
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center gap-3">
         <button onClick={() => router.back()} className="p-1">
