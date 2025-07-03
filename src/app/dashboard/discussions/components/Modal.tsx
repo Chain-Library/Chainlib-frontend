@@ -20,7 +20,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="text-gray-400 hover:text-gray-700 transition"
+            className="text-[#B0B0B0] flex items-center justify-center w-8 h-8 bg-[#F6F6F6] hover:text-gray-700 transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

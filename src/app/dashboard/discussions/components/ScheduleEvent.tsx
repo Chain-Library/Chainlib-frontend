@@ -3,6 +3,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 type Props = {
   isOpen: boolean;
@@ -10,7 +11,7 @@ type Props = {
   onSubmit: () => void;
 };
 
-export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
+export default function ScheduleEvent({ isOpen, onClose, onSubmit }: Props) {
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [genres, setGenres] = React.useState(["Fiction", "Drama"]);
@@ -20,7 +21,7 @@ export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="px-6 pb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-1">
-          Create a new Club
+          Schedule Event{" "}
         </h2>
         <p className="text-sm text-muted-foreground mb-6">
           Launch your book club! Gather readers, share favorites, and spark
@@ -95,15 +96,18 @@ export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
           </div>
         </div>
 
-        <button
-          onClick={() => {
-            onClose();
-            onSubmit();
-          }}
-          className="mt-6 w-full py-3 text-white rounded-md bg-gradient-to-b from-[#2A62F3] to-[#0029B3] hover:opacity-90 transition"
+      
+
+         <Link
+          href="/waiting-room"
         >
-          Create Club
-        </button>
+           
+             <div           className="mt-6 w-full py-3 text-white rounded-md bg-gradient-to-b from-[#2A62F3] to-[#0029B3] hover:opacity-90 transition">
+         <p> Schedule Event</p>
+
+                 </div>
+
+        </Link>
       </div>
     </Modal>
   );

@@ -6,6 +6,10 @@ import ClubCard from "./ClubCard";
 import { ClubDetailsProps } from "@/lib/types";
 import ClubModal from "./components/ClubDetails";
 import CreateClubModal from "./components/CreateEvent";
+import ClubDiscussion from "./components/ClubDiscussion";
+import StartEventModal from "./components/StartEvent";
+import ScheduleEvent from "./components/ScheduleEvent";
+import AddGuestModal from "./components/AddGuest";
 
 const clubCards: ClubDetailsProps[] = [
   {
@@ -64,6 +68,11 @@ export default function DiscussionDashboard() {
   );
   const [modalOpen, setModalOpen] = useState(false);
   const [createEventOpen, setCreateEventOpen] = useState(false);
+  const [startEventOpen, setStartEventOpen] = useState(false);
+  const [scheduleEventOpen, setScheduleEventOpen] = useState(false);
+
+
+  const [activePage, setActivePage] = useState<"index" | "discussion">("index");
 
   function openModal(club: ClubDetailsProps) {
     setSelectedClub(club);
@@ -84,36 +93,49 @@ export default function DiscussionDashboard() {
   return (
     <div>
       <Header title="Discussions and Clubs" />
-      <div className="p-6">
-        <h2 className="text-lg font-semibold mb-4">Overview</h2>
+      <div className="p-6 mt-20 rounded-xl">
+        {activePage === "index" ? (
+          <div>
+            <div className="bg-white p-6 rounded space-y-8">
+              <ClubsToolbar />
 
-        <div className="bg-white p-6 rounded space-y-8">
-          <ClubsToolbar />
+              {clubCards.map(
+                ({
+                  id,
+                  name,
+                  isPublic,
+                  memberCount,
+                  sessionsInfo,
+                  authorAvatars,
+                  unreadNotifications,
+                }) => (
+                  <ClubCard
+                    id={id}
+                    key={id}
+                    name={name}
+                    isPublic={isPublic}
+                    memberCount={memberCount}
+                    sessionsInfo={sessionsInfo}
+                    authorAvatars={authorAvatars}
+                    unreadNotifications={unreadNotifications}
+                    onOpen={openModal}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <ClubDiscussion startEvent={() => setStartEventOpen(true)} />
+          </div>
+        )}
 
-          {clubCards.map(
-            ({
-              id,
-              name,
-              isPublic,
-              memberCount,
-              sessionsInfo,
-              authorAvatars,
-              unreadNotifications,
-            }) => (
-              <ClubCard
-                id={id}
-                key={id}
-                name={name}
-                isPublic={isPublic}
-                memberCount={memberCount}
-                sessionsInfo={sessionsInfo}
-                authorAvatars={authorAvatars}
-                unreadNotifications={unreadNotifications}
-                onOpen={openModal}
-              />
-            )
-          )}
-        </div>
+        <StartEventModal
+          startEvent={() => setCreateEventOpen(true)}
+          instantEvent={() => setScheduleEventOpen(true)}
+          isOpen={startEventOpen}
+          onClose={() => setStartEventOpen(false)}
+        />
 
         <ClubModal
           club={selectedClub}
@@ -125,8 +147,16 @@ export default function DiscussionDashboard() {
         <CreateClubModal
           isOpen={createEventOpen}
           onClose={() => setCreateEventOpen(false)}
-          onSubmit={() => {}}
+          onSubmit={() => setActivePage("discussion")}
         />
+
+        <ScheduleEvent
+          isOpen={scheduleEventOpen}
+          onClose={() => setScheduleEventOpen(false)}
+          onSubmit={() => setActivePage("discussion")}
+        />
+
+      
       </div>
     </div>
   );
