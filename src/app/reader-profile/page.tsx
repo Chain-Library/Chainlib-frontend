@@ -6,6 +6,7 @@ import { useState, useRef, type ChangeEvent } from "react";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useMobileMenu } from "./layout";
 
 interface ProfileFormData {
   firstName: string;
@@ -18,6 +19,7 @@ interface ProfileFormData {
 
 export default function ProfileDetailsPage() {
   const router = useRouter();
+  const { openMobileMenu } = useMobileMenu();
   const [formData, setFormData] = useState<ProfileFormData>({
     firstName: "Faith",
     lastName: "Haruna",
@@ -71,12 +73,10 @@ export default function ProfileDetailsPage() {
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <button onClick={() => router.back()} className="p-1">
+          <button onClick={openMobileMenu} className="p-1">
             <ArrowLeft size={20} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-semibold text-gray-800">
-            Profile 
-          </h1>
+          <h1 className="text-lg font-semibold text-gray-800">Profile</h1>
         </div>
         <button className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
           Edit Profile

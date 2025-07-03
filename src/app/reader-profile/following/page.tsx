@@ -1,21 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowLeft, BadgeCheck, CheckCircle } from "lucide-react"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
+import { useState } from "react";
+import { ArrowLeft, BadgeCheck, CheckCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useMobileMenu } from "../layout";
+import Image from "next/image";
 
 interface FollowingUser {
-  id: string
-  name: string
-  username: string
-  isVerified: boolean
-  avatar?: string
+  id: string;
+  name: string;
+  username: string;
+  isVerified: boolean;
+  avatar?: string;
 }
 
 export default function FollowingPage() {
-  const router = useRouter()
-  const [activeTab, setActiveTab] = useState<"total" | "verified" | "unverified">("total")
+  const router = useRouter();
+  const { openMobileMenu } = useMobileMenu();
+  const [activeTab, setActiveTab] = useState<
+    "total" | "verified" | "unverified"
+  >("total");
 
   const followingUsers: FollowingUser[] = Array.from({ length: 9 }, (_, i) => ({
     id: `user-${i + 1}`,
@@ -23,27 +27,27 @@ export default function FollowingPage() {
     username: "@darrin_collins",
     isVerified: i < 7, // First 7 are verified
     avatar: "/placeholder.svg?height=40&width=40",
-  }))
+  }));
 
-  const totalCount = followingUsers.length
-  const verifiedCount = followingUsers.filter((user) => user.isVerified).length
-  const unverifiedCount = totalCount - verifiedCount
+  const totalCount = followingUsers.length;
+  const verifiedCount = followingUsers.filter((user) => user.isVerified).length;
+  const unverifiedCount = totalCount - verifiedCount;
 
   const filteredUsers = followingUsers.filter((user) => {
-    if (activeTab === "verified") return user.isVerified
-    if (activeTab === "unverified") return !user.isVerified
-    return true
-  })
+    if (activeTab === "verified") return user.isVerified;
+    if (activeTab === "unverified") return !user.isVerified;
+    return true;
+  });
 
   const handleUnfollow = (userId: string) => {
-    console.log("Unfollow user:", userId)
-  }
+    console.log("Unfollow user:", userId);
+  };
 
   return (
     <div className="bg-white min-h-screen m-4 md:m-6">
       {/* Mobile Header */}
       <div className="lg:hidden bg-gray-50 p-4 flex items-center gap-3">
-        <button onClick={() => router.back()} className="p-1">
+        <button onClick={openMobileMenu} className="p-1">
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
         <h1 className="text-lg font-semibold text-gray-800">Following</h1>
@@ -52,7 +56,6 @@ export default function FollowingPage() {
       <div className="p-6 max-w-4xl mx-auto">
         {/* Desktop Header */}
         <div className="hidden lg:flex items-start gap-3 mb-10">
-     
           <h1 className="text-xl font-semibold text-gray-800">Following</h1>
         </div>
 
@@ -109,7 +112,9 @@ export default function FollowingPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-gray-900">{user.name}</span>
-                  {user.isVerified && <BadgeCheck size={16} className="text-blue-500" />}
+                  {user.isVerified && (
+                    <BadgeCheck size={16} className="text-blue-500" />
+                  )}
                 </div>
               </div>
               <button
@@ -129,5 +134,5 @@ export default function FollowingPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
