@@ -1,9 +1,5 @@
-
-function Page(){
-    return (
-        <h1>Page</h1>
-    )
+function Page() {
+  return <h1>Page</h1>;
 }
-
 
 export default Page;
