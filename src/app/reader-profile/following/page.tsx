@@ -26,7 +26,7 @@ export default function FollowingPage() {
     name: "Darrin Collins",
     username: "@darrin_collins",
     isVerified: i < 7, // First 7 are verified
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "/reader-image.png?height=40&width=40",
   }));
 
   const totalCount = followingUsers.length;
@@ -103,7 +103,7 @@ export default function FollowingPage() {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
                   <Image
-                    src={user.avatar || "/placeholder.svg?height=40&width=40"}
+                    src={user.avatar || "/reader-image.png"}
                     alt={user.name}
                     width={40}
                     height={40}
