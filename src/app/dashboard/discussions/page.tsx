@@ -5,8 +5,9 @@ import ClubsToolbar from "./components/ClubToolBar";
 import ClubCard from "./ClubCard";
 import { ClubDetailsProps } from "@/lib/types";
 import ClubModal from "./components/ClubDetails";
+import CreateClubModal from "./components/CreateEvent";
 
- const clubCards: ClubDetailsProps[] = [
+const clubCards: ClubDetailsProps[] = [
   {
     id: "1",
     name: "Fantasy Enthusiasts",
@@ -62,6 +63,7 @@ export default function DiscussionDashboard() {
     null
   );
   const [modalOpen, setModalOpen] = useState(false);
+  const [createEventOpen, setCreateEventOpen] = useState(false);
 
   function openModal(club: ClubDetailsProps) {
     setSelectedClub(club);
@@ -75,6 +77,7 @@ export default function DiscussionDashboard() {
 
   function joinClub() {
     if (selectedClub) alert(`Joined ${selectedClub.name}!`);
+    setCreateEventOpen(true);
     closeModal();
   }
 
@@ -117,6 +120,12 @@ export default function DiscussionDashboard() {
           isOpen={modalOpen}
           onClose={closeModal}
           onJoin={joinClub}
+        />
+
+        <CreateClubModal
+          isOpen={createEventOpen}
+          onClose={() => setCreateEventOpen(false)}
+          onSubmit={() => {}}
         />
       </div>
     </div>
