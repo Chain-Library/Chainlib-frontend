@@ -9,8 +9,6 @@ import CreateClubModal from "./components/CreateEvent";
 import ClubDiscussion from "./components/ClubDiscussion";
 import StartEventModal from "./components/StartEvent";
 import ScheduleEvent from "./components/ScheduleEvent";
-import { useParams } from "next/navigation";
-import SuccessModal from "@/app/auth/sign-up/success-modal";
 import EventScheduleModal from "./components/SuccessModal";
 
 const clubCards: ClubDetailsProps[] = [
@@ -24,6 +22,7 @@ const clubCards: ClubDetailsProps[] = [
     authorAvatars: [
       "https://randomuser.me/api/portraits/men/32.jpg",
       "https://randomuser.me/api/portraits/women/44.jpg",
+      "https://randomuser.me/api/portraits/men/32.jpg"
     ],
   },
   {
@@ -48,6 +47,8 @@ const clubCards: ClubDetailsProps[] = [
     authorAvatars: [
       "https://randomuser.me/api/portraits/men/32.jpg",
       "https://randomuser.me/api/portraits/women/44.jpg",
+            "https://randomuser.me/api/portraits/men/32.jpg"
+
     ],
   },
   {
@@ -96,7 +97,7 @@ export default function DiscussionDashboard() {
   return (
     <div>
       <Header title="Discussions and Clubs" />
-      <div className="p-6 mt-20 rounded-xl">
+      <div className="p-6 mt-[60px] rounded-2xl">
         {activePage === "index" ? (
           <div>
             <div className="bg-white p-6 rounded space-y-8">

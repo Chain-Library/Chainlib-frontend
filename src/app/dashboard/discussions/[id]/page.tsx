@@ -1,7 +1,7 @@
 "use client";
 
 import { Header } from "@/components/dashboard/header";
-import { Camera, MessageSquare, Mic } from "lucide-react";
+import { Camera, Mic } from "lucide-react";
 
 export default function LiveEventPage() {
   return (

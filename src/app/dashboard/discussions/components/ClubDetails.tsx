@@ -19,7 +19,7 @@ export default function ClubModal({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <section className="p-6 space-y-10">
+      <section className="p-6 space-y-6">
         <div className="flex flex-col justify-center items-center space-x-3">
           <div className="w-30 h-30 bg-gray-200 rounded-md" />
 
@@ -49,7 +49,7 @@ export default function ClubModal({
 
         <div>
           <SectionTitle title="About Club" />
-          <p className="text-[#3D3D3D] text-sm">
+          <p className="text-[#3D3D3D] ">
             Vibrant book club dedicated to exploring the vast and magical realms
             of fantasy literature. From epic sagas and dark fantasy to urban
             magic and whimsical tales, we delve into all corners of the genre.
@@ -86,11 +86,11 @@ export default function ClubModal({
 function Badge({ text, icon }: { text: string; icon?: "globe" | "plus" }) {
   const icons = {
     globe: <Globe className="w-4 h-4 text-[#888888]" />,
-    plus: <PlusIcon className="w-3 h-3 text-[#888888]" />,
+    plus: <PlusIcon className="w-4 h-4 text-[#888888]" />,
   };
 
   return (
-    <div className="flex text-xs items-center space-x-1 border border-[#D1D1D1] rounded-full px-2 py-0.5">
+    <div className="flex text-xs items-center space-x-1  border border-[#D1D1D1] rounded-full px-2 py-1">
       {icon && icons[icon]}
       <span className="text-[#888888]">{text}</span>
     </div>
@@ -100,7 +100,7 @@ function Badge({ text, icon }: { text: string; icon?: "globe" | "plus" }) {
 function SectionTitle({ title }: { title: string }) {
   return (
     <div className="rounded-full bg-[#F6F6F6] w-fit text-center px-2 py-2 mb-2">
-      <p className="text-xs">{title}</p>
+      <p className="text-sm">{title}</p>
     </div>
   );
 }
