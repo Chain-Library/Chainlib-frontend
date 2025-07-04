@@ -9,7 +9,9 @@ import CreateClubModal from "./components/CreateEvent";
 import ClubDiscussion from "./components/ClubDiscussion";
 import StartEventModal from "./components/StartEvent";
 import ScheduleEvent from "./components/ScheduleEvent";
-import AddGuestModal from "./components/AddGuest";
+import { useParams } from "next/navigation";
+import SuccessModal from "@/app/auth/sign-up/success-modal";
+import EventScheduleModal from "./components/SuccessModal";
 
 const clubCards: ClubDetailsProps[] = [
   {
@@ -70,9 +72,11 @@ export default function DiscussionDashboard() {
   const [createEventOpen, setCreateEventOpen] = useState(false);
   const [startEventOpen, setStartEventOpen] = useState(false);
   const [scheduleEventOpen, setScheduleEventOpen] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
 
-
-  const [activePage, setActivePage] = useState<"index" | "discussion">("index");
+  const [activePage, setActivePage] = useState<
+    "index" | "discussion" | "start"
+  >("index");
 
   function openModal(club: ClubDetailsProps) {
     setSelectedClub(club);
@@ -85,7 +89,6 @@ export default function DiscussionDashboard() {
   }
 
   function joinClub() {
-    if (selectedClub) alert(`Joined ${selectedClub.name}!`);
     setCreateEventOpen(true);
     closeModal();
   }
@@ -153,10 +156,14 @@ export default function DiscussionDashboard() {
         <ScheduleEvent
           isOpen={scheduleEventOpen}
           onClose={() => setScheduleEventOpen(false)}
-          onSubmit={() => setActivePage("discussion")}
+          onSubmit={() => setSuccessModal(true)}
         />
 
-      
+        <EventScheduleModal
+          isOpen={successModal}
+          onClose={() => setSuccessModal(false)}
+          onSubmit={() => {}}
+        />
       </div>
     </div>
   );

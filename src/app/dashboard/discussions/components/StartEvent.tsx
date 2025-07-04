@@ -2,7 +2,6 @@
 
 import React from "react";
 import Modal from "./Modal";
-import { Input } from "@/components/ui/input";
 
 type Props = {
   isOpen: boolean;
@@ -18,8 +17,8 @@ export default function StartEventModal({
   instantEvent,
 }: Props) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="space-y-5 px-10 py-4">
+    <Modal isOpen={isOpen} onClose={onClose} className="max-w-md" >
+      <div className="space-y-4 px-10 py-4">
         <button
           onClick={() => {
             onClose();

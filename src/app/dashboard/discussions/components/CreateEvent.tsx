@@ -29,26 +29,34 @@ export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
 
         <div className="space-y-4">
           <div>
-            <p className="text-sm font-medium text-gray-700">Club Name</p>
+            <p className="text-sm  text-[#5D5D5D]">Club Name</p>
             <Input
               id="name"
               placeholder="Enter name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 border border-gray-100 w-full py-4 border-b-0 px-2"
+              className="mt-1 border border-gray-100 w-full h-[46px]  border-b-0 px-3"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="genre"
-              className="text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="genre" className="text-sm text-[#5D5D5D]">
               Genre Focus
             </label>
-            <div className="mt-1 border rounded-md px-3 py-2 min-h-[42px] text-sm text-gray-500 bg-white">
-              Genres
-              <div className="flex flex-wrap gap-2 mt-2">
+
+            <div className="mt-1 block w-full border rounded-md px-3 h-[46px] py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <select
+                id="type"
+                value={clubType}
+                className="w-full border-none focus:outline-none focus:ring-0 focus:border-none"
+                // onChange={(e) => setGenres(e.target.value)}
+              >
+                <option value="">Select Type</option>
+                <option value="public">Fiction</option>
+                <option value="private">Drama</option>
+              </select>
+            </div>
+             <div className="flex flex-wrap gap-2 mt-4">
                 {genres.map((genre) => (
                   <span
                     key={genre}
@@ -58,14 +66,10 @@ export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
                   </span>
                 ))}
               </div>
-            </div>
           </div>
 
           <div>
-            <label
-              htmlFor="description"
-              className="text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="description" className="text-sm text-[#5D5D5D]">
               Description
             </label>
             <textarea
@@ -79,19 +83,21 @@ export default function CreateClubModal({ isOpen, onClose, onSubmit }: Props) {
           </div>
 
           <div>
-            <label htmlFor="type" className="text-sm font-medium text-gray-700">
+            <label htmlFor="type" className="text-sm  text-[#5D5D5D]">
               Club Type
             </label>
-            <select
-              id="type"
-              value={clubType}
-              onChange={(e) => setClubType(e.target.value)}
-              className="mt-1 block w-full border rounded-md px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="">Select Type</option>
-              <option value="public">Public</option>
-              <option value="private">Private</option>
-            </select>
+            <div className="mt-1 block w-full border rounded-md px-3 h-[46px] py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <select
+                id="type"
+                value={clubType}
+                className="w-full border-none focus:outline-none focus:ring-0 focus:border-none"
+                onChange={(e) => setClubType(e.target.value)}
+              >
+                <option value="">Select Type</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+              </select>
+            </div>
           </div>
         </div>
 

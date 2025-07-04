@@ -1,7 +1,8 @@
 "use client";
 import { Camera, Mic, PlusCircleIcon } from "lucide-react";
-import AddGuestModal from "../dashboard/discussions/components/AddGuest";
 import { useState } from "react";
+import AddGuestModal from "../dashboard/discussions/components/AddGuest";
+import Link from "next/link";
 
 export default function WaitingRoom() {
   const [guestEmailOpen, setGuestEmailOpen] = useState(false);
@@ -9,6 +10,7 @@ export default function WaitingRoom() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className=" max-w-md mx-auto my-auto bg-white rounded-2xl shadow-md p-6 space-y-6">
+        
         <div className="relative rounded-xl overflow-hidden aspect-video shadow-lg">
           <img
             src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80"
@@ -32,12 +34,11 @@ export default function WaitingRoom() {
           </div>
         </div>
 
-        <button
-          type="button"
-          className="w-full bg-blue-600 text-white rounded-xl py-3 text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition"
-        >
-          Start
-        </button>
+        <Link href="/dashboard/discussions/btc-hit-10k">
+          <div className="w-full text-center mb-4 bg-blue-600 text-white rounded-xl py-3 text-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition">
+            <p>Start</p>
+          </div>
+        </Link>
 
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-gray-900">
