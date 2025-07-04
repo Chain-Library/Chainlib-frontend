@@ -1,23 +1,10 @@
 "use client";
-import React, { createContext, useContext } from "react";
-import { useState } from "react";
-import { ArrowLeft, Menu, X } from "lucide-react";
+import React, { useState } from "react";
+import { X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-
-// Create context
-const MobileMenuContext = createContext<{
-  openMobileMenu: () => void;
-} | null>(null);
-
-// Custom hook to use the context
-export const useMobileMenu = () => {
-  const context = useContext(MobileMenuContext);
-  if (!context) {
-    throw new Error("useMobileMenu must be used within ReaderProfileLayout");
-  }
-  return context;
-};
+import { MobileMenuContext } from "@/hooks/useMobileMenu";
+import NavBar from "@/components/landingpage/NavBar";
 
 interface ReaderProfileLayoutProps {
   children: React.ReactNode;
@@ -58,6 +45,7 @@ export default function ReaderProfileLayout({
       value={{ openMobileMenu: () => setIsMobileMenuOpen(true) }}
     >
       <div className="min-h-screen bg-gray-50">
+        <NavBar />
         <div className="flex">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block w-64 min-h-screen">

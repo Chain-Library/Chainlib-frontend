@@ -1,7 +1,7 @@
 "use client";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useMobileMenu } from "../layout";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 export default function SignOutPage() {
   const router = useRouter();

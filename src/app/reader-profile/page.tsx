@@ -6,7 +6,7 @@ import { useState, useRef, type ChangeEvent } from "react";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useMobileMenu } from "./layout";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 interface ProfileFormData {
   firstName: string;

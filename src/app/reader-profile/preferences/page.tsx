@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { ArrowLeft, ChevronDown, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useMobileMenu } from "../layout";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 const allGenres = [
   "Fiction",

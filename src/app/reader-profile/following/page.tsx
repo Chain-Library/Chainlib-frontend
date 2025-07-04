@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowLeft, BadgeCheck, CheckCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useMobileMenu } from "../layout";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 import Image from "next/image";
 
 interface FollowingUser {
