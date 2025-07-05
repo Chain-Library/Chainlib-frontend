@@ -9,6 +9,7 @@ import {
   LogOut,
   MessageSquare,
   User,
+  MessageCircle,
   ClipboardList,
   Heart
 } from "lucide-react";
@@ -59,6 +60,11 @@ export function Sidebar() {
       icon: MessageSquare,
       label: "Readers Feedback",
       href: "/dashboard/feedback",
+    },
+    {
+      icon: MessageCircle,
+      label: "Discussions & Clubs",
+      href: "/dashboard/discussions",
     },
     {
       icon: Bell,
