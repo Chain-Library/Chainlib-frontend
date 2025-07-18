@@ -1,7 +1,7 @@
 "use client";
 import { Camera, Mic, PlusCircleIcon } from "lucide-react";
 import { useState } from "react";
-import AddGuestModal from "../dashboard/discussions/components/AddGuest";
+import AddGuestModal from "../reader-dashboard/discussions-and-clubs/components/AddGuest";
 import Link from "next/link";
 
 export default function WaitingRoom() {

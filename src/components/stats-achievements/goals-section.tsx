@@ -1,4 +1,4 @@
-import { Plus, Clock, Trophy } from "lucide-react";
+import { Plus, Trophy } from "lucide-react";
 
 export function GoalsSection() {
   const goals = [

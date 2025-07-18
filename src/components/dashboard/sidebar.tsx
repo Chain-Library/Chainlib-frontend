@@ -7,11 +7,8 @@ import {
   LayoutDashboard,
   LineChart,
   LogOut,
-  MessageSquare,
   User,
-  MessageCircle,
-  ClipboardList,
-  Heart
+  MessageCircle
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,38 +25,17 @@ export function Sidebar() {
     {
       icon: BookOpen,
       label: "Manage Content",
-      href: "/dashboard/manage-content",
+      href: "/writer-dashboard/manage-content",
     },
     {
       icon: DollarSign,
       label: "Earnings",
-      href: "/dashboard/earnings",
-    },
-    {
-      icon: Heart,
-      label: "Wishlist",
-      href: "/dashboard/wishlist",
-      badge: 4,
-    },
-    {
-      icon: ClipboardList,
-      label: "Trasactions",
-      href: "/dashboard/transactions",
+      href: "/writer-dashboard/earnings",
     },
     {
       icon: LineChart,
       label: "Analytics panel",
-      href: "/dashboard/analytics",
-    },
-    {
-      icon: User,
-      label: "Stats & Achievements",
-      href: "/dashboard/stats-and-achievements",
-    },
-    {
-      icon: MessageSquare,
-      label: "Readers Feedback",
-      href: "/dashboard/feedback",
+      href: "/writer-dashboard/analytics",
     },
     {
       icon: MessageCircle,
@@ -69,13 +45,13 @@ export function Sidebar() {
     {
       icon: Bell,
       label: "Notification",
-      href: "/dashboard/notifications",
+      href: "/writer-dashboard/notifications",
       badge: 1,
     },
     {
       icon: User,
       label: "Profile",
-      href: "/dashboard/profile",
+      href: "/writer-dashboard/profile",
     },
   ];
 

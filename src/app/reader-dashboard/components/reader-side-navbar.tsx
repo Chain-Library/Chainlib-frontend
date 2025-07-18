@@ -30,7 +30,7 @@ export function Sidebar() {
     {
       icon: DoorClosed,
       label: "Reading Stats",
-      href: "/reader-dashboard/reading-stats",
+      href: "/reader-dashboard/Stats-and-achievements",
     },
     {
       icon: Heart,
