@@ -3,7 +3,7 @@
 import { ArrowLeft, MoreHorizontal, Star, X } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { BookReaderModal } from "../components/book-reader-modal"
+import { BookReaderModal } from "./book-reader-modal"
 import imgbook from "../../../../public/Cover.png"
 import imgbook1 from "../../../../public/user1.svg"
 interface BookModalProps {

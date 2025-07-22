@@ -1,15 +1,7 @@
 "use client";
 
-import {
-  Bell,
-  BookOpen,
-  DollarSign,
-  LayoutDashboard,
-  LineChart,
-  // LogOut,
-  User,
-  MessageCircle
-} from "lucide-react";
+import { LayoutDashboard, Users2, FileText, BarChart3, CalendarDays, Bell, MessagesSquare } from 'lucide-react';
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,39 +12,40 @@ export function Sidebar() {
     {
       icon: LayoutDashboard,
       label: "Dashboard",
-      href: "/dashboard/writers",
+      href: "/dashboard/admin",
     },
     {
-      icon: BookOpen,
-      label: "Manage Content",
-      href: "/dashboard/writers/manage-content",
+      icon: Users2,
+      label: "User Management",
+      href: "/dashboard/admin/user-management", 
     },
     {
-      icon: DollarSign,
-      label: "Earnings",
-      href: "/dashboard/writers/earnings",
+      icon: FileText,
+      label: "Content Management",
+      href: "/dashboard/admin/content-management",
     },
     {
-      icon: LineChart,
-      label: "Analytics panel",
-      href: "/dashboard/writers/analytics",
+      icon: BarChart3,
+      label: "Analytics",
+      href: "/dashboard/admin/analytics",
     },
     {
-      icon: MessageCircle,
-      label: "Discussions & Clubs",
-      href: "/dashboard/writers/discussions-and-clubs",
+      icon: CalendarDays,
+      label: "Trasactions",
+      href: "/dashboard/admin/transactions",
     },
+
     {
       icon: Bell,
       label: "Notification",
-      href: "/dashboard/writers/notifications",
-      badge: 1,
+      href: "/dashboard/admin/notifications",
     },
     {
-      icon: User,
-      label: "Profile",
-      href: "/dashboard/writers/profile",
+      icon: MessagesSquare,
+      label: "Community and Events",
+      href: "/dashboard/admin/community-and-events",
     },
+ 
   ];
 
   return (
@@ -80,29 +73,10 @@ export function Sidebar() {
                 <span className={pathname === item.href ? "font-medium" : ""}>
                   {item.label}
                 </span>
-                {item.badge && (
-                  <div
-                    className={`ml-auto w-5 h-5 ${
-                      item.label == "Notification"
-                        ? "bg-[#ff5c5c]"
-                        : "bg-[#096CFF]"
-                    }  rounded-full flex items-center justify-center`}
-                  >
-                    <span className="text-white text-xs">{item.badge}</span>
-                  </div>
-                )}
               </Link>
             </li>
           ))}
-          {/* <li className="mt-8">
-            <Link
-              href="/logout"
-              className="flex items-center gap-3 p-3 text-[#5d5d5d] hover:bg-[#f6f6f6] rounded-md"
-            >
-              <LogOut size={18} />
-              <span>Sign Out</span>
-            </Link>
-          </li> */}
+    
         </ul>
       </nav>
     </div>

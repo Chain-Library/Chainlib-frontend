@@ -1,14 +1,14 @@
 "use client"
 
 
-import EarningsSummary from "@/components/ dashboard-earnings/EarningSummary"
-import LinkWallet from "@/components/ dashboard-earnings/LinkWallet"
-import RevenueBreakdown from "@/components/ dashboard-earnings/RevenueBreakdown"
+import EarningsSummary from "@/components/dashboard-earnings/EarningSummary"
+import LinkWallet from "@/components/dashboard-earnings/LinkWallet"
+import RevenueBreakdown from "@/components/dashboard-earnings/RevenueBreakdown"
 import type { EarningTab } from "@/lib/interfaces/EarningTabInterface"
 import { RevenueChartInterface } from "@/lib/interfaces/RevenueChartInterface"
 import { useEffect, useState } from "react"
-import TransactionHistory from "../../../components/ dashboard-earnings/TransactionHistory"
-import RequestPaymentModal from "@/components/ dashboard-earnings/RequestPaymentModal"
+import TransactionHistory from "../../../components/dashboard-earnings/TransactionHistory"
+import RequestPaymentModal from "@/components/dashboard-earnings/RequestPaymentModal"
 import { PaymentPropInterface } from "@/lib/interfaces/PaymentPropInterface"
 
 
