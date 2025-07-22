@@ -4,12 +4,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Image4 from "@/assets/Images/ImageLogo.png";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, SetStateAction } from "react";
 import { MoreVertical } from "lucide-react";
 import AnimationWrapper from "@/components/motion/Animation-wrapper";
-import WalletConnectModal from "../blockchain/Wallet-connect-modal";
 import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";
-
+import { ConnectButton } from "../../components/blockchain/connect-button";
 // starknet imports
 import { useWalletContext } from "../blockchain/WalletProvider";
 import { usePathname } from "next/navigation";
@@ -95,7 +94,7 @@ const NavBar = () => {
           </span>
         </Link>
 
-        <nav className="hidden md:flex space-x-6 text-[#5D5D5D] text-sm">
+        <nav className="hidden md:flex space-x-6 text-[#5D5D5D] text-sm cursor-pointer">
           {navItems.map(({ label, href }) => (
             <Link
               key={href}
@@ -110,14 +109,6 @@ const NavBar = () => {
           ))}
         </nav>
 
-        {/* <div className="hidden md:flex items-center space-x-4">
-        <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md text-sm font-medium">
-            Log In
-        </button>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
-            Sign Up
-        </button>
-    </div> */}
 
         {/* Wallet Connection Button or Connected Wallet */}
         <div className="hidden md:block">
@@ -168,12 +159,7 @@ const NavBar = () => {
                       >
                         Disconnect
                       </button>
-                      <Link
-                        href="/sign-in"
-                        className="w-full block text-left px-4 py-2 text-sm text-gray-200 hover:bg-blue-600 transition-colors"
-                      >
-                        Sign in
-                      </Link>
+                    
                     </div>
                   </div>
                 )}
@@ -182,10 +168,10 @@ const NavBar = () => {
           </AnimationWrapper>
         </div>
       </div>
-      <WalletConnectModal
+     <ConnectButton
         isOpen={isConnectModalOpen}
-        onClose={() => setIsConnectModalOpen(false)}
         onSelect={handleWalletSelect}
+        setIsModalOpen={setIsConnectModalOpen}
       />
       <WalletDisconnectModal
         isOpen={isDisconnectModalOpen}

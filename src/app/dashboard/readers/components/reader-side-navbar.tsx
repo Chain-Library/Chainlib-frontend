@@ -3,12 +3,12 @@
 import {
   Bell,
   BookOpen,
-  DollarSign,
   LayoutDashboard,
-  LineChart,
-  // LogOut,
+  MessageSquare,
+  DoorClosed,
   User,
-  MessageCircle
+  ClipboardList,
+  Heart
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,39 +20,45 @@ export function Sidebar() {
     {
       icon: LayoutDashboard,
       label: "Dashboard",
-      href: "/dashboard/writers",
+      href: "/dashboard/readers",
     },
     {
       icon: BookOpen,
-      label: "Manage Content",
-      href: "/dashboard/writers/manage-content",
+      label: "My Library",
+      href: "/dashboard/readers/library", 
     },
     {
-      icon: DollarSign,
-      label: "Earnings",
-      href: "/dashboard/writers/earnings",
+      icon: DoorClosed,
+      label: "Reading Stats",
+      href: "/dashboard/readers/reading-stats",
     },
     {
-      icon: LineChart,
-      label: "Analytics panel",
-      href: "/dashboard/writers/analytics",
+      icon: Heart,
+      label: "Wishlist",
+      href: "/dashboard/readers/wishlist",
+      badge: 4,
     },
     {
-      icon: MessageCircle,
-      label: "Discussions & Clubs",
-      href: "/dashboard/writers/discussions-and-clubs",
+      icon: ClipboardList,
+      label: "Trasactions",
+      href: "/dashboard/readers/transactions",
+    },
+    {
+      icon: MessageSquare,
+      label: "Discussion & Clubs",
+      href: "/dashboard/readers/discussions-and-clubs",
     },
     {
       icon: Bell,
       label: "Notification",
-      href: "/dashboard/writers/notifications",
-      badge: 1,
+      href: "/dashboard/readers/notifications",
     },
     {
       icon: User,
       label: "Profile",
-      href: "/dashboard/writers/profile",
+      href: "/dashboard/readers/profile",
     },
+ 
   ];
 
   return (
@@ -94,15 +100,7 @@ export function Sidebar() {
               </Link>
             </li>
           ))}
-          {/* <li className="mt-8">
-            <Link
-              href="/logout"
-              className="flex items-center gap-3 p-3 text-[#5d5d5d] hover:bg-[#f6f6f6] rounded-md"
-            >
-              <LogOut size={18} />
-              <span>Sign Out</span>
-            </Link>
-          </li> */}
+    
         </ul>
       </nav>
     </div>
