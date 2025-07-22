@@ -1,9 +1,14 @@
 "use-client";
 import { Header } from "@/components/dashboard/header";
-
+// import { useState } from "react";
 export default function DashboardHome() {
+    // const [isWalletConnected, setIsWalletConnected] = useState(true);
+    // const handleDisconnect = () => {
+    //   setIsWalletConnected(false);
+    // };
   return (
     <>
+    {/* onDisconnect={handleDisconnect} */}
     <Header title="Reading Stats"  />
       <div className="space-y-6">
       <div className="flex flex-col items-center justify-center h-screen">

@@ -68,9 +68,10 @@ export default function ProfileDetailsPage() {
     console.log("Form submitted:", formData);
   };
 
+
   return (
     <>
-      <Header title="Profile" />
+      <Header title="Profile"  />
       <div className="bg-white m-4 md:m-6 rounded-xl">
         {/* Mobile Header */}
         <div className="lg:hidden bg-gray-50 p-4 flex items-center justify-between">

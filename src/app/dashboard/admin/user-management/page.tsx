@@ -1,10 +1,12 @@
 "use-client";
 import { Header } from "@/components/dashboard/header";
 
+
 export default function UserManagment() {
+
   return (
     <>
-      <Header title="User Managements" />
+      <Header title="User Managements"  />
       <div className="space-y-6">
         <div className="flex flex-col items-center justify-center h-screen">
           <h1 className="text-2xl font-bold text-gray-800">User Management</h1>

@@ -1,10 +1,13 @@
 "use-client";
 import { Header } from "@/components/dashboard/header";
 
+
 export default function Transactions() {
+
+
   return (
     <>
-      <Header title="Transactions" />
+      <Header title="Transactions"  />
       <div className="space-y-6">
         <div className="flex flex-col items-center justify-center h-screen">
           <h1 className="text-2xl font-bold text-gray-800">Transactions</h1>

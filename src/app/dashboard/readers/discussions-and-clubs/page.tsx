@@ -94,6 +94,7 @@ export default function DiscussionDashboard() {
     closeModal();
   }
 
+
   return (
     <div>
       <Header title="Discussions and Clubs" />

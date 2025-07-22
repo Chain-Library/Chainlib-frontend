@@ -16,7 +16,8 @@ import Image from "next/image";
 import { BookModal } from "../components/book-modal";
 import imgbook from "../../../../../public/Cover.png";
 import { Header } from "@/components/dashboard/header";
-
+import { SeriesModal } from "../components/series-modal";
+import { CollectionModal } from "../components/collection-modal";
 
 interface StatCard {
   title: string;
@@ -294,7 +295,8 @@ export default function BookLibraryDashboard() {
   const [genre, setGenre] = useState("Genre");
   const [bookTypeOpen, setBookTypeOpen] = useState(false);
   const [genreOpen, setGenreOpen] = useState(false);
-
+  const [isSeriesModalOpen, setIsSeriesModalOpen] = useState(false);
+  const [isCollectionModalOpen, setIsCollectionModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -307,10 +309,47 @@ export default function BookLibraryDashboard() {
     setSelectedBook(null);
     setIsModalOpen(false);
   };
+  const openSeriesModal = () => {
+    setIsSeriesModalOpen(true);
+  };
+
+  const closeSeriesModal = () => {
+    setIsSeriesModalOpen(false);
+  };
+
+  const handleSeriesBookClick = (book: any) => {
+    // Convert series book to regular book format and open book modal
+    const convertedBook = {
+      ...book,
+      likes: undefined, // Series books don't have likes in the regular book format
+    };
+    setSelectedBook(convertedBook);
+    setIsSeriesModalOpen(false);
+    setIsModalOpen(true);
+  };
+
+  const openCollectionModal = () => {
+    setIsCollectionModalOpen(true);
+  };
+
+  const closeCollectionModal = () => {
+    setIsCollectionModalOpen(false);
+  };
+
+  const handleCollectionBookClick = (book: any) => {
+    // Convert collection book to regular book format and open book modal
+    const convertedBook = {
+      ...book,
+      likes: undefined, // Collection books don't have likes in the regular book format
+    };
+    setSelectedBook(convertedBook);
+    setIsCollectionModalOpen(false);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
-      <Header title="Library" />
+      <Header title="Library"  />
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
           {/* Search and Filters */}
@@ -705,10 +744,11 @@ export default function BookLibraryDashboard() {
           </div>
 
           {/* Series Section */}
+
           <div className="mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold text-gray-900">Series</h2>
-              <button className="text-gray-500 hover:text-gray-700 text-sm font-medium border rounded-full py-3 px-5">
+              <button className="text-gray-500 hover:text-gray-700 text-sm font-medium">
                 View All →
               </button>
             </div>
@@ -717,7 +757,7 @@ export default function BookLibraryDashboard() {
               {seriesBooks.map((book) => (
                 <div
                   key={book.id}
-                  onClick={() => openBookModal(book)}
+                  onClick={() => openSeriesModal()}
                   className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer"
                 >
                   <div className="relative">
@@ -792,12 +832,13 @@ export default function BookLibraryDashboard() {
           </div>
 
           {/* Collections Section */}
+
           <div className="mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold text-gray-900">
                 Collections
               </h2>
-              <button className="text-gray-500 hover:text-gray-700 text-sm font-medium border rounded-full py-3 px-5">
+              <button className="text-gray-500 hover:text-gray-700 text-sm font-medium">
                 View All →
               </button>
             </div>
@@ -806,7 +847,8 @@ export default function BookLibraryDashboard() {
               {collections.map((collection) => (
                 <div
                   key={collection.id}
-                  className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                  onClick={() => openCollectionModal()}
+                  className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer"
                 >
                   {/* Collection Books Grid */}
                   <div className="p-4">
@@ -887,9 +929,26 @@ export default function BookLibraryDashboard() {
               ))}
             </div>
           </div>
+         
           {/* Book Modal */}
           {isModalOpen && selectedBook && (
             <BookModal book={selectedBook} onClose={closeBookModal} />
+          )}
+
+          {/* Series Modal */}
+          {isSeriesModalOpen && (
+            <SeriesModal
+              onClose={closeSeriesModal}
+              onBookClick={handleSeriesBookClick}
+            />
+          )}
+
+          {/* Collection Modal */}
+          {isCollectionModalOpen && (
+            <CollectionModal
+              onClose={closeCollectionModal}
+              onBookClick={handleCollectionBookClick}
+            />
           )}
         </div>
       </div>

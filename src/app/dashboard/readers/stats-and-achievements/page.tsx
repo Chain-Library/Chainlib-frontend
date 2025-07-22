@@ -91,10 +91,11 @@ const timeData = {
 export default function StatsAndAchievementsPage() {
   const [selectedPeriod, setSelectedPeriod] = useState("This Week");
   const currentData = timeData[selectedPeriod as keyof typeof timeData];
+ 
 
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
-      <Header title="Stats & Achievements" />
+      <Header title="Stats & Achievements"  />
 
       <div className="p-4 lg:p-6 space-y-6">
         {/* Total Hours Read Section */}

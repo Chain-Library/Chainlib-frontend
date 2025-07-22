@@ -81,6 +81,8 @@ export default function WishlistPage() {
     alert(`Purchasing ${likedBooks.length} books from wishlist!`);
   };
 
+
+
   return (
     <div className="flex flex-col h-full">
       <Header title="Wishlist" />

@@ -81,6 +81,8 @@ function EarningsPage() {
     }
   }, [walletAddress]);
 
+
+
   return (
     <>
       <Header title="Earnings" />

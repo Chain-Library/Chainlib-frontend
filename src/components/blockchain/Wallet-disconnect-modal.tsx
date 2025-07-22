@@ -102,7 +102,7 @@ export default function WalletDisconnectModal({
               </button>
 
               <button
-                className=" py-3 w-full text-center rounded-[48px] bg-teal-500 text-white font-medium hover:bg-teal-600 transition-colors"
+                className=" py-3 w-full text-center rounded-[48px] bg-blue-500 text-white font-medium hover:bg-blue-600 transition-colors"
                 onClick={handleDisconnect}
               >
                 Disconnect Wallet

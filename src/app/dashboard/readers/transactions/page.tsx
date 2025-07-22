@@ -155,9 +155,10 @@ export default function TransactionPage() {
     setSelectedTransaction(null);
   };
 
+
   return (
     <div className="flex flex-col h-full">
-      <Header title="Transactions" />
+      <Header title="Transactions"  />
 
       {/* Content */}
       <div className="flex-1 p-4 lg:p-6 overflow-auto mt-16">

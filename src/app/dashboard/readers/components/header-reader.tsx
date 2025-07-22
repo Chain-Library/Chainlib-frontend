@@ -37,7 +37,7 @@ export function HeaderReader() {
         <div className="text-sm">
           <div className="flex items-center gap-1">
             <span className="font-medium">Joseph Yanum</span>
-            <Image src={check} alt="Verified" className="object-cover" />
+            <Image src={check} alt="Verified" className="object-cover" width={32} />
           </div>
           <span className="text-[#888888] text-xs">@joeyyanum</span>
         </div>

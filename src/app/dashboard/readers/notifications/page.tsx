@@ -88,10 +88,12 @@ function NotificationPage() {
     return <NotificationDetailPage back={backhandler} />;
   }
 
+
+
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <Header title="Notification" />
+      <Header title="Notification"  />
 
       {/* Content */}
       <div className="flex-1 p-4 lg:p-6 overflow-auto mt-16">

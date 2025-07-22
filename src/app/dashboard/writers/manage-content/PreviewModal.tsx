@@ -68,7 +68,7 @@ const PreviewModal: React.FC<PreviewModalProps> = ({
             <div className="flex items-center gap-2 mb-6">
               <span className="text-[#5d5d5d]">By Darrin Collins</span>
               <span className="bg-[#edf7ff] text-[#236fea] text-xs px-2 py-0.5 rounded-full flex items-center justify-center">
-                <Image src={check} alt="Verified" className="mr-1" />
+                <Image src={check} alt="Verified" className="mr-1" width={32} />
               </span>
             </div>
 
