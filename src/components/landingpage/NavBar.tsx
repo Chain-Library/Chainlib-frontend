@@ -95,7 +95,7 @@ const NavBar = () => {
           </span>
         </Link>
 
-        <nav className="hidden md:flex space-x-6 text-[#5D5D5D] text-sm">
+        <nav className="hidden md:flex space-x-6 text-[#5D5D5D] text-sm cursor-pointer">
           {navItems.map(({ label, href }) => (
             <Link
               key={href}
