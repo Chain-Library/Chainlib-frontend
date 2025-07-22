@@ -16,15 +16,15 @@ const avatarImages = [
 
 function JoinOurCommunity() {
   return (
-    <section className="pt-[160px] pb-[208px] flex justify-center gap-x-[60px] items-center">
+    <section className="pt-[160px] pb-[208px] flex justify-center gap-x-[60px] items-center flex-col md:flex-row">
       <div className="max-w-[435px]">
-        <h2 className="text-[40px] font-bold text-[#0F265C] mb-8 leading-[110%]">
+        <h2 className=" text-[30px] mx-4 md:mx-0 md:text-[40px] font-bold text-[#0F265C] mb-8 leading-[110%]">
           Join Our Community of Book Lovers
         </h2>
 
-        <button className="bg-[#096CFF] text-white px-8 py-4 rounded-[16px] text-sm mb-[60px] flex items-center justify-center space-x-2">
+        <button className="bg-[#096CFF] text-white mx-4 md:mx-0  px-8 py-4 rounded-[16px] text-sm mb-[60px] flex items-center justify-center space-x-2">
           <span>Join Community</span>
-          <span className="inline-flex items-center">
+          <span className="inline-flex items-center max-w-20">
             <svg
               width="18"
               height="16"
@@ -41,7 +41,7 @@ function JoinOurCommunity() {
           </span>
         </button>
 
-        <div className="flex items-center gap-x-[53px] mt-8 bg-[#D6ECFF] p-6 rounded-[8px]">
+        <div className="flex items-center gap-x-[53px] mt-8 mx-4 md:mx-0 mb-8 md:mb-0 bg-[#D6ECFF] p-6 rounded-[8px]">
           <div>
             <p className="text-[#000B21] text-lg/[26px] mb-4 font-normal">
               Our Community
@@ -75,7 +75,7 @@ function JoinOurCommunity() {
       <Image
         src={Image3}
         alt="Readers community photo"
-        className="object-cover rounded-lg w-[513px] h-[380px]"
+        className="object-cover rounded-lg w-[350px] h-[250px]  md:w-[513px] md:h-[380px]"
       />
     </section>
   );

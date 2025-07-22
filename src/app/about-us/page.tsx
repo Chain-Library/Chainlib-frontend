@@ -22,7 +22,7 @@ export default function About() {
         <Image
           src={Image2}
           alt="Diverse community of readers and writers"
-          className="h-[186px] w-full rounded-lg my-5"
+          className="object-cover w-full h-[180px]    md:h-[186px]   md:rounded-lg "
         />
         <WhatIsChainLib />
         <WhatMakesUsDifferent />

@@ -24,11 +24,11 @@ const FeatureCard = ({
 
 function WhatMakesUsDifferent() {
   return (
-    <section className="py-[60px] px-6 md:px-[60px]">
-      <div className="flex flex-col md:flex-row gap-x-[110px]">
-        <h2 className="text-[40px] font-bold text-[#0F265C] max-w-[356px]">
-          What Makes Us Different
-        </h2>
+    <section className="md:py-[60px] px-6 md:px-[60px]">
+      <div className="flex flex-col md:flex-row gap-x-[110px] ">
+        <h2 className="text-[40px] font-bold text-center lg:text-left text-[#0F265C] max-w-[356px] mx-auto md:mx-0">
+    What Makes Us <span className="block mt-2  mb-8 ">Different</span>
+  </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
           <FeatureCard

@@ -93,7 +93,7 @@ export default function WalletConnectModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed  inset-0 z-50 flex items-center justify-center">
           <motion.div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             initial="hidden"
@@ -103,7 +103,7 @@ export default function WalletConnectModal({
           />
 
           <motion.div
-            className="relative w-fit px-[80px] rounded-2xl bg-white py-[60px] shadow-xl relative"
+            className=" w-fit px-[80px] rounded-2xl bg-white py-[60px] shadow-xl relative"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -133,7 +133,7 @@ export default function WalletConnectModal({
                   >
                     <button
                       style={{ boxShadow: "0px 6px 6px 0px #1212120A" }}
-                      className={`w-[200px] text-black border p-2 rounded-[10px] transition-all ease-in-out duration-200 
+                      className={`w-[100px] md:w-[200px] text-black border p-2 rounded-[10px] transition-all ease-in-out duration-200 
                         ${
                           selectedWallet === index + 1
                             ? "border-[#6366F1] bg-[#F6F6F6]"
@@ -141,7 +141,7 @@ export default function WalletConnectModal({
                         }`}
                       onClick={() => handleSelect(index + 1)}
                     >
-                      <div className="bg-[#E0F0FF] flex justify-center items-center mb-5 h-[120px] rounded-[8px]">
+                      <div className="bg-[#E0F0FF] flex  justify-center items-center mb-5 h-[120px] rounded-[8px]">
                         <Image
                           src={getIconSource(wallet.icon)}
                           alt={wallet.name}
