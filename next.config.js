@@ -2,15 +2,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    turbo: {
-      enabled: true, // Set turbo to true within an object
-    },
-  },
   images: {
-    domains: ['randomuser.me'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
-
 };
 
 // export default nextConfig;
