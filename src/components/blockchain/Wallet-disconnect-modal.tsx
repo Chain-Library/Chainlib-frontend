@@ -75,16 +75,19 @@ export default function WalletDisconnectModal({
             animate="visible"
             exit="exit"
           >
-            <div className="flex items-center justify-between mb-8 px-10">
-              <h2 className="text-xl font-semibold text-white">
-                Disconnect Wallet
-              </h2>
+            <div className="flex justify-end mb-4">
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors "
               >
                 <X size={20} />
               </button>
+            </div>
+
+            <div className="flex items-center justify-center mb-8 px-10">
+              <h2 className="text-xl font-semibold text-white">
+                Disconnect Wallet
+              </h2>
             </div>
 
             <AnimationWrapper variant="fadeIn" delay={0.1}>
