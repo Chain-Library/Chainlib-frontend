@@ -1,25 +1,25 @@
 // next.config.js
+
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
+
+  experimental: {
+    turbo: {
+      enabled: true, // Set turbo to true within an object
+    },
+  },
+
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    domains: ["randomuser.me"],
   },
 };
 
 // export default nextConfig;
 
-
 // /** @type {import('next').NextConfig} */
+
 // const nextConfig = {};
 
 // module.exports = nextConfig;
-
-

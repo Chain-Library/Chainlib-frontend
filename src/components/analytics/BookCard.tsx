@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-
+import Image2 from "@/assets/Images/footerimage.png";
 type BookCardProps = {
   title: string;
   author: string;
@@ -18,15 +18,11 @@ const BookCard: React.FC<BookCardProps> = ({
 }) => (
   <div className="bg-white p-4 rounded-lg shadow-sm flex items-center">
     <Image
-      src={cover}
+      src={Image2}
       alt={title}
       width={60}
       height={80}
       className="rounded-md object-cover mr-4"
-      onError={(e) => {
-        (e.target as HTMLImageElement).src =
-          "https://placehold.co/60x80/E0E0E0/000000?text=Book";
-      }}
     />
     <div>
       <h3 className="font-semibold text-gray-800">{title}</h3>

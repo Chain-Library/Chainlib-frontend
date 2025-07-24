@@ -77,28 +77,28 @@ export const trendingBooks = [
     author: "by Darrin Collins",
     price: "193 STRK",
     rating: 4.5,
-    cover: "/placeholder-image.png",
+    cover: "",
   },
   {
     title: "Native Invisibility",
     author: "by Darrin Collins",
     price: "193 STRK",
     rating: 4.5,
-    cover: "/placeholder-image.png",
+    cover: "",
   },
   {
     title: "Native Invisibility",
     author: "by Darrin Collins",
     price: "193 STRK",
     rating: 4.5,
-    cover: "/placeholder-image.png",
+    cover: "",
   },
   {
     title: "Native Invisibility",
     author: "by Darrin Collins",
     price: "193 STRK",
     rating: 4.5,
-    cover: "/placeholder-image.png",
+    cover: "",
   },
 ];
 
