@@ -47,8 +47,8 @@ export default function ReadersAnalytics() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="w-full h-64">
+      <div className="grid md:grid-cols-2 gap-6 ">
+        <div className="w-full h-64 bg-white rounded-lg shadow-md border">
           <ResponsiveContainer>
             <PieChart>
               <Pie

@@ -60,14 +60,15 @@ export default function Analytics() {
           </div>
         </div>
 
-        <div className="flex flex-wrap md:flex-nowrap ">
-          <div className=" w-full   ">
+        <div className="flex flex-wrap md:flex-nowrap">
+          <div className="w-full md:w-2/3">
             <SignupChart />
           </div>
-          <div className="w-full  ">
+          <div className="w-full md:w-1/3">
             <ChartDetails />
           </div>
         </div>
+
         <ReadersAnalytics />
         <WritersAnalytics />
       </main>

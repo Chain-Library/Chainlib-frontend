@@ -47,7 +47,6 @@ export default function WritersAnalytics() {
     <div className="bg-white rounded-xl shadow p-6 mt-6">
       <h2 className="text-xl font-semibold mb-4">Writers Analytics</h2>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-4 mb-6">
         {["This Week", "This Month", "This Year", "All Time"].map((label) => (
           <button
@@ -69,7 +68,7 @@ export default function WritersAnalytics() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="h-64 w-full">
+        <div className="h-64 w-full bg-white rounded-lg shadow-md border">
           <ResponsiveContainer>
             <PieChart>
               <Pie
