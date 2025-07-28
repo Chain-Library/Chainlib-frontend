@@ -1,6 +1,5 @@
-// CheckIcon.tsx
 const Book2 = (props: React.SVGProps<SVGSVGElement>) => (
-  // CheckIcon.tsx
+  
   <svg
     width="32"
     height="32"

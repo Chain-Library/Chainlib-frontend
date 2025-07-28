@@ -20,12 +20,14 @@ import {
   Filter,
 } from "lucide-react";
 import Book2 from "@/assets/icons/Book2";
+import Star from "@/assets/icons/Star";
+import BookImage from "@/assets/icons/BookImage";
 const books = new Array(4).fill({
   title: "Native Invisibility",
   author: "Darrin Collins",
   price: "193 STRK",
   rating: 4.5,
-  imgSrc: "https://m.media-amazon.com/images/I/81af+MCATTL.jpg",
+  imgSrc: <BookImage />,
 });
 const statCard = (label: string, value: string) => (
   <div className="bg-white rounded-xl border shadow-sm p-4 w-full flex flex-col gap-1">
@@ -188,11 +190,7 @@ export default function DashboardHome() {
                     key={idx}
                     className="bg-white rounded-xl border p-4 flex items-center gap-4"
                   >
-                    <img
-                      src={book.imgSrc}
-                      alt="Book"
-                      className="w-16 h-20 object-cover rounded"
-                    />
+                    {book.imgSrc}
                     <div>
                       <p className="font-semibold text-sm">{book.title}</p>
                       <p className="text-xs text-gray-600 flex items-center gap-1">
@@ -205,7 +203,10 @@ export default function DashboardHome() {
                         </div>
                       </div>
                       <div className="flex items-center mt-2 gap-2 text-sm text-yellow-500">
-                        <span>{book.rating}</span>
+                        <span className="flex items-center gap-1">
+                          <Star />
+                          {book.rating}
+                        </span>
                       </div>
                     </div>
                   </div>

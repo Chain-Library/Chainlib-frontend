@@ -1,6 +1,4 @@
-// CheckIcon.tsx
 const Writer = (props: React.SVGProps<SVGSVGElement>) => (
-  // CheckIcon.tsx
   <svg
     width="32"
     height="32"
