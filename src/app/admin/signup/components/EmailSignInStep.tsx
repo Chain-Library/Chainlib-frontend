@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Lock, Eye, EyeOff } from "lucide-react";
+import React, { useState,  } from "react";
+import { Eye, EyeOff, Lock } from "lucide-react";
 import BackButton from "./BackButton";
 import { SignInStep } from "@/lib/types";
+
 
 interface EmailSignInStepProps {
   onBack: () => void;
@@ -51,6 +52,7 @@ export default function EmailSignInStep({
         <p className="text-[#5D5D5D] text-base font-inter mb-8">
           Enter your registered email address and password
         </p>
+        
         <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
           <div>
             <label
@@ -103,9 +105,8 @@ export default function EmailSignInStep({
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 focus:outline-none"
-                onClick={() => setShowPassword((v) => !v)}
-                tabIndex={-1}
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
               >
                 {showPassword ? (
                   <EyeOff className="w-4 h-4 text-gray-400" />
@@ -115,11 +116,12 @@ export default function EmailSignInStep({
               </button>
             </div>
           </div>
+
           <button
             type="submit"
-            className="px-6 py-4 w-full rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+            className="w-full bg-[#096CFF] text-white py-3 px-4 rounded-md font-inter font-medium text-base hover:bg-blue-700 transition-colors h-[50px]"
           >
-            Log In
+            Sign In
           </button>
         </form>
       </div>
