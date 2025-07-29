@@ -74,8 +74,6 @@ export default function Page() {
 
 
 
-
-
     return (
         <div className="w-full h-full flex flex-col items-start justify-start gap-6 " >
             <BooksPageNav setDisplayedSection={setDisplayedSection} displayedSection={displayedSection} />
