@@ -44,7 +44,9 @@ export function Header({ title }: HeaderProps) {
   return (
     <>
       <header className="bg-white px-4 py-2 z-50 fixed w-full border-b top-0 border-[#e7e7e7] flex items-center justify-between">
-        <h1 className="text-xl font-semibold text-[#000b21]">{title}</h1>
+        <h1 className="md:text-xl text-base font-semibold text-[#000b21]">
+          {title}
+        </h1>
 
         <div className="flex items-center gap-4 space-x-3">
           <div className="relative">
