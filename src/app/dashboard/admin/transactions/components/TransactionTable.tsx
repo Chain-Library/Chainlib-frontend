@@ -1,5 +1,4 @@
 import Image from "next/image";
-// import starknet from "../../../../../../public/starknet.png"
 
 export interface Transaction {
   id: string;
@@ -14,10 +13,11 @@ export interface Transaction {
 
 interface TransactionTableProps {
   transactions: Transaction[];
+  onViewDetails: (tx: Transaction) => void;
 }
 
 const TransactionTable: React.FC<TransactionTableProps> = ({
-  transactions,
+  transactions, onViewDetails
 }) => (
   <div className="overflow-x-auto">
     <table className="w-full">
@@ -76,8 +76,10 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
               <span
                 className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                   transaction.status === "Successful"
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
+                  ? "bg-green-100 text-green-800"
+                  : transaction.status === "Pending"
+                  ? "bg-yellow-100 text-yellow-800"
+                  : "bg-red-100 text-red-800"
                 }`}
               >
                 {transaction.status}
@@ -86,8 +88,13 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
               {transaction.date}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
-              <button className="hover:text-blue-800">View Details</button>
+             <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+              <button 
+                className="hover:text-blue-800"
+                onClick={() => onViewDetails(transaction)}
+              >
+                View Details
+              </button>
             </td>
           </tr>
         ))}

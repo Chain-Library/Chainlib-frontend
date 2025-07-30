@@ -12,13 +12,25 @@ import TimeFilter from "./components/TimeFilter";
 import TabNavigation from "./components/TabNavigation";
 import type { Tab } from "./components/TabNavigation";
 import type { Transaction } from "./components/TransactionTable";
+import type { PayoutRequest } from "./components/PayoutRequestTable";
+import type { Subscription } from "./components/SubscriptionTable";
 import TransactionTable from "./components/TransactionTable";
+import TransactionDetailModal from "./components/TransactionDetailModal";
+import PayoutRequestTable from "./components/PayoutRequestTable";
+import PayoutRequestDetailModal from "./components/PayoutRequestDetailModal";
 
 const Transactions = () => {
   const [activeTab, setActiveTab] = useState("Transaction History");
   const [timeFilter, setTimeFilter] = useState("This Week");
   const [salesTimeFilter, setSalesTimeFilter] = useState("This Week");
   const [tableTimeFilter, setTableTimeFilter] = useState("This Week");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<Transaction | null>(null);
+  const [selectedPayoutRequest, setSelectedPayoutRequest] =
+    useState<PayoutRequest | null>(null);
+  // const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+  const [isPayoutModalOpen, setIsPayoutModalOpen] = useState(false);
 
   // Chart data
   const chartData: ChartData[] = [
@@ -36,7 +48,7 @@ const Transactions = () => {
   ];
 
   // Sample transaction data
-  const transactions: Transaction[] = [
+  const transactionHistoryData: Transaction[] = [
     {
       id: "Tran-124B",
       type: "Subscription",
@@ -89,9 +101,141 @@ const Transactions = () => {
     },
   ];
 
+  // Payout request data
+  const payoutRequestData: PayoutRequest[] = [
+    {
+      author: "Olu Ademola",
+      email: "oluade...@gmail.com",
+      amount: "500.67 STR",
+      walletAddress: "0xABC...789",
+      requestDate: "27 May,2025",
+      status: "Pending",
+    },
+    {
+      author: "Olu Ademola",
+      email: "oluade...@gmail.com",
+      amount: "500.67 STR",
+      walletAddress: "0xABC...789",
+      requestDate: "27 May,2025",
+      status: "Pending",
+    },
+    {
+      author: "Olu Ademola",
+      email: "oluade...@gmail.com",
+      amount: "500.67 STR",
+      walletAddress: "0xABC...789",
+      requestDate: "27 May,2025",
+      status: "Pending",
+    },
+    {
+      author: "Olu Ademola",
+      email: "oluade...@gmail.com",
+      amount: "500.67 STR",
+      walletAddress: "0xABC...789",
+      requestDate: "27 May,2025",
+      status: "Pending",
+    },
+    {
+      author: "Olu Ademola",
+      email: "oluade...@gmail.com",
+      amount: "500.67 STR",
+      walletAddress: "0xABC...789",
+      requestDate: "27 May,2025",
+      status: "Pending",
+    },
+  ];
+
+  // Subscription data
+  const subscriptionData: Subscription[] = [
+    {
+      id: "Sub-001",
+      type: "Monthly Subscription",
+      amount: "29.99 STRK",
+      user: "Reader",
+      userName: "alex_reader",
+      status: "Successful",
+      date: "28 July",
+    },
+    {
+      id: "Sub-002",
+      type: "Annual Subscription",
+      amount: "299.99 STRK",
+      user: "Reader",
+      userName: "sarah_writer",
+      status: "Successful",
+      date: "27 July",
+    },
+  ];
+
+  // NFT Minting data
+  const nftMintingData: Transaction[] = [
+    {
+      id: "NFT-001",
+      type: "NFT Mint",
+      amount: "150.00 STRK",
+      user: "Writer",
+      userName: "crypto_author",
+      bookTitle: "Digital Art Collection",
+      status: "Successful",
+      date: "29 July",
+    },
+    {
+      id: "NFT-002",
+      type: "NFT Mint",
+      amount: "200.00 STRK",
+      user: "Writer",
+      userName: "nft_creator",
+      bookTitle: "Limited Edition Series",
+      status: "Pending",
+      date: "28 July",
+    },
+  ];
+
+  // const getTableData = (): Transaction[] | PayoutRequest[] | Subscription[] => {
+  //   switch (activeTab) {
+  //     case "Payout Request":
+  //       return payoutRequestData;
+  //     case "Subscription":
+  //       return subscriptionData;
+  //     case "NFT Minting":
+  //       return nftMintingData;
+  //     default:
+  //       return transactionHistoryData;
+  //   }
+  // };
+
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
-    // Modal logic will be handled by parent component
+  };
+
+  const handlePayoutRowClick = (request: PayoutRequest) => {
+    setSelectedPayoutRequest(request);
+    setIsPayoutModalOpen(true);
+  };
+
+  const handleClosePayoutModal = () => {
+    setIsPayoutModalOpen(false);
+    setSelectedPayoutRequest(null);
+  };
+
+  const handleViewDetails = (transaction: Transaction) => {
+    setSelectedTransaction(transaction);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTransaction(null);
+  };
+
+  const handleApprove = (request: PayoutRequest) => {
+    console.log("Approving:", request);
+    // Handle approval logic
+  };
+
+  const handleDecline = (request: PayoutRequest) => {
+    console.log("Declining:", request);
+    // Handle decline logic
   };
 
   return (
@@ -127,34 +271,33 @@ const Transactions = () => {
 
           {/* 2x2 grid of smaller cards on the right */}
           <div className="w-[50%]">
-
-          <div className="grid grid-cols-2 gap-4 flex-1">
-            <StatsCard
-              title="Revenue Earned"
-              value="21,070.93"
-              currency="STR"
-              size="small"
-              currencyTextSize="text-xs"
-              currencyFontWeight="font-light"
-            />
-            <StatsCard
-              title="Payout Sent"
-              value="51,070.93"
-              currency="STR"
-              size="small"
-              currencyTextSize="text-xs"
-              currencyFontWeight="font-light"
-            />
-            <StatsCard
-              title="Pending Payout"
-              value="12,070.93"
-              currency="STR"
-              size="small"
-              currencyTextSize="text-xs"
-              currencyFontWeight="font-light"
-            />
-            <StatsCard title="Failed Payout" value="9" size="small" />
-          </div>
+            <div className="grid grid-cols-2 gap-4 flex-1">
+              <StatsCard
+                title="Revenue Earned"
+                value="21,070.93"
+                currency="STR"
+                size="small"
+                currencyTextSize="text-xs"
+                currencyFontWeight="font-light"
+              />
+              <StatsCard
+                title="Payout Sent"
+                value="51,070.93"
+                currency="STR"
+                size="small"
+                currencyTextSize="text-xs"
+                currencyFontWeight="font-light"
+              />
+              <StatsCard
+                title="Pending Payout"
+                value="12,070.93"
+                currency="STR"
+                size="small"
+                currencyTextSize="text-xs"
+                currencyFontWeight="font-light"
+              />
+              <StatsCard title="Failed Payout" value="9" size="small" />
+            </div>
           </div>
         </div>
 
@@ -212,24 +355,59 @@ const Transactions = () => {
 
         {/* Transaction Table Section */}
         <div className="w-full max-w-full mx-auto p-4">
-        <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-          <TabNavigation
-            tabs={tabs}
-            activeTab={activeTab}
-            onTabClick={handleTabClick}
-          />
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+            <TabNavigation
+              tabs={tabs}
+              activeTab={activeTab}
+              onTabClick={handleTabClick}
+            />
 
-          <SearchFilterBar
-            timeFilter={tableTimeFilter}
-            onTimeFilterChange={setTableTimeFilter}
-          />
+            <SearchFilterBar
+              timeFilter={tableTimeFilter}
+              onTimeFilterChange={setTableTimeFilter}
+            />
 
-          <TransactionTable transactions={transactions} />
+            {activeTab === "Payout Request" ? (
+              <PayoutRequestTable
+                requests={payoutRequestData}
+                onApprove={handleApprove}
+                onDecline={handleDecline}
+                onRowClick={handlePayoutRowClick}
+              />
+            ) : (
+              <TransactionTable
+                transactions={(() => {
+                  switch (activeTab) {
+                    case "NFT Minting":
+                      return nftMintingData;
+                    default:
+                      return transactionHistoryData;
+                  }
+                })()}
+                onViewDetails={handleViewDetails}
+              />
+            )}
 
-          <Pagination currentItems={5} totalItems={12} itemsPerPage={5} />
-        </div>
+            <Pagination currentItems={5} totalItems={12} itemsPerPage={5} />
+          </div>
         </div>
       </div>
+
+      {/* Transaction Detail Modal */}
+      <TransactionDetailModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        transaction={selectedTransaction}
+      />
+
+      {/* Payout Request Detail Modal */}
+      <PayoutRequestDetailModal
+        isOpen={isPayoutModalOpen}
+        onClose={handleClosePayoutModal}
+        request={selectedPayoutRequest}
+        onApprove={handleApprove}
+        onDecline={handleDecline}
+      />
     </>
   );
 };
