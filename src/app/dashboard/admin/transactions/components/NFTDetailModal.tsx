@@ -85,7 +85,6 @@ const NFTDetailModal: React.FC<NFTDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Right: Retry Button aligned to bottom */}
             <div className="flex items-end">
               {isFailed && onRetryMinting && (
                 <button
