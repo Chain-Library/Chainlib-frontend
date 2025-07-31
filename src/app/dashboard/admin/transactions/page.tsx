@@ -9,28 +9,32 @@ import Pagination from "./components/Pagination";
 import SearchFilterBar from "./components/SearchFilterBar";
 import StatsCard from "./components/StatsCard";
 import TimeFilter from "./components/TimeFilter";
-import TabNavigation from "./components/TabNavigation";
-import type { Tab } from "./components/TabNavigation";
-import type { Transaction } from "./components/TransactionTable";
-import type { PayoutRequest } from "./components/PayoutRequestTable";
-import type { Subscription } from "./components/SubscriptionTable";
-import TransactionTable from "./components/TransactionTable";
+import TabNavigation, {type Tab}  from "./components/TabNavigation";
+import TransactionTable, {type Transaction} from "./components/TransactionTable";
 import TransactionDetailModal from "./components/TransactionDetailModal";
-import PayoutRequestTable from "./components/PayoutRequestTable";
+import PayoutRequestTable, {type PayoutRequest} from "./components/PayoutRequestTable";
 import PayoutRequestDetailModal from "./components/PayoutRequestDetailModal";
+import SubscriptionTable, {type Subscription} from "./components/SubscriptionTable";
+import NFTMintingTable, { type NFTMinting } from "./components/NFTMintingTable";
+import NFTDetailModal from "./components/NFTDetailModal";
 
 const Transactions = () => {
   const [activeTab, setActiveTab] = useState("Transaction History");
   const [timeFilter, setTimeFilter] = useState("This Week");
   const [salesTimeFilter, setSalesTimeFilter] = useState("This Week");
   const [tableTimeFilter, setTableTimeFilter] = useState("This Week");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTransaction, setSelectedTransaction] =
-    useState<Transaction | null>(null);
-  const [selectedPayoutRequest, setSelectedPayoutRequest] =
-    useState<PayoutRequest | null>(null);
-  // const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+  
+  // Transaction modal states
+  const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
+  
+  // Payout modal states
   const [isPayoutModalOpen, setIsPayoutModalOpen] = useState(false);
+  const [selectedPayoutRequest, setSelectedPayoutRequest] = useState<PayoutRequest | null>(null);
+  
+  // NFT modal states
+  const [isNFTModalOpen, setIsNFTModalOpen] = useState(false);
+  const [selectedNFT, setSelectedNFT] = useState<NFTMinting | null>(null);
 
   // Chart data
   const chartData: ChartData[] = [
@@ -165,45 +169,99 @@ const Transactions = () => {
       status: "Successful",
       date: "27 July",
     },
-  ];
-
-  // NFT Minting data
-  const nftMintingData: Transaction[] = [
     {
-      id: "NFT-001",
-      type: "NFT Mint",
-      amount: "150.00 STRK",
-      user: "Writer",
-      userName: "crypto_author",
-      bookTitle: "Digital Art Collection",
-      status: "Successful",
-      date: "29 July",
+      id: "Sub-001",
+      type: "Monthly Subscription",
+      amount: "29.99 STRK",
+      user: "Reader",
+      userName: "alex_reader",
+      status: "Failed",
+      date: "28 July",
     },
     {
-      id: "NFT-002",
-      type: "NFT Mint",
-      amount: "200.00 STRK",
-      user: "Writer",
-      userName: "nft_creator",
-      bookTitle: "Limited Edition Series",
-      status: "Pending",
+      id: "Sub-001",
+      type: "Monthly Subscription",
+      amount: "29.99 STRK",
+      user: "Reader",
+      userName: "alex_reader",
+      status: "Successful",
+      date: "28 July",
+    },
+    {
+      id: "Sub-001",
+      type: "Monthly Subscription",
+      amount: "29.99 STRK",
+      user: "Reader",
+      userName: "alex_reader",
+      status: "Failed",
       date: "28 July",
     },
   ];
 
-  // const getTableData = (): Transaction[] | PayoutRequest[] | Subscription[] => {
-  //   switch (activeTab) {
-  //     case "Payout Request":
-  //       return payoutRequestData;
-  //     case "Subscription":
-  //       return subscriptionData;
-  //     case "NFT Minting":
-  //       return nftMintingData;
-  //     default:
-  //       return transactionHistoryData;
-  //   }
-  // };
+  const nftMintingData: NFTMinting[] = [
+    {
+      id: "1",
+      title: "Whispers of Dawn",
+      author: "John Doe",
+      feeAmount: "5.00 STRK",
+      network: "Ethereum",
+      mintDate: "12 May, 2025",
+      status: "Minted",
+      smartContractAddress: "0x9f...d45A",
+      tokenStandard: "ERC-721",
+      description: "Delves into the complex and often insidious ways in which indigenous peoples and their unique experiences are rendered unseen and unheard in the modern era."
+    },
+    {
+      id: "2", 
+      title: "Native Invisibility",
+      author: "Darrin Collins",
+      feeAmount: "5.00 STRK",
+      network: "Ethereum", 
+      mintDate: "12 May, 2025",
+      status: "Minted",
+      smartContractAddress: "0x9f...d45A",
+      tokenStandard: "ERC-721",
+      description: "Delves into the complex and often insidious ways in which indigenous peoples and their unique experiences are rendered unseen and unheard in the modern era."
+    },
+    {
+      id: "3",
+      title: "Digital Dreams",
+      author: "Jane Smith", 
+      feeAmount: "5.00 STRK",
+      network: "Ethereum",
+      mintDate: "12 May, 2025", 
+      status: "Failed",
+      smartContractAddress: "0x9f...d45A",
+      tokenStandard: "ERC-721",
+      description: "A journey through the digital landscape of modern storytelling."
+    },
+    {
+      id: "1",
+      title: "Whispers of Dawn",
+      author: "John Doe",
+      feeAmount: "5.00 STRK",
+      network: "Ethereum",
+      mintDate: "12 May, 2025",
+      status: "Minted",
+      smartContractAddress: "0x9f...d45A",
+      tokenStandard: "ERC-721",
+      description: "Delves into the complex and often insidious ways in which indigenous peoples and their unique experiences are rendered unseen and unheard in the modern era."
+    },
+    {
+      id: "1",
+      title: "Whispers of Dawn",
+      author: "John Doe",
+      feeAmount: "5.00 STRK",
+      network: "Ethereum",
+      mintDate: "12 May, 2025",
+      status: "Minted",
+      smartContractAddress: "0x9f...d45A",
+      tokenStandard: "ERC-721",
+      description: "Delves into the complex and often insidious ways in which indigenous peoples and their unique experiences are rendered unseen and unheard in the modern era."
+    },
+  ];
 
+  // Handler functions
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
@@ -220,12 +278,28 @@ const Transactions = () => {
 
   const handleViewDetails = (transaction: Transaction) => {
     setSelectedTransaction(transaction);
-    setIsModalOpen(true);
+    setIsTransactionModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseTransactionModal = () => {
+    setIsTransactionModalOpen(false);
     setSelectedTransaction(null);
+  };
+
+  const handleViewMore = (nft: NFTMinting) => {
+    setSelectedNFT(nft);
+    setIsNFTModalOpen(true);
+  };
+
+  const handleCloseNFTModal = () => {
+    setIsNFTModalOpen(false);
+    setSelectedNFT(null);
+  };
+
+  const handleRetryMinting = (nft: NFTMinting) => {
+    console.log('Retrying minting for:', nft.title);
+    // Handle retry logic here
+    handleCloseNFTModal();
   };
 
   const handleApprove = (request: PayoutRequest) => {
@@ -258,8 +332,6 @@ const Transactions = () => {
         <div className="flex gap-6 mb-8">
           {/* Large rectangular card on the left - controlled width */}
           <div className="w-[50%]">
-            {" "}
-            {/* You can adjust this width as needed */}
             <StatsCard
               title="Total Transactions"
               value="109,837.06"
@@ -354,8 +426,8 @@ const Transactions = () => {
         </div>
 
         {/* Transaction Table Section */}
-        <div className="w-full max-w-full mx-auto p-4">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-white p-6 rounded-lg border border-gray-200 mb-8">
+          <div className="bg-gray-100 rounded-lg border border-gray-200 shadow-sm overflow-hidden">
             <TabNavigation
               tabs={tabs}
               activeTab={activeTab}
@@ -374,16 +446,16 @@ const Transactions = () => {
                 onDecline={handleDecline}
                 onRowClick={handlePayoutRowClick}
               />
+            ) : activeTab === "Subscription" ? (
+              <SubscriptionTable transactions={subscriptionData} />
+            ) : activeTab === "NFT Minting" ? (
+              <NFTMintingTable
+                nftMinings={nftMintingData}
+                onViewMore={handleViewMore}
+              />
             ) : (
               <TransactionTable
-                transactions={(() => {
-                  switch (activeTab) {
-                    case "NFT Minting":
-                      return nftMintingData;
-                    default:
-                      return transactionHistoryData;
-                  }
-                })()}
+                transactions={transactionHistoryData}
                 onViewDetails={handleViewDetails}
               />
             )}
@@ -395,8 +467,8 @@ const Transactions = () => {
 
       {/* Transaction Detail Modal */}
       <TransactionDetailModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
+        isOpen={isTransactionModalOpen}
+        onClose={handleCloseTransactionModal}
         transaction={selectedTransaction}
       />
 
@@ -407,6 +479,14 @@ const Transactions = () => {
         request={selectedPayoutRequest}
         onApprove={handleApprove}
         onDecline={handleDecline}
+      />
+
+      {/* NFT Detail Modal */}
+      <NFTDetailModal
+        isOpen={isNFTModalOpen}
+        onClose={handleCloseNFTModal}
+        nft={selectedNFT}
+        onRetryMinting={handleRetryMinting}
       />
     </>
   );
