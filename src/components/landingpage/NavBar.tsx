@@ -19,8 +19,8 @@ const NavBar = () => {
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
   const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const path = usePathname()
-  
+  const path = usePathname();
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navItems = [
     { label: "Home", href: "/" },
@@ -73,7 +73,7 @@ const NavBar = () => {
   };
 
   if (path.includes("dashboard")) {
-    return
+    return;
   }
 
   return (
@@ -108,7 +108,6 @@ const NavBar = () => {
             </Link>
           ))}
         </nav>
-
 
         {/* Wallet Connection Button or Connected Wallet */}
         <div className="hidden md:block">
@@ -159,7 +158,6 @@ const NavBar = () => {
                       >
                         Disconnect
                       </button>
-                    
                     </div>
                   </div>
                 )}
@@ -168,7 +166,7 @@ const NavBar = () => {
           </AnimationWrapper>
         </div>
       </div>
-     <ConnectButton
+      <ConnectButton
         isOpen={isConnectModalOpen}
         onSelect={handleWalletSelect}
         setIsModalOpen={setIsConnectModalOpen}
