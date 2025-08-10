@@ -14,7 +14,6 @@ export default function AdminTable() {
   const sp = useSearchParams();
   const router = useRouter();
 
-  // read status + pagination from URL
   const status = (sp.get("status") as StatusTab) || "all";
   const page = Number(sp.get("page") || 1);
   const pageSize = Number(sp.get("pageSize") || 5);
@@ -30,16 +29,14 @@ export default function AdminTable() {
 
   const setStatus = (next: StatusTab) => {
     const params: Record<string, string | number | undefined> = {
-      page: 1, // reset to first page on filter change
+      page: 1,
     };
-    // keep URL clean when "all"
     if (next !== "all") params.status = next;
     else params.status = undefined;
 
     pushWith(params);
   };
 
-  // filter BEFORE paginating
   const filtered = useMemo(() => {
     if (status === "active") return ADMINS.filter((a) => a.status === "active");
     if (status === "revoked")
@@ -68,7 +65,6 @@ export default function AdminTable() {
 
       <div className="border border-[#E7E7E7] rounded-[8px]">
         <div className="bg-[#F2F2F2] py-3 px-4 flex items-center justify-between">
-          {/* Tabs */}
           <div className="flex items-center gap-x-3">
             <button
               onClick={() => setStatus("all")}

@@ -1,4 +1,3 @@
-// app/(your-path)/components/notifications.data.ts
 export type Recipients = "Private" | "Write" | "General" | "Writer" | "Reader";
 export type NotificationItem = {
   id: string;
@@ -6,9 +5,9 @@ export type NotificationItem = {
   email: string;
   recipients: Recipients;
   status: "Sent" | "Pending" | "Failed";
-  date: string; // ISO
-  sentBy: string; // e.g., "Admin Team"
-  receiver: string; // e.g., "Writers"
+  date: string;
+  sentBy: string;
+  receiver: string;
   image?: string;
   body?: string;
 };
@@ -35,7 +34,7 @@ export const NOTIFICATIONS: NotificationItem[] = Array.from({ length: 40 }).map(
       date: d.toISOString(),
       sentBy: i % 2 ? "Admin Team" : "Moderator",
       receiver: i % 3 ? "Writers" : "Readers",
-      image: "/coming-soon.jpg", // replace with your asset
+      image: "/coming-soon.jpg",
       body: "We are excited to announce a series of improvements and new features in our subscription plans. Starting this month, subscribers will enjoy enhanced benefits tailored to provide greater value and a more seamless experience.",
     };
   }

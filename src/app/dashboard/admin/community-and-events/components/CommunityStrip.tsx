@@ -1,4 +1,3 @@
-// app/dashboard/admin/community-and-events/components/CommunityStrip.tsx
 "use client";
 import { ClipboardList, Earth, Users } from "lucide-react";
 import React from "react";

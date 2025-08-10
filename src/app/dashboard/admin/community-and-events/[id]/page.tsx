@@ -28,7 +28,6 @@ export default function Page() {
     router.push(`?${qp.toString()}`);
   };
 
-  // optional: handle bad id
   if (!community) {
     return (
       <>
@@ -59,7 +58,6 @@ export default function Page() {
 
         <DiscussionSummary community={community} />
 
-        {/* Tabs */}
         <div
           className="mt-4 rounded-[8px] bg-white p-4"
           style={{ boxShadow: "0px 6px 6px 0px #1212120A" }}
@@ -104,7 +102,6 @@ export default function Page() {
             </button>
           </div>
 
-          {/* Tab Content */}
           <div className="flex flex-col gap-4">
             {tab === "discussion" && <DiscussionsTab />}
 

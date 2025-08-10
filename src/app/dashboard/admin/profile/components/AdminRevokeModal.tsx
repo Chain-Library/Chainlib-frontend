@@ -33,17 +33,13 @@ export default function AdminRevokeModal() {
 
   if (!revokeId || !admin) return null;
 
-  // name formatting like "@Habib Musa"
   const atName = `@${admin.name.replace(/\s+/g, " ").trim()}`;
 
   return (
     <div role="dialog" aria-modal="true" className="fixed inset-0 z-50">
-      {/* backdrop */}
       <div className="absolute inset-0 bg-black/50" onClick={close} />
 
-      {/* card */}
       <div className="absolute left-1/2 top-1/2 w-[460px] -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-8 text-center shadow-2xl font-normal">
-        {/* Icon circle */}
         <div className="mx-auto mb-6 w-28 h-28 rounded-full bg-[#F3F4F6] flex items-center justify-center">
           <AlertTriangle size={44} className="text-[#9CA3AF]" />
         </div>
@@ -59,7 +55,6 @@ export default function AdminRevokeModal() {
         </p>
 
         <div className="grid grid-cols-2 gap-4">
-          {/* Confirm (light) */}
           <button
             onClick={close}
             className="rounded-xl py-3 border border-[#E5EAF1] bg-gradient-to-b from-[#F5F7FA] to-[#E9EEF5] text-[#0F172A]"
@@ -67,7 +62,6 @@ export default function AdminRevokeModal() {
             Confirm
           </button>
 
-          {/* Cancel (blue) */}
           <button
             onClick={close}
             className="rounded-xl text-white py-3"

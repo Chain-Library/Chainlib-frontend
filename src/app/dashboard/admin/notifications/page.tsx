@@ -38,7 +38,6 @@ export default function Notifications() {
         </div>
       </div>
 
-      {/* Mount once; opens when ?announce=1 */}
       <AnnouncementModal />
     </>
   );

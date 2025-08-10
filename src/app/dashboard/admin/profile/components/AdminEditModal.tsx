@@ -1,9 +1,8 @@
-// AdminEditModal.tsx
 "use client";
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ADMINS, Admin } from "../utils/data";
-import { ArrowLeft, Wallet } from "lucide-react";
+import { Wallet } from "lucide-react";
 
 const ROLES = ["Super Admin", "Admin", "Content Admin", "Moderator"] as const;
 
@@ -14,7 +13,6 @@ export default function AdminEditModal() {
   const sp = useSearchParams();
   const editId = sp.get("edit");
   const admin: Admin | undefined = ADMINS.find((a) => String(a.id) === editId);
-  // local form state (no submit yet)
   const [email, setEmail] = React.useState(admin?.email);
   const [role, setRole] = React.useState<Role>(
     (admin?.role as Role) ?? "Admin"
@@ -46,7 +44,6 @@ export default function AdminEditModal() {
     <div role="dialog" aria-modal="true" className="fixed inset-0 z-50">
       <div className="absolute inset-0 bg-black/50" onClick={close} />
       <div className="absolute left-1/2 top-1/2 w-[670px] max-w-[95vw] -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-6 shadow-2xl">
-        {/* avatar / name */}
         <div className="flex flex-col items-center mb-6">
           <div className="w-24 h-24 rounded-full bg-[#E5E7EB] mb-3" />
           <div className="text-xl font-semibold">{admin.name}</div>
@@ -56,9 +53,7 @@ export default function AdminEditModal() {
           </div>
         </div>
 
-        {/* form */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Email */}
           <div className="flex flex-col gap-2">
             <label className="text-[#6B7280]">Email</label>
             <input
@@ -69,7 +64,6 @@ export default function AdminEditModal() {
             />
           </div>
 
-          {/* Wallet (disabled) */}
           <div className="flex flex-col gap-2">
             <label className="text-[#6B7280]">Authorized wallet address</label>
             <div className="flex items-center gap-2 border border-[#E5E7EB] rounded-xl px-4 py-3 bg-[#F9FAFB]">
@@ -82,7 +76,6 @@ export default function AdminEditModal() {
             </div>
           </div>
 
-          {/* Role select */}
           <div className="md:col-span-2 flex flex-col gap-2">
             <label className="text-[#6B7280]">Role</label>
             <select
@@ -99,7 +92,6 @@ export default function AdminEditModal() {
           </div>
         </div>
 
-        {/* actions */}
         <div className="mt-5 grid grid-cols-2 gap-3">
           <button
             onClick={close}
@@ -108,7 +100,7 @@ export default function AdminEditModal() {
             Cancel
           </button>
           <button
-            onClick={close} // Save just closes for now
+            onClick={close}
             className="rounded-xl text-white py-3"
             style={{
               background:

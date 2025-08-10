@@ -1,5 +1,4 @@
 "use client";
-import { ListFilter } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const FILTER_OPTIONS = [
@@ -23,7 +22,6 @@ function CommunityAndEventsFilter() {
       if (v === undefined || v === null || v === "") params.delete(k);
       else params.set(k, String(v));
     });
-    // reset pagination when filter changes
     params.delete("page");
     router.push(`?${params.toString()}`);
   };

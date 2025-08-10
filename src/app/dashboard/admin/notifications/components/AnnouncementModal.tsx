@@ -6,8 +6,6 @@ import {
   Bold,
   Italic,
   Underline,
-  Heading1,
-  Heading2,
   Image as ImageIcon,
   Link as LinkIcon,
   Undo2,
@@ -41,15 +39,12 @@ export default function AnnouncementModal() {
 
   return (
     <div role="dialog" aria-modal="true" className="fixed inset-0 z-50">
-      {/* backdrop */}
       <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={close}
       />
 
-      {/* card */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] max-w-[95vw] bg-white rounded-2xl p-6 shadow-2xl">
-        {/* back */}
         <button
           onClick={close}
           className="w-10 h-10 rounded-lg border border-[#E5E5E5] flex items-center justify-center mb-4"
@@ -59,7 +54,6 @@ export default function AnnouncementModal() {
         </button>
 
         <div className="rounded-xl">
-          {/* Title input */}
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -67,14 +61,12 @@ export default function AnnouncementModal() {
             className="w-full border-[1px] border-[#D1D1D1] rounded-lg px-4 py-3 text-xl sm:text-2xl font-semibold outline-none placeholder:text-[#B7BCC2]"
           />
 
-          {/* simple toolbar (top) */}
           <div className="flex items-center gap-4 text-[#6B7280] px-1 py-2">
             <Bold size={18} />
             <Italic size={18} />
             <Underline size={18} />
           </div>
 
-          {/* Body textarea */}
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
@@ -83,7 +75,6 @@ export default function AnnouncementModal() {
             className="w-full border border-[#E5E5E5] rounded-lg px-4 py-3 outline-none placeholder:text-[#9AA0A6]"
           />
 
-          {/* toolbar (bottom) */}
           <div className="flex items-center gap-4 text-[#6B7280] px-1 py-2">
             <Bold size={18} />
             <Italic size={18} />
@@ -97,7 +88,6 @@ export default function AnnouncementModal() {
           </div>
         </div>
 
-        {/* actions */}
         <div className="mt-4 grid grid-cols-2 gap-3">
           <button
             onClick={close}
@@ -106,7 +96,7 @@ export default function AnnouncementModal() {
             Cancel
           </button>
           <button
-            onClick={close} // Send just closes for now
+            onClick={close}
             className="rounded-xl text-white py-3"
             style={{
               background:

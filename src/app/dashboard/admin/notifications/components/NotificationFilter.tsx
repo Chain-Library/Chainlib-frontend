@@ -24,18 +24,15 @@ export default function NotificationFilter() {
       if (v === undefined || v === null || v === "") params.delete(k);
       else params.set(k, String(v));
     });
-    // reset page whenever filters change
     params.delete("page");
     router.push(`?${params.toString()}`);
   };
 
   const onQuick = (key: string) => {
-    // using a quick range clears custom dates
     pushWith({ filter: key, start: undefined, end: undefined });
   };
 
   const onApplyDates = () => {
-    // using date range clears quick filter
     pushWith({ start, end, filter: undefined });
   };
 
@@ -46,7 +43,6 @@ export default function NotificationFilter() {
   return (
     <div className="flex justify-between items-center">
       <div className="flex gap-x-4 items-center">
-        {/* Quick ranges */}
         <div className="flex gap-x-2 items-center">
           {FILTER_OPTIONS.map((opt) => (
             <button
@@ -63,7 +59,6 @@ export default function NotificationFilter() {
           ))}
         </div>
 
-        {/* Date range (stays visible in UI) */}
         <div className="flex gap-x-4 items-center">
           <div className="flex gap-x-2 items-center">
             <input

@@ -7,13 +7,8 @@ import NotificationTablePagination from "./NotificationTablePagination";
 import NotificationFilterModal from "./NotificationDetailsModal";
 import { NotificationItem, NOTIFICATIONS } from "../utils/dummy_data";
 
-// ... keep your existing helpers (parseDDMMYYYY, applyQuickFilter, etc.)
-
 export default function NotificationTable() {
   const sp = useSearchParams();
-
-  // read URL filters (filter/start/end/sentBy/receiver/status/page/pageSize) …
-  // then filter + paginate NOTIFICATIONS exactly like before
 
   const pageSize = Number(sp.get("pageSize") || 5);
   const page = Number(sp.get("page") || 1);
@@ -24,8 +19,7 @@ export default function NotificationTable() {
     []
   );
 
-  // apply your date + quick filters + modal filters here …
-  const filtered: NotificationItem[] = items; // <- replace with your filtered set
+  const filtered: NotificationItem[] = items;
 
   const total = filtered.length;
   const startIdx = (page - 1) * pageSize;
@@ -52,7 +46,6 @@ export default function NotificationTable() {
         />
       </div>
 
-      {/* Mount the modal once; it opens when ?details= is present */}
       <NotificationFilterModal />
     </div>
   );

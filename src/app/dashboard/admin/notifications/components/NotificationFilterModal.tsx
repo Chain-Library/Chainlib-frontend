@@ -2,7 +2,6 @@
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-/** recipients enum (used for both sentBy/receiver dropdowns): */
 const RECIPIENTS = [
   "All",
   "Private",
@@ -28,7 +27,7 @@ export default function NotificationFilterModal() {
       if (!v || v === "All") params.delete(k);
       else params.set(k, String(v));
     });
-    params.delete("page"); // reset pagination when filters change
+    params.delete("page");
     router.push(`?${params.toString()}`);
   };
 
@@ -38,7 +37,6 @@ export default function NotificationFilterModal() {
     router.push(`?${params.toString()}`);
   };
 
-  // lock scroll when open (nice-to-have)
   React.useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
