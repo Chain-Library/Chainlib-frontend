@@ -8,6 +8,7 @@ import {
   CalendarDays,
   Bell,
   MessagesSquare,
+  User,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -52,6 +53,11 @@ export function Sidebar() {
       icon: MessagesSquare,
       label: "Community and Events",
       href: "/dashboard/admin/community-and-events",
+    },
+    {
+      icon: User,
+      label: "Profile",
+      href: "/dashboard/admin/profile",
     },
   ];
 
