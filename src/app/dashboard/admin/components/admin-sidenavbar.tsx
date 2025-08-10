@@ -1,6 +1,14 @@
 "use client";
 
-import { LayoutDashboard, Users2, FileText, BarChart3, CalendarDays, Bell, MessagesSquare } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Users2,
+  FileText,
+  BarChart3,
+  CalendarDays,
+  Bell,
+  MessagesSquare,
+} from "lucide-react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +25,7 @@ export function Sidebar() {
     {
       icon: Users2,
       label: "User Management",
-      href: "/dashboard/admin/user-management", 
+      href: "/dashboard/admin/user-management",
     },
     {
       icon: FileText,
@@ -45,11 +53,10 @@ export function Sidebar() {
       label: "Community and Events",
       href: "/dashboard/admin/community-and-events",
     },
- 
   ];
 
   return (
-    <div className="w-64 bg-white border-r border-[#e7e7e7] h-screen fixed left-0 top-0">
+    <div className="w-64 bg-white border-r border-[#e7e7e7] h-screen fixed left-0 top-0 text-sm">
       <div className="p-4 flex items-center gap-2 border-b border-[#e7e7e7]">
         <div className="w-8 h-8 rounded-full bg-[#0f265c] flex items-center justify-center">
           <span className="text-white text-sm font-bold">C</span>
@@ -76,7 +83,6 @@ export function Sidebar() {
               </Link>
             </li>
           ))}
-    
         </ul>
       </nav>
     </div>

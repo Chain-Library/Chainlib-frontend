@@ -1,18 +1,30 @@
 "use-client";
 import { Header } from "@/components/dashboard/header";
-
+import { ListFilter } from "lucide-react";
+import NotificationFilter from "./components/NotificationFilter";
+import NotificationTable from "./components/NotificationTable";
 
 export default function Notifications() {
-
   return (
     <>
       <Header title="Notification" />
-      <div className="space-y-6">
-        <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-2xl font-bold text-gray-800">Notification</h1>
-          <p className="text-gray-600 mt-2">
-            Welcome to the Notification section of the admin dashboard! Here, you can manage all aspects of notifications on your platform, including user alerts, system messages, and other important communications. This space is designed to help you keep users informed and engaged with timely updates and announcements.
-          </p>
+      <div className="p-6 font-normal  text-sm ">
+        <div className="bg-white p-4">
+          <button
+            className="py-3 px-8 rounded-[12px] text-white mb-6"
+            style={{
+              background:
+                "linear-gradient(180deg, #096CFF 40.7%, #054199 180.61%)",
+            }}
+          >
+            Make Announcement
+          </button>
+
+          <div className="flex flex-col gap-y-8">
+            <NotificationFilter />
+
+            <NotificationTable />
+          </div>
         </div>
       </div>
     </>

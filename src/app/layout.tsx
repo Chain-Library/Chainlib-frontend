@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import { WalletProvider } from "../components/blockchain/WalletProvider";
 import "@/app/globals.css";
@@ -105,9 +104,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className="bg-[#00031B] text-[#EAEDE7]">
-        <ClientProviders>
-          <WalletProvider>{children}</WalletProvider>
-        </ClientProviders>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

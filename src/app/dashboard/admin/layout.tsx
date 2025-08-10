@@ -1,10 +1,6 @@
-
-
-
 import type React from "react";
 import { Sidebar } from "./components/admin-sidenavbar";
 import "@/app/globals.css";
-
 
 export default function RootLayout({
   children,
@@ -13,14 +9,10 @@ export default function RootLayout({
 }) {
   return (
     <>
-
-     <div className="flex min-h-screen bg-[#f6f6f6] mt-17">
-      <Sidebar />
-      <div className="ml-64 w-full relative">
-        {children}
+      <div className="flex min-h-screen bg-[#f6f6f6] mt-17">
+        <Sidebar />
+        <div className="ml-64 w-full relative">{children}</div>
       </div>
-    </div>
     </>
-   
   );
 }
