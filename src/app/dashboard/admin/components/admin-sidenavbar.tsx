@@ -70,7 +70,7 @@ export function Sidebar() {
             <li key={item.label}>
               <Link
                 href={item.href}
-                className={`flex items-center gap-3 p-3 rounded-md ${
+                className={`flex items-center gap-3 p-[10px] rounded-md ${
                   pathname === item.href
                     ? "bg-[#096CFF] text-[#edf7ff]"
                     : "text-[#5d5d5d] hover:bg-[#f6f6f6]"

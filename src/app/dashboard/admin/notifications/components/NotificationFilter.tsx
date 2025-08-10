@@ -24,27 +24,34 @@ export default function NotificationFilter() {
       if (v === undefined || v === null || v === "") params.delete(k);
       else params.set(k, String(v));
     });
-    // reset pagination when filter changes
+    // reset page whenever filters change
     params.delete("page");
     router.push(`?${params.toString()}`);
   };
 
-  const onFilterClick = (key: string) => {
+  const onQuick = (key: string) => {
+    // using a quick range clears custom dates
     pushWith({ filter: key, start: undefined, end: undefined });
   };
 
   const onApplyDates = () => {
+    // using date range clears quick filter
     pushWith({ start, end, filter: undefined });
+  };
+
+  const onClearDates = () => {
+    pushWith({ start: undefined, end: undefined });
   };
 
   return (
     <div className="flex justify-between items-center">
       <div className="flex gap-x-4 items-center">
+        {/* Quick ranges */}
         <div className="flex gap-x-2 items-center">
           {FILTER_OPTIONS.map((opt) => (
             <button
               key={opt.key}
-              onClick={() => onFilterClick(opt.key)}
+              onClick={() => onQuick(opt.key)}
               className={`px-2 py-[6px] rounded-[4px] ${
                 activeFilter === opt.key && !start && !end
                   ? "bg-[#F6F6F6] text-[#454545]"
@@ -56,6 +63,7 @@ export default function NotificationFilter() {
           ))}
         </div>
 
+        {/* Date range (stays visible in UI) */}
         <div className="flex gap-x-4 items-center">
           <div className="flex gap-x-2 items-center">
             <input
@@ -80,12 +88,27 @@ export default function NotificationFilter() {
           >
             Apply
           </button>
+          {(start || end) && (
+            <button
+              onClick={onClearDates}
+              className="w-[60px] py-[6px] text-[#888888] bg-transparent border border-[#E7E7E7] rounded-[4px]"
+            >
+              Clear
+            </button>
+          )}
         </div>
       </div>
 
-      <div className="flex items-center gap-x-2">
+      {/* Opens the modal via URL param */}
+      <button
+        onClick={() => pushWith({ showFilters: "1" })}
+        className="flex items-center gap-x-2 text-[#444] hover:opacity-80"
+        aria-haspopup="dialog"
+        aria-controls="notif-filter-modal"
+        aria-expanded={searchParams.get("showFilters") === "1"}
+      >
         Filter <ListFilter />
-      </div>
+      </button>
     </div>
   );
 }
