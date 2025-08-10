@@ -5,6 +5,8 @@ import AdminTableHeader from "./AdminTableHeader";
 import AdminTablePagination from "./AdminTablePagination";
 import AdminTableRow from "./AdminTableRow";
 import { ADMINS } from "../utils/data";
+import AdminEditModal from "./AdminEditModal";
+import AdminRevokeModal from "./AdminRevokeModal";
 
 type StatusTab = "all" | "active" | "revoked";
 
@@ -127,6 +129,8 @@ export default function AdminTable() {
           />
         </div>
       </div>
+      <AdminEditModal />
+      <AdminRevokeModal />
     </div>
   );
 }
