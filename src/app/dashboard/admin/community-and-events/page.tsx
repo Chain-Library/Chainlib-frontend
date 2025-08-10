@@ -1,9 +1,10 @@
-"use-client";
+"use client";
 import { Header } from "@/components/dashboard/header";
 import CommunityAndEventsFilter from "./components/CommunityAndEventsFilter";
 import CommunityStats from "./components/CommunityStats";
 import { ListFilter, Search } from "lucide-react";
 import CommunityStrip from "./components/CommunityStrip";
+import { COMMUNITIES } from "./utills/data";
 
 export default function CommunityAndEvents() {
   return (
@@ -13,8 +14,8 @@ export default function CommunityAndEvents() {
         <div className="bg-white p-4 flex flex-col gap-y-6 rounded-[8px] overflow-hidden mb-10">
           <CommunityAndEventsFilter />
           <CommunityStats />
-          {/* <NotificationTable /> */}
         </div>
+
         <div className="bg-white p-4 rounded-[8px]">
           <div className="flex justify-between items-center">
             <div className="relative">
@@ -29,16 +30,14 @@ export default function CommunityAndEvents() {
             </div>
 
             <div className="flex items-center gap-x-2 text-[#5D5D5D]">
-              Filter
-              <ListFilter size={20} />
+              Filter <ListFilter size={20} />
             </div>
           </div>
 
           <div className="mt-2 flex flex-col gap-y-4">
-            <CommunityStrip />
-            <CommunityStrip />
-            <CommunityStrip />
-            <CommunityStrip />
+            {COMMUNITIES.map((c) => (
+              <CommunityStrip key={c.id} item={c} />
+            ))}
           </div>
         </div>
       </div>
