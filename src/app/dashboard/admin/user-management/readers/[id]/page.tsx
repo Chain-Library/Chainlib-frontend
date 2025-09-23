@@ -7,6 +7,9 @@ import Image from "next/image";
 
 import { Header } from "@/components/dashboard/header";
 import reader1_img from "@/assets/images/reader1.png";
+import DirectNotificationContent from "@/components/dashboard/DirectNotificationContent";
+import ReviewsAndFeedbackContent from "@/components/dashboard/ReviewsAndFeedbackContent";
+import TransactionContent from "@/components/dashboard/TransactionContent";
 
 import { Search } from "lucide-react";
 
@@ -67,9 +70,9 @@ const UserProfilePage = () => {
   const [activeTab, setActiveTab] = useState("Library");
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const setShowModal = (show: boolean) => { 
+  const setShowModal = (show: boolean) => {
     setSuspendModalOpen(show);
-  }
+  };
 
   const stats = [
     { label: "Following", value: "4", color: "text-blue-600" },
@@ -229,9 +232,11 @@ const UserProfilePage = () => {
   return (
     <>
       <Header title="Reader's Profile" />
-      {suspendModalOpen && <div className="min-h-screen h-full p-4 md:p-6 absolute top-0 left-0 right-0 z-50">
-        <SuspendUserModal setShow={setShowModal} />
-      </div>}
+      {suspendModalOpen && (
+        <div className="min-h-screen h-full p-4 md:p-6 absolute top-0 left-0 right-0 z-50">
+          <SuspendUserModal setShow={setShowModal} />
+        </div>
+      )}
       <div className="min-h-screen bg-gray-50 p-4 md:p-6">
         <div className="w-full mx-auto">
           {/* Header Section */}
@@ -290,7 +295,10 @@ const UserProfilePage = () => {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
               {stats.map((stat, index) => (
-                <div key={index} className=" border p-4 rounded-lg">
+                <div
+                  key={index}
+                  className=" border border-[#E9F7FF] p-4 rounded-lg"
+                >
                   <div className="text-sm text-gray-500 mt-1 mb-2">
                     {stat.label}
                   </div>
@@ -340,7 +348,10 @@ const UserProfilePage = () => {
                 {/* Library Stats */}
                 <div className="grid grid-cols-2 lg:grid-cols-4  gap-4 mb-6">
                   {libraryStats.map((stat, index) => (
-                    <div key={index} className=" border p-6 rounded-lg">
+                    <div
+                      key={index}
+                      className=" border border-[#E9F7FF] p-6 rounded-lg"
+                    >
                       <div className="text-xs text-gray-500">{stat.label}</div>
 
                       <div className="text-lg font-bold text-gray-700">
@@ -388,14 +399,30 @@ const UserProfilePage = () => {
               </div>
             )}
 
-            {/* Other Tab Contents */}
-            {activeTab !== "Library" && (
-              <div className="p-6">
-                <div className="text-center text-gray-500 py-8">
-                  {activeTab} content would go here
-                </div>
-              </div>
+            {/* Direct Notification Content */}
+            {activeTab === "Direct Notification" && (
+              <DirectNotificationContent />
             )}
+
+            {/* Transaction Content */}
+            {activeTab === "Transactions" && <TransactionContent />}
+
+            {/* Reviews & Feedback Content */}
+            {activeTab === "Reviews & Feedback" && (
+              <ReviewsAndFeedbackContent />
+            )}
+
+            {/* Other Tab Contents */}
+            {activeTab !== "Library" &&
+              activeTab !== "Direct Notification" &&
+              activeTab !== "Transactions" &&
+              activeTab !== "Reviews & Feedback" && (
+                <div className="p-6">
+                  <div className="text-center text-gray-500 py-8">
+                    {activeTab} content would go here
+                  </div>
+                </div>
+              )}
           </div>
         </div>
       </div>
