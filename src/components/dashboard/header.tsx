@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Bell } from "lucide-react";
 import Image from "next/image";
 import WalletDisconnectModal from "../../components/blockchain/Wallet-disconnect-modal";
+import { useWalletContext } from "../blockchain/WalletProvider";
 import user from "../../../public/user1.svg";
 import check from "../../../public/check.svg";
 
@@ -15,6 +16,7 @@ interface HeaderProps {
 export function Header({ title }: HeaderProps) {
   const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
   const router = useRouter();
+  const { account, disconnectWallet } = useWalletContext();
 
   const handleProfileClick = () => {
     setIsDisconnectModalOpen(true);
@@ -25,8 +27,8 @@ export function Header({ title }: HeaderProps) {
   };
 
   const handleDisconnect = () => {
-    // Add your actual wallet disconnect logic here
-    // For example: disconnect from wallet provider, clear local storage, etc.
+    // Disconnect from wallet
+    disconnectWallet();
 
     // Clear any authentication tokens or user data
     localStorage.removeItem("walletAddress");
@@ -71,7 +73,13 @@ export function Header({ title }: HeaderProps) {
                 <span className="font-medium">Joseph Yanum</span>
                 <Image src={check} alt="Profile" className="object-cover" />
               </div>
-              <span className="text-[#888888] text-xs">@joeyyanum</span>
+              {account ? (
+                <span className="text-[#888888] text-xs">
+                  {account.slice(0, 6)}…{account.slice(-4)}
+                </span>
+              ) : (
+                <span className="text-[#888888] text-xs">@joeyyanum</span>
+              )}
             </div>
           </div>
         </div>

@@ -1,17 +1,16 @@
 "use client";
 
 import StarknetProvider from "../blockchain/StarknetProviders";
-import { WalletProvider } from "../blockchain/wallet-connect-context";
+import { WalletProvider } from "../blockchain/WalletProvider";
 
-
-export default function ClientProviders({ children }: { children: React.ReactNode }) {
+export default function ClientProviders({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <StarknetProvider>
-      <WalletProvider>
-
-          {children}
-
-      </WalletProvider>
+      <WalletProvider>{children}</WalletProvider>
     </StarknetProvider>
   );
-} 
+}

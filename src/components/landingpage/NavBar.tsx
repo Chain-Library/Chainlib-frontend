@@ -11,6 +11,7 @@ import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";
 import { ConnectButton } from "../../components/blockchain/connect-button";
 // starknet imports
 import { useWalletContext } from "../blockchain/WalletProvider";
+import { useAccount, useDisconnect } from "@starknet-react/core";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
@@ -19,6 +20,7 @@ const NavBar = () => {
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
   const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { account } = useAccount();
   const path = usePathname();
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -29,9 +31,8 @@ const NavBar = () => {
     { label: "About ChainLib", href: "/about-us" },
   ];
 
-  const { account, connectWallet, disconnectWallet, connectors } =
-    useWalletContext();
-
+  const { connectWallet, disconnectWallet, connectors } = useWalletContext();
+  const { disconnect } = useDisconnect();
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -63,12 +64,12 @@ const NavBar = () => {
     setIsConnectModalOpen(true);
   };
 
-  const handleWalletClick = () => {
+  const handleWalletClickDisconnect = () => {
     setIsDisconnectModalOpen(true);
   };
 
   const handleDisconnect = () => {
-    disconnectWallet(); // real Starknet-React disconnect :contentReference[oaicite:4]{index=4}
+    disconnect(); // real Starknet-React disconnect :contentReference[oaicite:4]{index=4}
     setIsDisconnectModalOpen(false);
   };
 
@@ -122,7 +123,7 @@ const NavBar = () => {
             ) : (
               <div className="relative" ref={dropdownRef}>
                 <div
-                  onClick={handleWalletClick}
+                  onClick={handleWalletClickDisconnect}
                   className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d0e24] border border-gray-800 cursor-pointer hover:border-gray-600 transition-colors"
                 >
                   <div className="h-8 w-8 rounded-full border-2 border-teal-500 overflow-hidden">
@@ -135,32 +136,26 @@ const NavBar = () => {
                     />
                   </div>
                   <span className="text-white font-medium">
-                    {account.slice(0, 6)}…{account.slice(-4)}
+                    {account?.address.slice(0, 6)}…{account?.address.slice(-4)}
                   </span>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleDropdown();
-                    }}
-                    className="h-8 w-8 p-0 text-gray-400 hover:text-white transition-colors"
-                  >
+                  <button className="h-8 w-8 p-0 text-gray-400 hover:text-white transition-colors">
                     <MoreVertical size={16} />
                   </button>
                 </div>
 
                 {/* Custom Dropdown Menu */}
-                {isDropdownOpen && (
+                {/* {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-blue-600 border border-blue-800 overflow-hidden">
                     <div className="py-1">
                       <button
-                        onClick={handleWalletClick}
+                        onClick={handleWalletClickDisconnect}
                         className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-blue-600 transition-colors"
                       >
                         Disconnect
                       </button>
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
             )}
           </AnimationWrapper>
