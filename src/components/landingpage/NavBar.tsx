@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Image4 from "@/assets/Images/ImageLogo.png";
-import { useState, useRef, useEffect, SetStateAction } from "react";
+import { useState, useRef, useEffect} from "react";
 import { MoreVertical } from "lucide-react";
 import AnimationWrapper from "@/components/motion/Animation-wrapper";
 import WalletDisconnectModal from "../blockchain/Wallet-disconnect-modal";

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Image4 from "@/assets/Images/ImageLogo.png";
 import Linkedin from "@/app/svg/Linkedin";
 import Telegram from "@/app/svg/Telegram";
 import X from "@/app/svg/X";
@@ -12,7 +13,7 @@ const Footer = () => {
         <div>
           <div className="flex items-center mb-10">
             <Image
-              src="/logo.svg"
+              src={Image4}
               alt="ChainLib"
               width={120}
               height={32}
@@ -22,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="flex space-x-4">
             <Link
-              href="https://github.com"
+              href="https://x.com/chain_lib?s=21"
               target="_blank"
               className="text-[#FDFDFD] hover:text-white transition-colors"
             >
@@ -32,7 +33,7 @@ const Footer = () => {
             </Link>
 
             <Link
-              href="https://x.com"
+              href="https://t.me/+yQXwTqAFvJBkNGRk"
               target="_blank"
               className="text-[#FDFDFD] hover:text-white transition-colors"
             >
@@ -41,7 +42,7 @@ const Footer = () => {
               </button>
             </Link>
             <Link
-              href="https://t.me"
+              href="https://t.me/+yQXwTqAFvJBkNGRkll"
               target="_blank"
               className="text-[#FDFDFD] hover:text-white transition-colors"
             >
@@ -60,33 +61,33 @@ const Footer = () => {
             <h3 className="text-gray-500 font-bold mb-4">Explore</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/" className="text-gray-700 hover:text-blue-900 cursor-pointer">
+                <Link href="/" className="text-gray-700 hover:text-blue-900 cursor-pointer">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/books"
                   className="text-gray-700 hover:text-blue-900 cursor-pointer"
                 >
                   Books
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/how-it-works"
                   className="text-gray-700 hover:text-blue-900 cursor-pointer"
                 >
                   How It Works
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/about-us"
                   className="text-gray-700 hover:text-blue-900 cursor-pointer"
                 >
                   About
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
