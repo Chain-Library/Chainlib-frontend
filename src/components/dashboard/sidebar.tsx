@@ -8,10 +8,11 @@ import {
   LineChart,
   // LogOut,
   User,
-  MessageCircle
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WalletDisplay } from "../blockchain/WalletDisplay";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -62,6 +63,11 @@ export function Sidebar() {
           <span className="text-white text-sm font-bold">C</span>
         </div>
         <span className="font-semibold text-[#000b21]">ChainLib</span>
+      </div>
+
+      {/* Wallet Display */}
+      <div className="p-4 border-b border-[#e7e7e7]">
+        <WalletDisplay variant="compact" showDropdown={false} />
       </div>
 
       <nav className="p-4">

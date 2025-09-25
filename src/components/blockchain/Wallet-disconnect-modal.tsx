@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
+import { useDisconnect } from "@starknet-react/core";
 
 interface WalletDisconnectModalProps {
   isOpen: boolean;
@@ -23,8 +24,11 @@ export default function WalletDisconnectModal({
 
   //router
   const router = useRouter();
-
+  const { disconnect } = useDisconnect();
   const handleDisconnect = () => {
+    // Actually disconnect from the wallet
+    disconnect();
+
     if (signInPath === pathName) {
       router.push("/"); // ■ now safe to navigate
     }
